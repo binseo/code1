@@ -25,7 +25,7 @@ body{
 }
 .wrapper{
     width: 1260px;
-    margin: 0 auto; /* 여백 auto - 가운데 */
+    margin: 0 auto; /* 여백 0 /auto - 알아서 양쪽여백 반반 주라는 뜻 */
 }
 .about{
     text-align: center;
