@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+body{
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    color: #555555;
+    line-height: 1.51; /* 행간 */
+    word-break: keep-all; /* 단어로 줄 바꿈 */
+    letter-spacing: -0.01em; /* 자간 */
+    
+}
+/* start :: 태그 스타일의 초기화 (브라우저가 준 스타일 삭제) */
+*{
+    margin: 0; /* 브라우저가 기본으로 주는 여백 삭제 */
+    padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit; 
+    font-weight: inherit;
+    /* inherit -> 브라우저가 주는 값 말고 내가 선언한 값만 상속 받아 */
+}
+strong{
+    font-weight: inherit; /* weight 글자 두께 */
+}
+li{
+    list-style: none; /* li 앞에 동그라미 삭제 */
+}
+a{ /* a는 HD현대 ESG 홈페이지 */
+    color: inherit; 
+    text-decoration: none; /* 밑줄 삭제 */
+}
+/* end :: 태그 스타일의 초기화 (브라우저가 준 스타일 삭제) */
+.wrapper{
+    width: 1260px;
+    margin: 0 auto; 
+}
+.esg{
+    background-image: url(../images/esg_bg.png);
+    background-position: center center; /* 좌우 center / 위아래 center */
+    background-repeat: no-repeat; /* 사진이 반복되지 않도록 써주는 것이다 */
+    background-size: cover; /* 배경 꽉 채우기 */
+    height: 881px; /* 이미지 높이 위아래 간격 */
+    color: #fff;
+}
+.esg h1{
+    padding: 270px 0 0 0;
+}
+.esg .sub_tit,
+.int .sub_tit{
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.036em; /* -30정도  */
+    margin: 25px 0 46px 0;
+}
+.esg .more a{
+    border: 1px solid #fff; /* 테두리선 두께, 실선(solid) ,색상  */
+    border-radius: 25px; /* 둥근모서리  */
+    padding: 10px 36px 10px 36px; /* 여백 = 위 좌 아래 우 */
+    display: inline-block; /* inline - padding, margin, border 등등 도 포함으로 들어간다? */
+}
+.int{
+    margin: 200px 0 200px 0;
+}
+.int h1{
+    color: #022e87;
+}
+.int .sub_tit{
+    color: #1d1d1d;
+    margin: 25px 0 44px 0;
+}
+.int ul{
+    margin: 70px 0 0 0; 
+}
+.int ul li{
+    font-size: 23px;
+    color: #1d1d1d;
+    border-bottom: 1px solid #cccccc;
+    padding: 13px 0 13px 0;
+
+}
+.int ul li strong{
+    font-weight: 700;
+    color: #1d1d1d;
+}
