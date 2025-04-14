@@ -35,14 +35,115 @@ a {
     margin: 0 auto;
 }
 
+
+header {
+    height: 100px; 
+    /* header는 대부분 디자인한 높이를 잡아주고 코딩함
+    header에는 존재하는 것이 많아서.. */
+}
 header .wrapper {
     display: flex; /* logo와 gnb를 좌우로 배치 */
     justify-content: space-between;
 }
 header .logo {
-    margin: 35px 0 0 0;
+    margin: 37px 0 0 0;
 }
 header .logo a img {
     width: 103px; /* 이미지는 넓이나 높이 둘 중에 하나면 주면 나머지는 비율에 맞게 조절
     -- 오히려 넓이/높이 모두 주면 찌그러짐 */
+}
+header .gnb ul {
+    display: flex;
+}
+header .gnb ul a {
+    display: block; /* a의 필수 값 */
+    font-size: 20px;
+    color: #1d1d1d;
+    padding: 40px 35px 30px 35px;
+}
+
+
+.visual {
+    background: url(../images/visual_bg.png) no-repeat center center / cover;
+    /* background 한번에 정의                    반복    좌우   위아래    크기 */
+    height: 800px;
+    color: #fff;
+}
+.visual h2 {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -1px; /* 포토샵 값 -20 = -0.02em / -1px = -20 */
+    padding: 225px 0 55px 0;
+}
+
+
+.biz {
+    margin: 165px 0 0 0;
+}
+.biz .tit h2 {
+    color: #244d8e;
+    margin: 0 0 20px 0;
+}
+.biz .tit p {
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -1px;
+    color: #1d1d1d;
+}
+.biz .list {
+    margin: 50px 0 0 0;
+}
+.biz .list ul {
+    display: flex; /* li들을 좌우로 배치 */
+    justify-content: space-between;
+}
+.biz .list ul li {
+    width: 297px;
+}
+.biz .list ul li a {
+    display: block; /* a의 필수 값 */
+    text-align: center;
+}
+.biz .list ul li a h3 {
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -1px;
+    color: #1d1d1d;
+    margin: 17px 0 16px 0;
+}
+.biz .list ul li a .more {
+    border: 1px solid #cccccc;
+    padding: 18px 0;
+    display: block;
+    margin: 28px 0 0 0;
+}
+
+
+.brand {
+    margin: 125px 0 0 0;
+    background: url(../images/brand_bg.png) no-repeat center center / cover;
+    height: 900px;
+    color: #fff;  /* 흰색(#fff) RGB 값 255 -  */
+}
+.brand h2 {
+    padding: 270px 0 0 0;
+}
+.brand .sub_tit {
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -1px;
+    margin: 16px 0 60px 0;
+}
+.brand .cnt {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding: 10px 0 0 0;
+    color: rgba(255,255,255,0.8);
+}
+
+body {
+    margin: 0 0 200px 0;
 }
