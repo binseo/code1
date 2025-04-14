@@ -1,0 +1,83 @@
+@import url(font.css); /* html파일에서는 main.csss만 호출, 다른 필요한 css는 main.css가 부름 */
+body {
+    font-family: 'Pretendard', sans-serif; /* sans-serif = pretendard 없으면 아무거나 갖다가 쓰라는 의미 */
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #555555;
+    word-break: keep-all;
+}
+
+/********* START :: 태그의 기본 스타일 삭제(초기화) ***********/
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit; /* inherit = 브라우저가 주는 값 무시 */
+    font-weight: inherit;
+}
+li {
+    list-style: none; /* 앞에 동그라미 삭제 */
+}
+
+* { /* * = 와일드 카드로 모든 태그 */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 다른 것을 변경할 때 마음대로 크기를 변경 못하게 한다. */
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/********** END :: 태그의 기본 스타일 삭제(초기화) ***********/
+
+.wrapper {
+    width: 1260px;
+    margin: 0 auto;
+}
+
+
+.global {
+    margin: 126px 0 0 0;
+}
+.global h1 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #1d1d1d;
+}
+.global .sub_tit {
+    color: #00b900;
+    margin: 20px 0 10px 0;
+}
+
+.global .more {
+    margin: 30px 0 45px 0;
+}
+.global .more a {
+    border: 1px solid #00b900;
+    padding: 8px 30px;
+    color: #00b900;
+}
+
+.Stickers {
+    background-image: url(../images/line_bg3.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 640px;
+    color: #fff;
+    margin: 95px 0 0 0;
+    text-align: center;
+}
+
+.Stickers h1 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.4;
+    padding: 120px 0 17px 0;
+}
+.Stickers .more a {
+    border: 1px solid #fff;
+    padding: 5px 27px 5px 27px;
+    display: inline-block;
+    margin: 35px 0 40px 0;
+}
