@@ -56,7 +56,7 @@ a {
     color: #00b900;
 }
 
-.Stickers {
+.stickers {
     background-image: url(../images/line_bg3.png);
     background-position: center center;
     background-repeat: no-repeat;
@@ -65,13 +65,13 @@ a {
     margin: 95px 0 0 0;
     text-align: center;
 }
-.Stickers h1 {
+.stickers h1 {
     font-size: 40px;
     font-weight: 700;
     line-height: 1.4;
     padding: 120px 0 17px 0;
 }
-.Stickers .more a {
+.stickers .more a {
     border: 1px solid #fff;
     padding: 5px 27px 5px 27px;
     display: inline-block;
