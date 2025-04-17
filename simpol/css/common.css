@@ -7,7 +7,11 @@ body {
     font-size: 17px;
     font-weight: 400; /* font.css에 선언 되어있는 두께값 */
     line-height: 1.5;
-    letter-spacing: -1px;
-    color: #1d1d1d
-    word-break: keep-all;
+    letter-spacing: -0.03em;
+    color: #1d1d1d;
+    word-break: keep-all; 
+}
+.wrapper {
+    width: 1260px; /* 내 디자인 파일 레이아웃 가이드 넓이 */
+    margin: 0 auto; /* 브라우저에 가운데 정렬 */
 }
