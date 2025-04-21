@@ -1,0 +1,64 @@
+@import url(default.css);
+@import url(font.css);
+@import url(common.css);
+
+body {
+    color: #3d3d3d;
+    margin: 0 0 400px 0;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #1d1d1d;
+    margin: 100px 0 30px 0;
+}
+.img_test .group {
+    display: flex;
+    gap: 100px; /* 사이의 여백 */
+}
+.img_test .group .inner ul {
+    display: flex;
+}
+.img_test .group .inner ul li img {
+    width: 200px;
+}
+
+.img_svg .btn_wrap {
+    display: flex;
+    gap: 35px;
+}
+.img_svg .btn_wrap a {
+    border: 1px solid #666666;
+    border-radius: 30px;
+    display: flex; /* span i 태그 좌우 배치 */
+    align-items: center;
+    padding: 13px 29px 9px 33px;
+    gap: 22px; /* span과 i 사이 여백 */
+}
+
+.svg_html .btn_wrap {
+    display: flex;
+    gap: 35px;
+}
+.svg_html .btn_wrap a {
+    border: 1px solid #666666;
+    border-radius: 30px;
+    display: block; /* a 필수 값 */
+    padding: 13px 69px 11px 33px;
+    /* 오른쪽에 i태그 무시하고 여백 계산 */
+    position: relative; /* i태그 정렬의 기준 */
+}
+.svg_html .btn_wrap a i {
+    position: absolute; /* a를 기준으로 정렬 */
+    right: 30px;
+    top: 15px;
+}
+.svg_html .btn_wrap a:hover {
+    border-color: #0079DB; /* 배경색과 같은색으로 테두리색 */
+    background-color: #0079DB;
+    color: #fff;
+}
+.svg_html .btn_wrap a:hover i {
+    
+}
