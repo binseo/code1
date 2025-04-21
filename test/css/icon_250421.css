@@ -28,7 +28,7 @@ ul.item li {
     position: relative; /* before 정렬의 기준 */
 }
 ul.item li::before {
-    content: "";/* 필수 값 */
+    content: ""; /* 필수 값 */
     position: absolute; /* li를 기준으로 정렬 */
     left: 0;
     top: 12px;
