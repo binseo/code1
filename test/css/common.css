@@ -22,3 +22,15 @@ body {
     position: relative; 
     /* header가 wrap를 기준으로 정렬하기 위해서 */
 }
+.blind {
+    /* html표준에 글자를 써야하는데 디자인에는 글자가 없어서 글자를 없애는 클래스*/
+    position: absolute; /* 기준 없음, 사라지면 땡큐  공간 차지 X */
+ /*    글자를 html에 쓰긴 써야하는데, 디자인상 보이면 안됨,
+        font -size:0; line-heiht:0;인데 접근성 위배.. 사이트마다 스타일이 다름 */
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden; /* 넓이가 1px이라 글자가 넘기면 숨김 */
+    color: transparent; /* 글자 투명 */
+}
