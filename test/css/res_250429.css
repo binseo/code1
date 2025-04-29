@@ -19,8 +19,10 @@
 .news .list {
     width: 66.03%;
     /* 넓이는 %로 계산  - 콘텐츠 넓이에서 몇 %로 계산
-    832 / 1260 * 100 = 66.03 
-     */
+    832 / 1260 * 100 = 66.03  
+    -> calc() 안 쓰면 브라우저 1260px 일 때 양 옆에 값이 바뀐다.
+    calc()(한 특정 글자에서? 변동이 되어도 여백을 고정(변동X)하고 싶을 떄?)를 주는 이유는 
+    사진과 글자 간격의 여백을 자유롭게 어떤 화면(모니터,폰기종 다양함)이든 똑같이(여백?) 보일 수 있게 해줌 */
 }
 .news .list ul li {
     border-bottom: 1px solid #ccc;
@@ -111,7 +113,7 @@
                 .news .list ul li a .txt {
                     width: calc(100% - 112px);
                     /* 사진의 넓이는 고정, 제목에 들어갈 수 있는 넓이는 브라우저 넓이에 따라 바뀜
-                    글자와 사진 전체의 넓이 100% - 사진의 넓이와 여백 값px */
+                    글자와 사진 전체의 넓이 100% - 사진의 넓이와 여백 값px(안 줄어든다, 크기 고정) */
                 }
                 .news .list ul li a .txt strong {
                     font-size: 17px;
@@ -142,6 +144,76 @@
                 }
 } /* @media */
 
+.global {
+    margin: 140px 0 0 0;
+}
+.global .wrapper {
+    display: flex; /* txt/photo 좌우 배치 */
+    justify-content: space-between;
+}
+.global .txt {
+    width: calc(50% - 12px);
+    /* 2개니까 50%에 둘 사이 여백의 절반 */
+    padding: 30px 0;
+    /* 왼쪽글자의 높이에서 padding만큼 오른쪽 이미지가 늘어남 */
+}
+.global .txt h2 {
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1d1d1d;
+    margin: 0 0 35px 0;
+    position: relative; /* after 정렬의 기준 */
+}
+.global .txt h2::after {
+    content: "";
+    position: absolute; /* h2를 기준으로 정렬 */
+    left: 0;
+    bottom: -18px;
+    width: 135px;
+    height: 1px;
+    background-color: #ccc;
+}
+.global .photo {
+    width: calc(50% - 12px);
+    overflow: hidden;
+    border-radius: 20px;
+}
+.global .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+@media screen and (max-width:640px) {
+                .global {
+                    margin: 50px 0 0 0;
+                }
+                .global .txt {
+                    width: calc(50% - 8px);
+                    /* 2개니까 50%에 둘 사이 여백의 절반 */
+                    padding: 20px 0;
+                    /* 왼쪽글자의 높이에서 padding만큼 오른쪽 이미지가 늘어남 */
+                }
+                .global .txt h2 {
+                    font-size: 20px;
+                    margin: 0 0 26px 0;
+                }
+                .global .txt h2 br {
+                    display: none;
+                }
+                .global .txt p br {
+                    display: none; /* br 태그로 인한 줄바꿈 삭제 */
+                }
+                .global .txt h2::after {
+                    bottom: -13px;
+                    width: 56px;
+                }
+                .global .photo {
+                    width: calc(50% - 8px);
+                    border-radius: 10px;
+                }
+}/* @media */
 
 
 body {
