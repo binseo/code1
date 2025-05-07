@@ -79,7 +79,7 @@ header .tnb .lang {
             margin-right: 0;/* 오른쪽 여백만 삭제 - 메뉴 열기 버튼이 오른쪽까지 배치되게 하려고 */
         }
         header .logo a img {
-            width: 80px;
+            width: 90px;
         }
         header .gnb .gnb_open {
             display: block; /* none으로 숨김요소를 다른속성만 주면 나타남 */
