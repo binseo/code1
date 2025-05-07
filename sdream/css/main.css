@@ -121,3 +121,142 @@ header .tnb .lang {
             display: none; /* 줄바꿈 삭제 */
         }
 } /* @media */
+
+
+.project {
+    margin: 180px 0 0 0;
+}
+.project .wrapper {
+    display: flex; /* tit/list 좌우 배치 */
+    justify-content: space-between;
+    align-items: flex-start; /* tit의 높이를 존재하는 만큼만 주기 위해서 */
+}
+.project .tit {
+    position: sticky; /* 감싸는 wrapper를 기준으로 정렬 무조건 */
+    top: 30px; /* 좌우 정렬 값 주면 안됨.. top값은 상단에 고정되었을 때 위치값 
+    sticky의 단점 : 감싸는 요소 중에 단한개라도 overflow:hidden; 값을 가지고 있으면 적용 안됨. 
+    사실상 못쓴다고 생각하면 됨.*/
+}
+.project .tit h2 {
+    color: #0948A5;
+    margin: 0 0 30px 0;
+}
+.project .list {
+    width: 57.54%; /* 725/1260*100=57.54 */
+    margin: 170px 0 0 0;
+}
+.project .list ul {
+    display: flex;
+    flex-wrap: wrap; /* 2줄 이상 허용 */
+    gap: 24px;
+}
+.project .list ul li {
+    width: calc(50% - 12px);
+    /* 100% / 한줄에 보일 li 갯수 = 100%/2 = 50%
+    한줄에 있는 여백의 총합/ 한줄에 보일 li 갯수 = 24px/2 =12px */
+}
+.project .list ul li:nth-child(even) { /* even 짝수 선택하는 선택자 / odd 홀수*/
+    transform: translateY(-150px);
+}
+
+.project .list ul li a {
+    display: block;
+    position: relative; /* txt 정렬의 기준 */
+}
+.project .list ul li a .photo { /* photo는 넓이를 주면 안됨 감싸는 li이가 준다. */
+    overflow: hidden;
+    border-radius: 20px;
+    height: 500px;
+    position: relative; /* before 정렬의 기준 */
+}
+.project .list ul li a .photo::before {
+    content: "";
+    position: absolute; /* photo를 기준으로 정렬 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* photo의 크기만큼 꽉 채울려고 */
+    background-color: rgba(9,72,165,0.9);
+    transition: 0.5s;
+    opacity: 0;
+}
+.project .list ul li a .photo img {
+    /* 이미지를 감싸는 영역 photo 사이즈만큼만 나오게 리사이즈(꽉 채워서 들어가라해서 100%로 줌)
+    넓이는 li이가 줬고, 높이는 photo가 줌 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.project .list ul li a .txt {
+    position: absolute; /* a를 기준으로 정렬 */
+    left: 0;
+    bottom: 0;
+    color: #fff;
+    padding: 0 30px 50px 30px;
+}
+.project .list ul li a .txt h3 {
+    font-family: 'Gmarket Sans';
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 25px;
+}
+.project .list ul li a .txt p {
+    display: none;
+    /* 숨김 - display: none은 아예 태그가 존재하지 않는 것처럼  */
+    margin: 15px 0 20px 0;
+}
+
+.project .list ul li a .txt span {
+    display: none;
+    /* 숨김 - display: none은 아예 태그가 존재하지 않는 것처럼  */
+    color: rgba(255,255,255,0.8);
+    font-size: 15px;
+    padding: 0 21px 0 0;
+    position: relative; /* after 정렬의 기준 */
+}
+.project .list ul li a:hover .txt span::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_42_2226' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='16' height='16'%3E%3Crect width='16' height='16' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_42_2226)'%3E%3Cpath d='M9.88734 7.9987L4.86551 2.97686C4.73306 2.84442 4.66856 2.68675 4.67201 2.50386C4.67545 2.32098 4.7434 2.16325 4.87584 2.0307C5.00828 1.89825 5.16595 1.83203 5.34884 1.83203C5.53173 1.83203 5.68945 1.89825 5.82201 2.0307L10.9258 7.14486C11.0463 7.26542 11.1356 7.40048 11.1937 7.55003C11.2519 7.69959 11.281 7.84914 11.281 7.9987C11.281 8.14825 11.2519 8.29781 11.1937 8.44736C11.1356 8.59692 11.0463 8.73198 10.9258 8.85253L5.81167 13.9667C5.67923 14.0991 5.52328 14.1636 5.34384 14.1602C5.16428 14.1568 5.00828 14.0888 4.87584 13.9564C4.7434 13.8239 4.67717 13.6663 4.67717 13.4834C4.67717 13.3005 4.7434 13.1428 4.87584 13.0102L9.88734 7.9987Z' fill='white' fill-opacity='0.8'/%3E%3C/g%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: rgba(255,255,255,0.6);
+}
+.project .list ul li a:hover .txt span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    background-color: rgba(255,255,255,0.5);
+    width: 87px;
+    height: 1px;
+}
+
+/******************오버 했을 때******************/
+
+.project .list ul li a:hover .photo::before {
+    opacity: 1;
+}
+.project .list ul li a:hover .txt p {
+    display: block; /* none으로 숨긴건 흔히 block으로 보이게 함 */
+}
+.project .list ul li a:hover .txt span {
+    display: inline-block;
+}
+
+
+@media screen and (max-width:640px) {
+
+} /*@media*/
+
+
+
+
+footer {
+    margin: 1000px 0 0 0;
+}
