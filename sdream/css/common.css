@@ -25,7 +25,6 @@ body {
         width: auto; /* 넓이는 알아서 좌우여백 20px */
         margin: 0 20px; 
     }
-    
     #wrap {
         min-width: 0; /* 최소 넓이 없음 */
     }
