@@ -1,6 +1,6 @@
 /* 모든 페이지에 공통으로 들어가는 기본 스타일 */
 body {
-    font-family: "NanumSquareNeo";
+    font-family: "Noto Sans KR", sans-serif;
     font-size: 17px;
     font-weight: 400;
     line-height: 1.5; /* 배수 */
@@ -18,6 +18,22 @@ body {
     /* 1260 + 30 + 30 = 1320 이정도 넓이로 줄면 안된다. */
     position: relative; /* header 정렬의 기준 */
 }
+
+@media screen and (max-width:640px){
+    /* 브라우저 넓이가 640px 이하에서만 작동 */  
+    .wrapper {
+        width: auto; /* 넓이는 알아서 좌우여백 20px */
+        margin: 0 20px; 
+    }
+    
+    #wrap {
+        min-width: 0; /* 최소 넓이 없음 */
+    }
+    body {
+        font-size: 16px;
+    }
+}
+
 
 /* 글자를 숨겨야하는 경우 blind 클래스를 적용 */
 .blind {
