@@ -236,21 +236,105 @@ header .tnb .lang {
     height: 1px;
 }
 
-/******************오버 했을 때******************/
+@media screen and (min-width:641px) {
+        /******************오버 했을 때 641px 이상 (포함)에서만 작동 ******************/
+        .project .list ul li a:hover .photo::before {
+            opacity: 1;
+        }
+        .project .list ul li a:hover .txt p {
+            display: block; /* none으로 숨긴건 흔히 block으로 보이게 함 */
+        }
+        .project .list ul li a:hover .txt span {
+            display: inline-block;
+        }
+} /* @media */
 
-.project .list ul li a:hover .photo::before {
-    opacity: 1;
-}
-.project .list ul li a:hover .txt p {
-    display: block; /* none으로 숨긴건 흔히 block으로 보이게 함 */
-}
-.project .list ul li a:hover .txt span {
-    display: inline-block;
-}
-
-
-@media screen and (max-width:640px) {
-
+@media screen and (max-width:640px) { /* 640px 이하 (포함)에서만 작동 */
+        .project {
+            margin: 80px 0 0 0;
+        }
+        .project .wrapper {
+            display: block; /* flex 해제 - display에서 다른속성 값을 주면 해제 
+            tit/list 위아래로 배치 */
+        }
+        .project .tit {
+            position: relative; /* sticky을 해제하기 위해서 다른 속성을 줌 */
+            top: auto; /* top 값을 지정하지 않은 것 처럼 취소하는 값..0이랑 다름*/
+        }
+        .project .tit h2 {
+            margin: 0 0 10px 0;
+        }
+        .project .list {
+            width: auto; /* block 요소 이기 때문에 100% 들어감 */
+            margin: 30px 0 0 0;
+        }
+        .project .list ul {
+            gap: 10px 16px; /* 위아래(33px) - 좌우(16px) */
+        }
+        .project .list ul li {
+            width: calc(50% - 8px);
+            /* 100% / 한줄에 보일 li 갯수 = 100%/2 = 50%
+            한줄에 있는 여백의 총합/ 한줄에 보일 li 갯수 = 16px/2 = 8px */
+        }
+        .project .list ul li:nth-child(even) { /* even 짝수 선택하는 선택자 / odd 홀수*/
+            transform: none; /* 짝수 위로 이동한 거 취소하는 값 */
+        }
+        
+        .project .list ul li a .photo {
+            border-radius: 10px;
+            height: 100px;
+        }
+        .project .list ul li a .txt {
+             /* absolute -> 해제 */
+            position: relative;
+            left: auto;
+            bottom: auto;
+            width: auto;
+            color: #1d1d1d;
+            padding: 5px 0 0 0;
+        }
+        .project .list ul li a .txt h3 {
+            font-weight: 500;
+            font-size: 16px;
+        }
+        .project .list ul li a .txt h3 br {
+            display: none;
+        }
+        .project .list ul li a .txt p {
+            display: none;
+            /* 숨김 - display: none은 아예 태그가 존재하지 않는 것처럼  */
+            margin: 15px 0 20px 0;
+        }
+        
+        .project .list ul li a .txt span {
+            display: none;
+            /* 숨김 - display: none은 아예 태그가 존재하지 않는 것처럼  */
+            color: rgba(255,255,255,0.8);
+            font-size: 15px;
+            padding: 0 21px 0 0;
+            position: relative; /* after 정렬의 기준 */
+        }
+        .project .list ul li a:hover .txt span::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 3px;
+            width: 16px;
+            height: 16px;
+            background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_42_2226' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='16' height='16'%3E%3Crect width='16' height='16' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_42_2226)'%3E%3Cpath d='M9.88734 7.9987L4.86551 2.97686C4.73306 2.84442 4.66856 2.68675 4.67201 2.50386C4.67545 2.32098 4.7434 2.16325 4.87584 2.0307C5.00828 1.89825 5.16595 1.83203 5.34884 1.83203C5.53173 1.83203 5.68945 1.89825 5.82201 2.0307L10.9258 7.14486C11.0463 7.26542 11.1356 7.40048 11.1937 7.55003C11.2519 7.69959 11.281 7.84914 11.281 7.9987C11.281 8.14825 11.2519 8.29781 11.1937 8.44736C11.1356 8.59692 11.0463 8.73198 10.9258 8.85253L5.81167 13.9667C5.67923 14.0991 5.52328 14.1636 5.34384 14.1602C5.16428 14.1568 5.00828 14.0888 4.87584 13.9564C4.7434 13.8239 4.67717 13.6663 4.67717 13.4834C4.67717 13.3005 4.7434 13.1428 4.87584 13.0102L9.88734 7.9987Z' fill='white' fill-opacity='0.8'/%3E%3C/g%3E%3C/svg%3E%0A");
+            background-repeat: no-repeat;
+            background-position: center center;
+            color: rgba(255,255,255,0.6);
+        }
+        .project .list ul li a:hover .txt span::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            background-color: rgba(255,255,255,0.5);
+            width: 87px;
+            height: 1px;
+        }
 } /*@media*/
 
 
