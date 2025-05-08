@@ -95,7 +95,6 @@ header .tnb .lang {
         }
         header .tnb {
             display: none; /* mypage/lang 좌우 배치 */
-            gap: 10px;
         }
 }  /* @media */
 
