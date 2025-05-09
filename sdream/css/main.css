@@ -305,31 +305,39 @@ header .tnb .lang {
 
 .webzine {
     margin: 135px 0 0 0;
-    padding: 135px 0;
+    padding: 135px 0 125px 0;
     background-color: #06275A;
+    position: relative; /* more의 정렬의 기준 */
 }
 .webzine .tit h2 {
     color: #60AEF8;
-    margin: 0 0 30px 0;
+    margin: 0 0 35px 0;
 }
 .webzine .tit .section_tit {
     color: #fff;
 }
 .webzine .list {
-    margin: 55px 0 0 0;
+    padding: 52px 0 10px 0;
     width: calc(50% + 630px);
     /* 넓이 =50%는 브라우저의 절반 + 1260px(wrapper)의 절반 630px */
     position: relative;
     left: calc(50% - 630px); 
     /* 이동(left) = 50%는 브라우저의 절반 - 630px는 1260px(wrapper)의 절반을 뺀
      = 왼쪽의 여백 값 */
+    overflow: hidden; /* 가로 스크롤바 삭제 */
 }
 .webzine .list ul {
     display: flex;
     gap: 24px;
+    width: 1605px;
+    /*      
+        li의 넓이 * li의 갯수 + li의 여백 * li의 갯수
+        297 * 5 + 24 * 5 = 1485 + 120 = 1605 
+    */
 }
 .webzine .list ul li {
-    width: 297px;
+    /* 브라우저 사이즈가 줄어들 때 변동되지않고 사이즈가 조금씩 줄어들기 때문에 calc를 안 함 */
+    width: 297px; 
 }
 .webzine .list ul li a {
     display: block;
@@ -338,17 +346,107 @@ header .tnb .lang {
     color: #555555;
     overflow: hidden; 
     /* 이미지 감싸고, border-radius가 있으면 자주 쓰임 / 자른다 */
+    transition: 0.5s; /* 10px 이동 할 때 부드럽게 효과 */
 }
 .webzine .list ul li a .photo {
     overflow: hidden;
     height: 200px;
 }
 .webzine .list ul li a .photo img {
+    /* photo가 주는 만큼 이미지 사이즈가 맞춰서 들어가라 */
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: 0.5s; /* 오버 이후 부드럽게 효과 */
+}
+.webzine .list ul li a .txt {
+    padding: 20px 20px 25px 20px;
+}
+.webzine .list ul li a .txt strong {
+    font-size: 15px;
+    font-weight: 400;
+    color: #0948A5;
+    display: block;
+    /* 1줄 제한 - 넓이가 제한이 되어야함 (block요소여야 함) */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.webzine .list ul li a .txt h3 {
+    font-family: 'Gmarket Sans';
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 20px;
+    color: #1d1d1d;
+    margin: 10px 0 10px 0;
+    /* 2줄 제한 - 조건 block요소여야함. 절대 padding주면 안됨
+    행간 지정 .... 행간을 알면 안 줘도 됨...
+    높이 = 행간 * 줄수 = 1.2 * 2 = 2.4(단위는 em) 
+    
+    2줄 이상 제한 끝에 ... 이 자동으로 생성되지 않음 */
+    line-height: 1.2;
+    height: 2.4em;
+    overflow: hidden;
+}
+.webzine .list ul li a .txt p {
+    /* 2줄 제한 - 조건 block요소여야함. 절대 padding주면 안됨
+    행간 지정 .... 행간을 알면 안 줘도 됨...
+    높이 = 행간 * 줄수 = 1.5 * 2 = 3 (단위는 em) 
+    
+    2줄 이상 제한 끝에 ... 이 자동으로 생성되지 않음 */
+    line-height: 1.5;
+    height: 3em;
+    overflow: hidden;
+    margin: 0 0 9px 0;
+}
+.webzine .list ul li a .txt .date {
+    font-size: 15px;
+    display: block;
 }
 
+.webzine .more {
+    position: absolute; /* webzine 기준의 정렬 */
+    right: calc(50% - 630px); 
+    /* 브라우저 사이즈가 바뀌어도 가운데는 변하지 않음 
+    그 가운데(50%)로 부터 wrapper 사이즈 1260px의 절반(630px)을 더 오른쪽으로 이동*/
+    top: 200px;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    padding: 6px 42px 6px 21px;
+    color: #fff;
+}
+.webzine .more::after {
+    content: "";
+    position: absolute;
+    right: 13px;
+    top: 10px;
+    width: 18px;
+    height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_42_1924' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='18' height='18'%3E%3Crect width='18' height='18' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_42_1924)'%3E%3Cpath d='M11.1228 9L5.47321 3.35044C5.32421 3.20144 5.25164 3.02406 5.25552 2.81831C5.25939 2.61256 5.33583 2.43512 5.48483 2.286C5.63383 2.137 5.81121 2.0625 6.01696 2.0625C6.22271 2.0625 6.40014 2.137 6.54927 2.286L12.2911 8.03944C12.4266 8.17506 12.527 8.327 12.5924 8.49525C12.6579 8.6635 12.6906 8.83175 12.6906 9C12.6906 9.16825 12.6579 9.3365 12.5924 9.50475C12.527 9.673 12.4266 9.82494 12.2911 9.96056L6.53764 15.714C6.38864 15.863 6.21321 15.9356 6.01133 15.9317C5.80933 15.9278 5.63383 15.8514 5.48483 15.7024C5.33583 15.5534 5.26133 15.376 5.26133 15.1703C5.26133 14.9645 5.33583 14.7871 5.48483 14.6379L11.1228 9Z' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E%0A");
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+
+@media screen and (min-width:641px) {
+    /* 641px 이상 일때만 (641px 포함) */
+    /***************** 오버 효과 ****************/
+        .webzine .list ul li:hover a {
+            transform: translate(0, -10px);
+            box-shadow: 10px 10px 10px 0 rgba(0,0,0,0.4);
+        }
+        .webzine .list ul li:hover a .photo img {
+            transform: scale3d(1.2, 1.2, 1);
+        }
+        .webzine .more:hover {
+            border-color: #fff;
+            background-color: #fff;
+            color: #0948A5;
+        }
+        .webzine .more:hover::after {
+            background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_42_1924' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='18' height='18'%3E%3Crect width='18' height='18' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_42_1924)'%3E%3Cpath d='M11.1228 9L5.47321 3.35044C5.32421 3.20144 5.25164 3.02406 5.25552 2.81831C5.25939 2.61256 5.33583 2.43512 5.48483 2.286C5.63383 2.137 5.81121 2.0625 6.01696 2.0625C6.22271 2.0625 6.40014 2.137 6.54927 2.286L12.2911 8.03944C12.4266 8.17506 12.527 8.327 12.5924 8.49525C12.6579 8.6635 12.6906 8.83175 12.6906 9C12.6906 9.16825 12.6579 9.3365 12.5924 9.50475C12.527 9.673 12.4266 9.82494 12.2911 9.96056L6.53764 15.714C6.38864 15.863 6.21321 15.9356 6.01133 15.9317C5.80933 15.9278 5.63383 15.8514 5.48483 15.7024C5.33583 15.5534 5.26133 15.376 5.26133 15.1703C5.26133 14.9645 5.33583 14.7871 5.48483 14.6379L11.1228 9Z' fill='%230948A5'/%3E%3C/g%3E%3C/svg%3E%0A");
+        } 
+} /* @media */
 
 
 @media screen and (max-width:640px) {
@@ -357,18 +455,79 @@ header .tnb .lang {
             padding: 80px 0;
             background-color: #06275A;
         }
+        .webzine .tit {
+            margin-right: 60px; 
+            /* news는 wrapper안에 있어서 그랬지만 
+            webzine는 wrapper가 없어서 벽 끝부터 사이즈를 재서 여백을 더 줌 */
+        }
         .webzine .tit h2 {
             color: #60AEF8;
-            margin: 0 0 10px 0;
+            margin: 0 0 13px 0;
         }
         .webzine .list {
-            width: calc(100% - 20px);/* 100%에 여백 20px 뺌 */
-            left: 20px; 
-            /* 이동(left)  */
+            width: 100%; /* position 속성이 있는 요소에는 넓이 auto 주면 100% 안됨 */
+            left: 0;
+            padding: 30px 0 10px 20px; /* 20px 여백은 왼쪽 고정 여백을 주는 것 */
+            overflow-x: auto; 
+            /* overflow-x 좌우 auto
+            list 안에 있는 요소가 list보다 넓이가 더 크면 그때만 가로 스크롤바가 생김 */
+        }
+        .webzine .list ul {
+            gap: 16px;
+            width: 1330px;
+            /*      
+                li의 넓이 * li의 갯수 + li의 여백 * li의 갯수
+                250 * 5 + 16 * 5 = 1250 + 80 = 1330
+            */
+        }
+        .webzine .list ul li {
+            /* 브라우저 사이즈가 줄어들 때 변동되지않고 사이즈가 조금씩 줄어들기 때문에 calc를 안 함 */
+            width: 250px; 
+        }
+        .webzine .list ul li a {
+            border-radius: 10px;
+        }
+        .webzine .list ul li a .photo {
+            height: 158px;
+        }
+        .webzine .list ul li a .txt {
+            padding: 20px 16px 25px 16px;
+        }
+        .webzine .list ul li a .txt h3 {
+            font-size: 17px;
+            margin: 10px 0 10px 0;
+        }
+        .webzine .list ul li a .txt p {
+            margin: 0 0 15px 0;
+        }
+        .webzine .list ul li a .txt .date {
+            font-size: 14px;
+        }
+        
+        .webzine .more {
+            right: 20px;
+            top: 114px;
+            border-radius: 50%; /* 동그라미 */
+            width: 32px;
+            height: 32px;
+            padding: 0;
+        }
+        .webzine .more::after {
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%; 
+            /*  right: 0;
+                top: 0;
+                width: 100%;
+                height: 100%; 
+                background-position: center center 이기 때문에 아이콘 가운데로 됨  */
+            background-size: 16px; /* 아이콘 크기 */
+        }
+        .webzine .more span {
+            display: none; /* 숨김 */
         }
 } /*@media*/
-
-
 
 
 .news {
@@ -543,6 +702,193 @@ header .tnb .lang {
 } /* @media */
 
 
+.service {
+    margin: 135px 0 0 0;
+    padding: 125px 0;
+    background-color: #DFE8F3;
+}
+.service .tit h2 {
+    color: #0948A5;
+    margin: 0 0 33px 0;
+}
+.service .list {
+    margin: 50px 0 0 0;
+}
+.service .list ul {
+    display: flex;
+    justify-content: space-between;
+}
+.service .list ul li {
+    width: calc(33.33% - 16px);
+    /* 
+        100% / 한줄에 나올 li 갯수 = 100/3 = 33.33
+        한줄에 존재하는 여백의 총합 / 한줄에 나올 li갯수 = 24+24/3 = 48/3 = 16
+    */
+}
+.service .list ul li a {
+    display: block;
+    background-color: #fff;
+    padding: 33px 0 33px 45px;
+    border-radius: 20px;
+    position: relative;
+    transition: 0.5s;
+}
+.service .list ul li a::after {
+    content: "";
+    position: absolute;
+    right: 45px;
+    top: 36px;
+    width: 47px;
+    height: 47px;
+    border: 1px solid #0948A5;
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_42_1988' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='20'%3E%3Crect x='0.5' y='0.5' width='19' height='19' fill='%23D9D9D9' stroke='%230948A5'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_42_1988)'%3E%3Cpath d='M6.68604 2.30566C6.88301 2.30576 7.05594 2.36816 7.20557 2.49316L7.26807 2.5498L13.6479 8.94238C13.76 9.05454 13.85 9.17734 13.9185 9.30957L13.98 9.44531C14.0521 9.63072 14.0883 9.81589 14.0884 10.001C14.0884 10.1398 14.0683 10.279 14.0278 10.418L13.98 10.5576C13.926 10.6966 13.85 10.8254 13.7524 10.9443L13.6479 11.0596L7.25537 17.4521C7.0921 17.6154 6.89994 17.6947 6.6792 17.6904L6.59814 17.6855C6.46439 17.6705 6.34211 17.6242 6.23096 17.5469L6.10303 17.4395C5.93989 17.2763 5.85896 17.0825 5.85889 16.8574C5.85889 16.6604 5.92044 16.4866 6.04541 16.3369L6.10303 16.2744L12.3765 10.001L6.09033 3.71484C5.92719 3.55165 5.84781 3.35788 5.85205 3.13281L5.85693 3.0498C5.87499 2.88688 5.93807 2.74151 6.04541 2.61328L6.10303 2.5498C6.26628 2.3866 6.46088 2.30566 6.68604 2.30566Z' fill='%230948A5' stroke='%230948A5' stroke-width='0.025'/%3E%3C/g%3E%3C/svg%3E%0A");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    
+}
+.service .list ul li a span {
+    display: block;
+    font-size: 15px;
+}
+.service .list ul li a strong {
+    display: block;
+    font-family: 'Gmarket Sans';
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 22px;
+    color: #1d1d1d;
+    margin: 5px 0 0 0;
+    transition: 0.5s;
+}
+
+
+@media screen and (min-width:641px) {
+        /* 641px 이상 일때만 (641px 포함) */
+        .service .list ul li:hover a {
+            background-color: #0948A5;
+            color: #fff;
+            box-shadow: 5px 4px 10px 0 rgba(0,0,0,0.3);
+        }
+        .service .list ul li:hover a strong {
+            color: #fff;
+        }
+
+        .service .list ul li:hover a::after {
+            border: 1px solid #fff;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_42_1988' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='20'%3E%3Crect x='0.5' y='0.5' width='19' height='19' fill='%23D9D9D9' stroke='%230948A5'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_42_1988)'%3E%3Cpath d='M6.68604 2.30566C6.88301 2.30576 7.05594 2.36816 7.20557 2.49316L7.26807 2.5498L13.6479 8.94238C13.76 9.05454 13.85 9.17734 13.9185 9.30957L13.98 9.44531C14.0521 9.63072 14.0883 9.81589 14.0884 10.001C14.0884 10.1398 14.0683 10.279 14.0278 10.418L13.98 10.5576C13.926 10.6966 13.85 10.8254 13.7524 10.9443L13.6479 11.0596L7.25537 17.4521C7.0921 17.6154 6.89994 17.6947 6.6792 17.6904L6.59814 17.6855C6.46439 17.6705 6.34211 17.6242 6.23096 17.5469L6.10303 17.4395C5.93989 17.2763 5.85896 17.0825 5.85889 16.8574C5.85889 16.6604 5.92044 16.4866 6.04541 16.3369L6.10303 16.2744L12.3765 10.001L6.09033 3.71484C5.92719 3.55165 5.84781 3.35788 5.85205 3.13281L5.85693 3.0498C5.87499 2.88688 5.93807 2.74151 6.04541 2.61328L6.10303 2.5498C6.26628 2.3866 6.46088 2.30566 6.68604 2.30566Z' fill='%23ffffff' stroke='%230948A5' stroke-width='0.025'/%3E%3C/g%3E%3C/svg%3E%0A");
+        }
+} /* @media */
+
+@media screen and (max-width:640px) {
+        .service {
+            margin: 80px 0 0 0;
+            padding: 67px 0 80px 0;
+        }
+        .service .tit h2 {
+            color: #0948A5;
+            margin: 0 0 13px 0;
+        }
+        .service .list {
+            margin: 28px 0 0 0;
+        }
+        .service .list ul {
+            display: block;
+        }
+        .service .list ul li {
+            width: auto;
+            margin-bottom: 10px;
+        }
+        .service .list ul li:last-child {
+            margin-bottom: 0;
+        }
+        .service .list ul li a {
+            padding: 18px 56px 15px 20px;
+            border-radius: 10px;
+        }
+        .service .list ul li a::after {
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            /* 기준이 되는 a 높이의 위아래 가운데  Y가 세로  */
+            width: 24px;
+            height: 24px;
+            background-size: 11px;
+            
+        }
+        .service .list ul li a span {
+            display: block;
+            font-family: 'Gmarket Sans';
+            font-weight: 500;
+            line-height: 1.5;
+            font-size: 16px;
+            color: #1d1d1d;
+        }
+        .service .list ul li a strong {
+            display: none;
+        }
+} /* @media */
+
+
+
 footer {
-    margin: 1000px 0 0 0;
+    padding: 90px 0 100px 0;
+    background-color: #333A46;
+    color: #fff;
+}
+footer .f_nav ul {
+    display: flex;
+    flex-wrap: wrap; /* 줄바꿈 허용 */
+    gap: 5px 38px ; /* 위아래 값 - 좌우 값 */
+}
+footer .f_nav ul li {
+    position: relative;
+}
+footer .f_nav ul li::after {
+    content: "";
+    position: absolute;
+    left: -19px;
+    top: 8px;
+    width: 1px;
+    height: 12px;
+    background-color: rgba(255,255,255,0.5);
+}
+footer .f_nav ul li:first-child::after {
+    display: none;
+}
+footer .f_nav ul li a {
+    font-weight: 700;
+}
+footer .f_info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 20px 0 15px 0;
+}
+footer .copyright {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+}
+
+@media screen and (min-width:641px) {
+        
+        footer .f_nav ul li a:hover::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 1px;
+            background-color: #fff;
+        }
+}
+
+@media screen and (max-width:640px) {
+        footer {
+            padding: 40px 0 50px 0;
+        }
+        footer .f_nav ul li::after {
+            display: none;
+        }
 }
