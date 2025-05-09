@@ -111,7 +111,7 @@ header .tnb .lang {
 @media screen and (max-width:640px) {
         .visual {
             height: auto;/* 높이를 안준 것 처럼  - 콘텐츠 길이 만큼 늘어남*/
-            padding: 0 0 222px 0; /* 높이를 auto로 주면 밑 하단이 여백이 없어서 padding으로 해줌 */
+            padding: 0 0 250px 0; /* 높이를 auto로 주면 밑 하단이 여백이 없어서 padding으로 해줌 */
         }
         .visual h2 {
             padding: 250px 0 30px 0;
