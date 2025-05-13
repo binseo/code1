@@ -1,0 +1,9 @@
+@import url(default.css);
+@import url(font.css);
+@import url(common.css);
+
+.tit_font {
+    font-family: "Eulyoo1945";
+    font-weight: 800;
+    line-height: 1.2;
+}
