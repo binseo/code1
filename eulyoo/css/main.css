@@ -135,7 +135,7 @@ header .tnb .search {
 } /* @media */
 
 .book {
-    margin: 190px 0 0 0;
+    margin: 180px 0 0 0;
 }
 .book .book_wrap {
     width: calc(50% + 630px); /* 브라우저(전체) 넓이의 절반(50%) + wrapper의(1260px)넓이의 절반(630px) */
@@ -144,6 +144,7 @@ header .tnb .search {
     /* 이동 = 브라우저(전체) 넓이의 절반(50%) - wrapper의(1260px)넓이의 절반(630px) */
     display: flex; /* tit, list 좌우 배치 */
     justify-content: space-between;
+    position: relative; /* more 정렬의 기준 */
 }
 .book .book_wrap .tit h2 {
     font-size: 45px;
@@ -151,13 +152,13 @@ header .tnb .search {
     margin: 20px 0;
 }
 .book .book_wrap .list {
-    width: calc(100% - 304px);
+    width: calc(100% - 294px);
     /* book_wrap의 넓이를 100%로 하고 왼쪽 tit의 넓이(304px)를 빼기 */
     overflow-x: hidden; /* X는 좌우 스크롤 지움 */
+    padding: 10px 0 0 10px;
 }
 .book .book_wrap .list ul {
     display: flex; /* li를 좌우로 */
-    align-items: flex-end;
     gap: 12px;
     width: 1694px;
     /* li의 넓이 * li의 갯수 = 230 * 7 =1610
@@ -166,23 +167,151 @@ header .tnb .search {
 }
 .book .book_wrap .list ul li {
     width: 230px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
 }
 .book .book_wrap .list ul li a {
     display: block;
 }
 .book .book_wrap .list ul li a .photo {
-    line-height: 0;
+    overflow: hidden;
+    border: 1px solid #ededed;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
 }
 .book .book_wrap .list ul li a .photo img {
     width: 100%; 
     /* 높이는 비율에 맞게 알아서
     - 책은 이미지 전체가 나와야 하기때문에 object-fit 안줌 */
+    vertical-align: top; 
+    /* 이미지에 vertical-align을 주면 이미지 하단에 행간이 사라짐 */
 }
 .book .book_wrap .list ul li a h3 {
     font-size: 20px;
-    margin: 25px 0 10px 0;
+    padding: 25px 0 10px 0; 
+    /* overflow: hidden;가 있어서 잘리기 때문에 span 글자 선 긋기 때문에 margin -> padding으로 바꿈 */
+    /* 1줄 제한 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.book .book_wrap .list ul li a strong {
+    display: block;
+    /* 1줄 제한 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #3d3d3d;
+}
+.book .book_wrap .more {
+    position: absolute; /* book_wrap을 기준으로 정렬 */
+    color: #A26F42;
+    left: 0;
+    top: 225px;
+    padding: 0 30px 0 0;
+}
+.book .book_wrap .more::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 1px;
+    width: 22px;
+    height: 22px;
+    background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_14_397' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='22' height='22'%3E%3Crect width='22' height='22' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_14_397)'%3E%3Cpath d='M10.3123 11.6878H5.0415V10.3128H10.3123V5.04199H11.6873V10.3128H16.9582V11.6878H11.6873V16.9587H10.3123V11.6878Z' fill='%23A26F42'/%3E%3C/g%3E%3C/svg%3E%0A");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 22px;
 }
 
+@media screen and (min-width:641px) {
+    /******************오버 했을 때 641px 이상 (포함)에서만 작동 ******************/
+    .book .book_wrap .list ul li a h3 span {
+        position: relative; /* after 정렬의 기준 */
+    }
+    .book .book_wrap .list ul li a h3 span::after { 
+        /* 마우스를 오버하면 제목에는 선을 그리는 애니메이션 글자에 길이에 맞춰서 */
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 1px;
+        background-color: #1d1d1d;
+        transition: 0.5s;
+    }
+    .book .book_wrap .list ul li a:hover h3 span::after {
+        width: 100%; /* span 태그를 기준으로 100% */
+    }
+
+    .book .book_wrap .more:hover::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: calc(100% - 5px);
+        height: 1px;
+        background-color: #A26F42;
+    }
+} /* @media */
+
+
+@media screen and (max-width:640px) {
+        .book {
+            margin: 110px 0 0 0;
+        }
+        .book .book_wrap {
+            width: auto;
+            left: auto;
+            display: block; /* flex 해제 */
+        }
+        .book .book_wrap .tit {
+            margin: 0 116px 0 20px; /* 116px의 여백은 더보기와 겹치지 않을려고 */
+        }
+        .book .book_wrap .tit h2 {
+            font-size: 30px;
+            margin: 0;
+        }
+        .book .book_wrap .tit h2 br,
+        .book .book_wrap .tit p {
+            display: none;
+        }
+        .book .book_wrap .list {
+            width: auto;
+            overflow-x: auto; /* 좌우 스크롤 생김 */
+            padding: 10px 0 20px 20px; 
+            /* box-shadow 때문에 왼쪽여백 10px 더 줌, 밑에 여백은 스크롤 바 때문에 띄워줌 */
+            margin: 30px 0 0 0;
+        }
+        .book .book_wrap .list ul {
+            gap: 12px;
+            width: 1414px;
+            /* li의 넓이 * li의 갯수 = 190 * 7 = 1330
+                사이 여백 * li의 갯수 =  12 * 7 = 84 
+                1330 + 84 = 1414 */
+        }
+        .book .book_wrap .list ul li {
+            width: 190px;
+        }
+        .book .book_wrap .list ul li a h3 {
+            font-size: 18px;
+            padding: 0; 
+            margin: 20px 0 0 0;
+
+        }
+        .book .book_wrap .list ul li a strong {
+            display: none;
+        }
+        .book .book_wrap .more {
+            left: auto;
+            right: 0;
+            top: 12px;
+            margin: 0 20px 0 0;
+        }
+        .book .book_wrap .more::after {
+            top: 0;
+            background-size: 20px;
+        }
+} /* @media */
 
 
 
