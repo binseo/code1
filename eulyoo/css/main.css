@@ -308,7 +308,7 @@ header .tnb .search {
             margin: 0 20px 0 0;
         }
         .book .book_wrap .more::after {
-            top: 0;
+            top: 1px;
             background-size: 20px;
         }
 } /* @media */
