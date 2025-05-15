@@ -410,7 +410,7 @@ header .tnb .search {
     position: absolute; /* a를 기준으로 정렬 */
     left: 0;
     bottom: -100px;
-    width: calc(100% - 35px);
+    width: calc(100% - 35px); /* calc는 100%전체에서 브라우저가 줄어들 때 여백(35px)을 고정하려고 쓴다. */
     z-index: 12;
     background-color: #1A1917;
     color: #fff;
@@ -703,106 +703,157 @@ header .tnb .search {
     }
 } /* @media */
 
-@media screen and (max-width:640px) { /****해야함****/
+@media screen and (max-width:640px) { 
         .story {
-            margin: 190px 0 0 0;
-        }
-        .story .wrapper {
-            position: relative;
+            margin: 110px 0 0 0;
         }
         .story .tit h2 {
-            font-size: 45px;
-            color: #1d1d1d;
+            font-size: 30px;
         }
         .story .list {
-            margin: 70px 0 0 0;
+            margin: 40px 0 0 0;
         }
         .story .list ul {
-            display: flex; /* li를 좌우로 배치 */
-            justify-content: space-between;
+            display: block; /* flex 해제 */
         }
         .story .list ul li {
-            width: calc(25% - 18px);
-            /*
-                100/한줄에 보이는 li의 갯수 = 25%
-                한줄의 여백의 총합 / 한줄에 보이는 li의 갯수 = 24*3=72/4 = 18
-            */
-            border: 1px solid rgba(204,204,204,0.6);
+            width: auto;
+            border: 0; /* 4곳에 들어가는 border 해제 */
+            border-bottom: 1px solid rgba(204,204,204,0.6);
+            padding: 20px 0;
+        }
+        .story .list ul li:first-child {
+            border-top: 1px solid rgba(204,204,204,0.6);
         }
         .story .list ul li a {
-            display: block;
+            display: flex; /* photo,txt 좌우 배치 */
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
         }
         .story .list ul li a .photo {
-            overflow: hidden;
-            height: 323px; /* 짧은 거 */
+            height: 90px; /* 짧은 거 */
+            /*width: 40.62%;*/
+            width: 130px;
         }
         .story .list ul li.long a .photo {
-            height: 450px; /* 긴 거 */
-        }
-        .story .list ul li a .photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: 90px; /* 긴 거 */
         }
         .story .list ul li a .txt {
-            padding: 25px 10px 15px 10px;
+            padding: 0;
+            width: 52.5%; /* 계산하는 이유는 브라우저가 줄어들 때 넓이 크기가 자유로움 */
+            /*width: calc(100% - 152px); /* calc는 100%전체에서 브라우저가 줄어들 때 여백(152px)을 고정하려고 쓴다. */
         }
         .story .list ul li a .txt strong {
-            display: block;
-            color: #A26F42;
-            /* 1줄 제한 */
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            /* 1줄 제한 -> 여러줄 허용 */
+            white-space: normal; /* 여러줄 허용 */
+            overflow: visible; /* 넘치는 요소 안 짜름 */
         }
         .story .list ul li a .txt h3 {
-            margin: 15px 0 10px 0;
-            font-size: 20px;
-            color: #1d1d1d;
-            /* 1줄 제한 */
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            padding: 0;
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            /* 1줄 제한 -> 여러줄 허용 */
+            white-space: normal; /* 여러줄 허용 */
+            overflow: visible; /* 넘치는 요소 안 짜름 */
         }
         .story .list ul li a .txt p {
-            height: 10.5em;
-            overflow: hidden;
-            /* 7줄 이상으로 제한할 때 끝에 .. 추가하는 코드 */
-            display: -webkit-box; 
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 7; /* 줄수 */
-            word-break: normal;
+            display: none;
         }
-        .story .list ul li.long a .txt p {
-            /* 2줄 제한 --- 절대 padding 주면 안됨 */
-            height: 3em; /* 행간 1.5 * 줄수 2줄 = 3em */
-            -webkit-line-clamp: 2; /* 줄수 */
-        }
-        
         
         .story .more {
-            position: absolute; /* book_wrap을 기준으로 정렬 */
-            color: #A26F42;
-            right: 0;
-            top: 40px;
-            padding: 0 30px 0 0;
+            top: 15px;
         }
         .story .more::after {
-            content: "";
-            position: absolute;
-            right: 0;
-            top: 1px;
-            width: 22px;
-            height: 22px;
-            background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_14_397' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='22' height='22'%3E%3Crect width='22' height='22' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_14_397)'%3E%3Cpath d='M10.3123 11.6878H5.0415V10.3128H10.3123V5.04199H11.6873V10.3128H16.9582V11.6878H11.6873V16.9587H10.3123V11.6878Z' fill='%23A26F42'/%3E%3C/g%3E%3C/svg%3E%0A");
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: 22px;
+            width: 20px;
+            height: 20px;
+            background-size: 20px;
         }
 } /* @media */
 
 
 footer {
-    margin: 500px 0 0 0;
+    margin: 140px 0 0 0;
+    padding: 90px 0 110px 0;
+    background-color: #1A1917;
+    color: #fff;
+}
+footer .wrapper {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+footer .slogan p {
+    font-size: 25px;
+    line-height: 1.5;
+}
+footer .f_info {
+    width: 404px;
+}
+footer .f_info h3 {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+footer .f_info address,
+footer .f_info ul.tel {
+    margin: 0 0 45px 0;
+}
+footer .f_info ul.sns {
+    display: flex;
+    gap: 20px;
 }
 
+footer .copyright {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+footer .copyright .f_logo img {
+    width: 140px;
+}
+footer .copyright p {
+    margin: 30px 0 0 0;
+    color: rgba(255,255,255,0.6);
+}
+
+@media screen and (max-width:640px) {
+        footer {
+            margin: 80px 0 0 0;
+            padding: 70px 0;
+        }
+        footer .wrapper {
+            display: block;
+        }
+        footer .slogan p {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        footer .slogan p br {
+            display: none;
+        }
+        footer .f_info {
+            width: auto;
+            margin: 50px 0 0 0;
+        }
+        footer .f_info h3 {
+            font-size: 17px;
+            margin: 0 0 10px 0;
+        }
+        footer .f_info address,
+        footer .f_info ul.tel {
+            margin: 0 0 20px 0;
+        }
+        footer .copyright {
+            position: relative; /* absolute 해제 */
+            left: auto;
+            bottom: auto;
+            margin: 50px 0 0 0;
+        }
+        footer .copyright .f_logo img {
+            width: 120px;
+        }
+        footer .copyright p {
+            font-size: 15px;
+            margin: 10px 0 0 0;
+        }
+} /* @media */
