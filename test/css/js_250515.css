@@ -1,0 +1,78 @@
+@import url(default.css);
+@import url(font.css);
+@import url(res_common.css);
+
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 90px;
+    font-size: 30px;
+    background-color: thistle;
+    text-align: center;
+}
+header.fixed {
+    background-color: skyblue;
+}
+
+.container {
+    margin: 90px 0 0 0;
+}
+
+h1 {
+    font-size: 45px;
+    font-weight: 700;
+    color: #1d1d1d;
+}
+.box {
+    width: 500px;
+    height: 300px;
+    background-color: darkcyan;
+    transition: 0.5s;
+}
+.box.bg_red {
+    background-color: red;
+    color: #fff;
+}
+
+.group {
+    margin: 100px 0;
+    width: 300px;
+    height: 200px;
+    background-color: tomato;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    padding: 50px 0 0 0;
+    transition: 0.5s;
+}
+.group.on {
+    background-color: slateblue;
+    font-weight: 700;
+}
+
+.list ul {
+    display: flex;
+    justify-content: space-between;
+}
+.list ul li {
+    width: calc(33.33% - 20px);
+    height: 200px;
+    background-color: olive;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    padding: 40px;
+}
+.list ul li.on {
+    background-color: royalblue;
+}
+
+
+footer {
+    margin: 2000px 0 0 0;
+    padding: 200px 0;
+    background-color: #1d1d1d;
+    color: #fff;
+}
