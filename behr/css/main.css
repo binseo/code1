@@ -82,6 +82,206 @@ header .gnb .gnb_wrap ul li a {
 }/* visual media 종료 */
 
 /****************** 제품 스타일 시작 ***************************************/
+.Product {
+    margin: 190px 0;
+}
+.Product .wrapper {
+    position: relative;
+}
+.Product .tit {
+    text-align: center;
+    margin: 0 0 100px 0;
+}
+.Product .tit p {
+    font-size: 45px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1D1D1D;
+}
+.Product .tit p br {
+    display: none;
+}
+.Product .list ul {
+    display: flex;
+    justify-content: space-between;
+}
+.Product .list ul li {
+    width: calc(25% - 18px);
+}
+.Product .list ul li a {
+    display: block;
+    position: relative;
+}
+
+.Product .list ul li a .photo {
+    overflow: hidden;
+    border-radius: 20px;
+    height: 450px;
+    position: relative;
+}
+.Product .list ul li a .photo::before {
+    content: "";
+    position: absolute; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(29,29,29,0.8);
+    backdrop-filter: blur(6px);
+    transition: 0.5s;
+    opacity: 0;
+}
+.Product .list ul li a .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.Product .list ul li a .txt {
+    position: absolute; 
+    left: 0;
+    bottom: 0;
+    color: #fff;
+    padding: 0 30px 70px 30px;
+}
+.Product .list ul li a .txt h3 {
+    font-weight: 800;
+    line-height: 1.2;
+    font-size: 25px;
+    margin: 5px 0 0 0;
+}
+.Product .list ul li a .txt p {
+    display: none;
+
+    height: 4.5em;
+    overflow: hidden;
+    
+    margin: 15px 0 25px 0;
+}
+.Product .list ul li a .txt span {
+    display: none;
+   
+    color: rgba(255,255,255,0.8);
+    font-size: 15px;
+    padding: 0 21px 0 0;
+    position: relative;
+}
+.Product .list ul li a:hover .txt span::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_42_2226' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='16' height='16'%3E%3Crect width='16' height='16' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_42_2226)'%3E%3Cpath d='M9.88734 7.9987L4.86551 2.97686C4.73306 2.84442 4.66856 2.68675 4.67201 2.50386C4.67545 2.32098 4.7434 2.16325 4.87584 2.0307C5.00828 1.89825 5.16595 1.83203 5.34884 1.83203C5.53173 1.83203 5.68945 1.89825 5.82201 2.0307L10.9258 7.14486C11.0463 7.26542 11.1356 7.40048 11.1937 7.55003C11.2519 7.69959 11.281 7.84914 11.281 7.9987C11.281 8.14825 11.2519 8.29781 11.1937 8.44736C11.1356 8.59692 11.0463 8.73198 10.9258 8.85253L5.81167 13.9667C5.67923 14.0991 5.52328 14.1636 5.34384 14.1602C5.16428 14.1568 5.00828 14.0888 4.87584 13.9564C4.7434 13.8239 4.67717 13.6663 4.67717 13.4834C4.67717 13.3005 4.7434 13.1428 4.87584 13.0102L9.88734 7.9987Z' fill='white' fill-opacity='0.8'/%3E%3C/g%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: rgba(255,255,255,0.6);
+}
+.Product .list ul li a:hover .txt span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    background-color: rgba(255,255,255,0.5);
+    width: 87px;
+    height: 1px;
+}
+
+.Product .more {
+    position: absolute; 
+    right: 0;
+    top: 55px;
+    color: #2D2D2D;
+    padding: 0 30px 0 0; 
+}
+.Product .more::after {
+    content: "";
+    position: absolute; 
+    right: 0;
+    top: 3px;
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_2509_808' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='20'%3E%3Crect width='20' height='20' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_2509_808)'%3E%3Cpath d='M9.37492 10.625H5.20825C5.03117 10.625 4.88277 10.565 4.76304 10.4452C4.64318 10.3253 4.58325 10.1769 4.58325 9.99977C4.58325 9.82255 4.64318 9.67415 4.76304 9.55456C4.88277 9.43484 5.03117 9.37498 5.20825 9.37498H9.37492V5.20831C9.37492 5.03123 9.43485 4.88283 9.55471 4.7631C9.67457 4.64324 9.82304 4.58331 10.0001 4.58331C10.1773 4.58331 10.3258 4.64324 10.4453 4.7631C10.5651 4.88283 10.6249 5.03123 10.6249 5.20831V9.37498H14.7916C14.9687 9.37498 15.1171 9.43491 15.2368 9.55477C15.3567 9.67463 15.4166 9.8231 15.4166 10.0002C15.4166 10.1774 15.3567 10.3258 15.2368 10.4454C15.1171 10.5651 14.9687 10.625 14.7916 10.625H10.6249V14.7916C10.6249 14.9687 10.565 15.1171 10.4451 15.2369C10.3253 15.3567 10.1768 15.4166 9.99971 15.4166C9.82249 15.4166 9.67409 15.3567 9.5545 15.2369C9.43478 15.1171 9.37492 14.9687 9.37492 14.7916V10.625Z' fill='%233D3D3D'/%3E%3C/g%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+@media screen and (min-width:641px) {
+    /******************오버 했을 때 641px 이상 (포함)에서만 작동 ******************/
+    .Product .list ul li a:hover .photo::before {
+        opacity: 1;
+    }
+    .Product .list ul li a:hover .txt p {
+        display: block; 
+    }
+    .Product .list ul li a:hover .txt span {
+        display: inline-block;
+    }
+
+    .Product .more:hover::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: calc(100% - 5px);
+        height: 1px;
+        background-color: #2D2D2D;
+    }
+} /* @media */
+
+@media screen and (max-width:640px) {
+    .Product {
+        margin: 80px 0;
+    }
+    .Product .tit {
+        margin: 0 0 70px 0;
+    }
+    .Product .tit h2 {
+        margin: 0 0 10px 0;
+    }
+    .Product .tit p {
+        font-size: 30px;
+    }
+    .Product .tit p br {
+        display: block;
+    }
+    .Product .list {
+        width: auto; 
+    }
+    .Product .list ul {
+        gap: 20px 16px; 
+        flex-wrap: wrap;
+    }
+    .Product .list ul li {
+        width: calc(50% - 8px);
+    }
+    .Product .list ul li a .photo {
+        border-radius: 10px;
+        height: 120px;
+    }
+    .Product .list ul li a .txt {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: auto;
+        color: #1d1d1d;
+        padding: 5px 0 0 0;
+    }
+    .Product .list ul li a .txt strong {
+        display: none;
+    }
+    .Product .list ul li a .txt h3 {
+        font-size: 16px;
+    }
+
+    .Product .more {
+        top: 130px;
+    }
+    .Product .more::after {
+        width: 18px;
+        height: 18px;
+    }
+}
 
 /****************** 제품 스타일 끝 ***************************************/
 
