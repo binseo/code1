@@ -68,7 +68,7 @@ $(document).ready(function(){
     $('header .tnb .search').on('focusin', function(){
         $('header').removeClass('menu_over')
         $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
-    }) // --> 접근성 때문에 Tab을 누르면 tnb까지가면 header의 menu_over/(li)over가 오버 아웃(삭제)
+    }) // --> focusin 은 = Tab 접근성 때문에 Tab을 누르면 tnb까지가면 header의 menu_over/(li)over가 오버 아웃(삭제)
 
 
 
@@ -98,7 +98,7 @@ $(document).ready(function(){
         if(device_status == "mobile"){
             e.preventDefault() //a href 페이지 이동을 막는 명령 (이벤트가 있으면 하지말라는 뜻)
             // console.log('누름!!!!!!!!!')
-            // $(this).parents('li').addClass('open')
+            // $(this).parents('li').addClass('open')           
 
             let depth1_open = $(this).parents('li').hasClass('open') /* = 대입연산자 */
             // console.log(depth1_open)
@@ -122,7 +122,7 @@ $(document).ready(function(){
         $('header').addClass('menu_open')
    })
    $('header .gnb .gnb_close').on('click', function(){
-    $('header').removeClass('menu_open')
+        $('header').removeClass('menu_open')
    })
 
 }) //$(document).ready
