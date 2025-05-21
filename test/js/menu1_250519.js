@@ -68,7 +68,7 @@ $(document).ready(function(){
     $('header .tnb .search').on('focusin', function(){
         $('header').removeClass('menu_over')
         $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
-    }) // --> 접근성 때문에 Tab을 누르면 tnb까지가면 header가 오버 삭제
+    }) // --> 접근성 때문에 Tab을 누르면 tnb까지가면 header의 menu_over/(li)over가 오버 아웃(삭제)
 
 
 
