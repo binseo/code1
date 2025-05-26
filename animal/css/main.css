@@ -1,0 +1,173 @@
+@import url(default.css);
+@import url(font.css);
+@import url(common.css);
+
+.tit_font {
+    font-family: "TJJoyofsingingBTTF";
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+header {
+    position: fixed; /* body를 기준으로 정렬 */
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    display: flex; /* logo, gnb, util을 좌우로 배치 */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+header .logo a {
+    display: block;
+    width: 155px;
+    height: 38px;
+    background: url(../images/logo_w.svg) no-repeat center center / contain;
+}
+header .gnb .gnb_open,
+header .gnb .gnb_close {
+    display: none; /* 모바일에서만 보임 */
+}
+header .gnb .gnb_wrap ul.depth1 {
+    display: flex; /* li를 좌우로 배치 */
+}
+header .gnb .gnb_wrap ul.depth1 > li > a {
+    display: block;
+    font-family: "TJJoyofsingingBTTF";
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 20px;
+    line-height: 100px;
+    padding: 0 22.5px;
+}
+header .gnb .gnb_wrap ul.depth1 > li:has(ul.depth2) > a > span {
+    /* li하위에 depth2가 있는 a만 */
+    display: block;
+    padding-right: 18px; /* 아이콘이 들어갈 만큼 */
+    position: relative; /* after 정렬의 기준 */
+}
+header .gnb .gnb_wrap ul.depth1 > li:has(ul.depth2) > a > span::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: 35px;
+    width: 18px;
+    height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_33_973' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='18' height='18'%3E%3Crect y='18' width='18' height='18' transform='rotate(-90 0 18)' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_33_973)'%3E%3Cpath d='M8.99996 15.3371L14.5125 9.82461C14.7 9.63711 14.9187 9.54648 15.1687 9.55273C15.4187 9.55898 15.6375 9.65586 15.825 9.84336C16.0125 10.0309 16.1062 10.2496 16.1062 10.4996C16.1062 10.7496 16.0125 10.9684 15.825 11.1559L10.0687 16.9309C9.91871 17.0809 9.74996 17.1934 9.56246 17.2684C9.37496 17.3434 9.18746 17.3809 8.99996 17.3809C8.81246 17.3809 8.62496 17.3434 8.43746 17.2684C8.24996 17.1934 8.08121 17.0809 7.93121 16.9309L2.15621 11.1559C1.96871 10.9684 1.87809 10.7465 1.88434 10.4902C1.89059 10.234 1.98746 10.0121 2.17496 9.82461C2.36246 9.63711 2.58121 9.54336 2.83121 9.54336C3.08121 9.54336 3.29996 9.63711 3.48746 9.82461L8.99996 15.3371Z' fill='white'/%3E%3C/g%3E%3C/svg%3E%0A");
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 {
+    display: none; /* 2차 메뉴 */
+}
+
+
+header .util .search .search_open {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_33_961' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='30' height='30'%3E%3Crect width='30' height='30' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_33_961)'%3E%3Cpath d='M11.875 20C9.60417 20 7.68229 19.2135 6.10938 17.6406C4.53646 16.0677 3.75 14.1458 3.75 11.875C3.75 9.60417 4.53646 7.68229 6.10938 6.10938C7.68229 4.53646 9.60417 3.75 11.875 3.75C14.1458 3.75 16.0677 4.53646 17.6406 6.10938C19.2135 7.68229 20 9.60417 20 11.875C20 12.7917 19.8542 13.6562 19.5625 14.4687C19.2708 15.2812 18.875 16 18.375 16.625L25.375 23.625C25.6042 23.8542 25.7188 24.1458 25.7188 24.5C25.7188 24.8542 25.6042 25.1458 25.375 25.375C25.1458 25.6042 24.8542 25.7188 24.5 25.7188C24.1458 25.7188 23.8542 25.6042 23.625 25.375L16.625 18.375C16 18.875 15.2812 19.2708 14.4687 19.5625C13.6562 19.8542 12.7917 20 11.875 20ZM11.875 17.5C13.4375 17.5 14.7656 16.9531 15.8594 15.8594C16.9531 14.7656 17.5 13.4375 17.5 11.875C17.5 10.3125 16.9531 8.98438 15.8594 7.89062C14.7656 6.79688 13.4375 6.25 11.875 6.25C10.3125 6.25 8.98438 6.79688 7.89062 7.89062C6.79688 8.98438 6.25 10.3125 6.25 11.875C6.25 13.4375 6.79688 14.7656 7.89062 15.8594C8.98438 16.9531 10.3125 17.5 11.875 17.5Z' fill='white'/%3E%3C/g%3E%3C/svg%3E%0A");
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+
+.visual .swiper-slide {
+    color: #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.visual .swiper-slide.bg1 {
+    background-image: url(../images/visual_bg1.jpg);
+}
+.visual .swiper-slide.bg2 {
+    background-image: url(../images/visual_bg2.jpg);
+}
+.visual .swiper-slide.bg3 {
+    background-image: url(../images/visual_bg3.jpg);
+}
+.visual .swiper-slide .wrapper {
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 140px 0;
+}
+.visual .swiper-slide p {
+    font-size: 60px;
+}
+
+.visual .btn_wrap {
+    position: absolute; /* swiper */
+    left: 0;
+    bottom: 30px;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.visual .btn_wrap button {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.visual .btn_wrap button.btn_prev {
+    background-image: url("data:image/svg+xml,%3Csvg width='5' height='20' viewBox='0 0 5 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_33_1198' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='5' height='20'%3E%3Crect width='5' height='20' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_33_1198)'%3E%3Cpath d='M1.13542 9.99626L4.19792 13.0588C4.30208 13.1629 4.35243 13.2845 4.34896 13.4233C4.34549 13.5622 4.29167 13.6838 4.1875 13.7879C4.08333 13.8921 3.96181 13.9442 3.82292 13.9442C3.68403 13.9442 3.5625 13.8921 3.45833 13.7879L0.25 10.59C0.166667 10.5067 0.104167 10.4129 0.0625 10.3088C0.0208333 10.2046 0 10.1004 0 9.99626C0 9.8921 0.0208333 9.78793 0.0625 9.68376C0.104167 9.5796 0.166667 9.48585 0.25 9.40251L3.45833 6.19418C3.5625 6.09001 3.68576 6.03966 3.82812 6.04314C3.97049 6.04661 4.09375 6.10043 4.19792 6.2046C4.30208 6.30876 4.35417 6.43029 4.35417 6.56918C4.35417 6.70807 4.30208 6.8296 4.19792 6.93376L1.13542 9.99626Z' fill='white'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+.visual .btn_wrap button.btn_next {
+    background-image: url("data:image/svg+xml,%3Csvg width='5' height='20' viewBox='0 0 5 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_33_1203' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='5' height='20'%3E%3Crect width='5' height='20' transform='matrix(-1 0 0 1 5 0)' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_33_1203)'%3E%3Cpath d='M3.86458 9.99626L0.802084 13.0588C0.697917 13.1629 0.64757 13.2845 0.651042 13.4233C0.654514 13.5622 0.708333 13.6838 0.8125 13.7879C0.916667 13.8921 1.03819 13.9442 1.17708 13.9442C1.31597 13.9442 1.4375 13.8921 1.54167 13.7879L4.75 10.59C4.83333 10.5067 4.89583 10.4129 4.9375 10.3088C4.97917 10.2046 5 10.1004 5 9.99626C5 9.8921 4.97917 9.78793 4.9375 9.68376C4.89583 9.5796 4.83333 9.48585 4.75 9.40251L1.54167 6.19418C1.4375 6.09001 1.31424 6.03966 1.17188 6.04314C1.02951 6.04661 0.90625 6.10043 0.802084 6.2046C0.697917 6.30876 0.645834 6.43029 0.645834 6.56918C0.645834 6.70807 0.697917 6.8296 0.802084 6.93376L3.86458 9.99626Z' fill='white'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+.visual .btn_wrap button.btn_stop {
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_33_1208' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='12' height='12'%3E%3Crect width='12' height='12' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_33_1208)'%3E%3Cpath d='M8 9.5C7.725 9.5 7.48958 9.40208 7.29375 9.20625C7.09792 9.01042 7 8.775 7 8.5V3.5C7 3.225 7.09792 2.98958 7.29375 2.79375C7.48958 2.59792 7.725 2.5 8 2.5C8.275 2.5 8.51042 2.59792 8.70625 2.79375C8.90208 2.98958 9 3.225 9 3.5V8.5C9 8.775 8.90208 9.01042 8.70625 9.20625C8.51042 9.40208 8.275 9.5 8 9.5ZM4 9.5C3.725 9.5 3.48958 9.40208 3.29375 9.20625C3.09792 9.01042 3 8.775 3 8.5V3.5C3 3.225 3.09792 2.98958 3.29375 2.79375C3.48958 2.59792 3.725 2.5 4 2.5C4.275 2.5 4.51042 2.59792 4.70625 2.79375C4.90208 2.98958 5 3.225 5 3.5V8.5C5 8.775 4.90208 9.01042 4.70625 9.20625C4.51042 9.40208 4.275 9.5 4 9.5Z' fill='white'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+.visual .btn_wrap button.btn_play {
+    display: none; /* 정지 버튼을 눌렀을 떄만 나옴 */
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_46_2012' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='12' height='12'%3E%3Crect width='12' height='12' transform='matrix(-1 0 0 1 12 0)' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_46_2012)'%3E%3Cpath d='M8.8375 6.42461C8.9125 6.37461 8.96875 6.31211 9.00625 6.23711C9.04375 6.16211 9.0625 6.08294 9.0625 5.99961C9.0625 5.91628 9.04375 5.83711 9.00625 5.76211C8.96875 5.68711 8.9125 5.62461 8.8375 5.57461L4.7625 2.98711C4.72083 2.96211 4.67708 2.94336 4.63125 2.93086C4.58542 2.91836 4.54167 2.91211 4.5 2.91211C4.36667 2.91211 4.25 2.96003 4.15 3.05586C4.05 3.15169 4 3.27044 4 3.41211V8.58711C4 8.72878 4.05 8.84753 4.15 8.94336C4.25 9.03919 4.36667 9.08711 4.5 9.08711C4.54167 9.08711 4.58542 9.08086 4.63125 9.06836C4.67708 9.05586 4.72083 9.03711 4.7625 9.01211L8.8375 6.42461Z' fill='white'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+@media screen and (max-width:1024px) {
+        .visual .swiper-slide .wrapper {
+            height: 750px;
+            padding: 0 0 130px 0;
+        }
+        .visual .swiper-slide p {
+            font-size: 45px;
+        }
+} /* @media */
+
+@media screen and (max-width:768px) {
+        .visual .swiper-slide .wrapper {
+            height: 600px;
+            padding: 0 0 100px 0;
+        }
+        .visual .swiper-slide p {
+            font-size: 30px;
+        }
+        .visual .swiper-slide p br {
+            display: none;
+        }
+        .visual .btn_wrap {
+            bottom: 20px;
+        }
+} /* @media */
+
+
+
+
+
+
+
+footer {
+    margin: 1000px 0 0 0;
+}
