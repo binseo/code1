@@ -1,5 +1,117 @@
 // console.log('연결')
 $(document).ready(function(){
+
+    /************************************ header 와 메뉴 : 시작 ************************************/
+    
+    /* pc인지 모바일인지 구분 - 브라우저 넓이
+     * 스크롤 값 계산
+     * 공통 사항 : 브라우저가 스크롤 되면 OR header 오버하면 header fixed 클래스 추가
+     * pc일 떄 : 마우스를 오버한 li에만 over 클래스 추가
+     * 모바일 때 : 메뉴 열기를 클릭하면 header에 menu_open 클래스 추가
+     *            1차메뉴를 클릭하면 (하위메뉴가 있는 1차메뉴만) 클릭한 li에 open 클래스 추가
+     */
+    
+    let device_status //모바일인지 pc인지
+    let scrolling //스크롤한 값
+    let window_w //브라우저 넓이
+    let mobile_size = 1024 //모바일로 전환 되는 사이즈
+
+    
+    scroll_chk() // 함수 실행 (처음에 문서가 로딩되었을 떄 1번)
+    resize_chk() //함수 실행
+    $(window).resize(function(){ //브라우저가 리사이즈 될 떄마다 1번씩 실행
+        resize_chk() //함수 실행
+    })
+
+    $(window).scroll(function(){ //브라우저를 스크롤 할 떄마다 1번씩 실행
+        scroll_chk() //함수 실행
+    })
+
+    function scroll_chk(){ //함수 선언
+        // console.log('스크롤!!!!!!!!!!!!!!')
+        scrolling = $(window).scrollTop()
+        // console.log(scrolling)
+        if(scrolling > 0){
+            $('header').addClass('fixed')
+        }else{
+            $('header').removeClass('fixed')
+        }
+    }
+
+    function resize_chk(){
+        // console.log('리사이즈~~~~~~~~')
+        window_w = $(window).width()
+        // console.log(window_w)
+        if(window_w > mobile_size){ //1025일 때 
+            device_status = 'pc'
+        }else{
+            device_status = 'mobile'
+        }
+        // console.log(device_status)
+    }
+
+    /* header에 마우스를 오버했을 때-- 클릭했을 떄도 작동함 */
+    $('header').on('mouseenter focusin', function(){
+        // console.log('오버오버!!!!!!!!!!!!')
+        if(device_status == 'pc'){
+            $('header').addClass('fixed')
+        }
+        
+    })
+    $('header').on('mouseleave focusout', function(){
+        if(scrolling == 0){ // 0 였을 때만 실행($('header').removeClass('fixed'))한다. 
+            /*  브라우저가 스크롤된 상태에서는 header에 fixed 클래스를 삭제하면 안됨
+                맨 위에 있을 때만 삭제해야함 */
+            // console.log('하지마하지마~~~~~~~~')
+            // console.log('아웃!!!')
+            $('header').removeClass('fixed')
+        }//if 종료
+        
+    })
+
+    $('header .gnb .gnb_wrap ul.depth1 > li').on('mouseenter focusin', function(){
+        if(device_status == 'pc'){
+            $(this).addClass('over')
+            // console.log('오버!!!!!!!!!!!')
+        }
+    })
+    $('header .gnb .gnb_wrap ul.depth1 > li').on('mouseleave', function(){
+        $(this).removeClass('over')
+        // console.log('아웃!!!!!')
+    })
+
+
+    $('header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 > li:last-child').on('focusout', function(){
+        $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
+    })
+
+
+    $('header .gnb .gnb_open').on('click', function(){
+        $('header').addClass('menu_open')
+    })
+    $('header .gnb .gnb_close').on('click', function(){
+        $('header').removeClass('menu_open')
+    })
+
+    /* 
+        닫힌 메뉴를 클릭하면 열리고, 열린 메뉴를 클릭하면 닫힘
+        동시에 여러 개의 메뉴가 열려있을 수도 있음
+        toggleClass - 클래스가 없으면 추가하고, 있으면 삭제
+    */
+    $('header .gnb .gnb_wrap ul.depth1 > li:has(ul.depth2) > a').on('click', function(e){
+        if(device_status == 'mobile'){
+            e.preventDefault() /* a 태그의 href를 작동 시키지 않음 */
+            // console.log('클릭함!!!!!!!!!!')
+            $(this).parents('li').toggleClass('open')
+        }
+        
+    })
+
+     /************************************ header 와 메뉴 : 종료 ************************************/
+
+
+
+    /************************************ visual swiper : 시작 ************************************/
     // console.log('나와??????')
     const visual_swiper = new Swiper('.visual .swiper', { /* 팝업을 감싼는 요소의 class명 */
 
@@ -31,5 +143,24 @@ $(document).ready(function(){
          $(this).hide() // 재생버튼 자신은 숨김
         $('.visual .btn_wrap button.btn_stop').show() // 정지버튼이 나타남
     })
+    /************************************ visual swiper : 끝 ************************************/
+
+
+
+    /************************************ find 탭 기능 : 시작 ************************************/
+
+    let find_content // 클릭한 메뉴의 이름(id)
+    $('.find .list .tab_list ul li').on('click', function(){
+        // console.log('누름!!!!!!!!!!!!!')
+        // $(this).hasClass('active') 확인? 맞는 지 has
+        if($(this).hasClass('active') == false){
+            // console.log('선택안된 메뉴')
+            find_content = $(this).attr('data-content')
+            console.log(find_content)
+        }
+    })
+
+
+    /************************************ find 탭 기능 : 끝 ************************************/
 
 })
