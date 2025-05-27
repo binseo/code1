@@ -441,6 +441,9 @@ header.fixed .logo a {
     justify-content: center;
     gap: 15px;
 }
+
+
+/* 공통 버튼 스타일 */
 .find .list .tab_list ul li button {
     font-family: "TJJoyofsingingBTTF";
     font-weight: 700;
@@ -448,17 +451,23 @@ header.fixed .logo a {
     font-size: 22px;
     padding: 9px 25px;
     border-radius: 50px;
-}
-
-.find .list .tab_list ul li.item1.active button {
-    background-color: #20AFA1;
-}
-.find .list .tab_list ul li.item2.active button {
-    background-color: #008944;
-}
-.find .list .tab_list ul li.item2 button {
     border: 1px solid rgba(255,255,255,0.6);
     color: rgba(255,255,255,0.6);
+    background-color: transparent;
+}
+
+/* 선택된 "가족을" 탭 */
+.find .list .tab_list ul li.item1.active button {
+    background-color: #20AFA1;
+    color: #fff;
+    border: none;
+}
+
+/* 선택된 "주인을" 탭 */
+.find .list .tab_list ul li.item2.active button {
+    background-color: #008944;
+    color: #fff;
+    border: none;
 }
 
 
