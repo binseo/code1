@@ -18,17 +18,16 @@
 .skip_nav a {
     position: absolute;
     left: 0;
-    top: 0;
+    top: -1000px;
     width: 100%;
     display: block;
     background-color: yellowgreen;
     text-align: center;
     padding: 5px 0;
     color: #fff;
-    transform: translateX(-120%);
 }
 .skip_nav a:focus {
-    transform: translateX(0);
+    top: 0;
 }
 
 
@@ -492,6 +491,7 @@ header.fixed .logo a {
 .find .list .tab_contents .tab_item > ul > li > a {
     display: block;
 }
+
 .find .list .tab_contents .tab_item > ul > li > a .photo {
     overflow: hidden;
     height: 350px;
@@ -501,7 +501,22 @@ header.fixed .logo a {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: 0.5s;
 }
+/* 마우스를 오버 효과 */
+.find .list .tab_contents .tab_item > ul > li > a:hover .photo img {
+    transform: scale3d(1.2, 1.2, 1);
+    /* animation-name: img_hover;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards; */
+}
+/* @keyframes img_hover { 애니메이션은 아웃할 때 부드럽지 않다.
+    0% { transform: scale3d(1,1,1); }
+    100% { transform: scale3d(1.2,1.2,1); }
+} */
+
+
 .find .list .tab_contents .tab_item > ul > li > a .subject {
     display: flex;
     align-items: center;
@@ -562,8 +577,422 @@ header.fixed .logo a {
 }
 
 
+@media screen and (max-width:1024px) {
+        .find {
+            padding: 130px 0 100px 0;
+        }
+        .find .tit h2 {
+            font-size: 35px;
+        }
+        .find .list .tab_list ul li button {
+            font-size: 20px;
+        }
+
+        .find .list .tab_contents .tab_item > ul {
+            gap: 30px 16px;
+            flex-wrap: wrap; /* 줄바꿈 허용 */
+        }
+        .find .list .tab_contents .tab_item > ul > li {
+            width: calc(50% - 8px);
+        }
+        .find .list .tab_contents .tab_item > ul > li > a .photo {
+            height: 180px;
+            border-radius: 10px;
+        }
+
+} /* @media */
 
 
+
+@media screen and (max-width:768px) {
+        .find {
+            padding: 100px 0 80px 0;
+        }
+        .find .tit h2 {
+            font-size: 25px;
+        }
+        .find .list {
+            margin: 20px 0 0 0;
+        }
+        .find .list .tab_list ul {
+            gap: 10px;
+        }
+        
+        /* 공통 버튼 스타일 */
+        .find .list .tab_list ul li button {
+            font-size: 18px;
+            padding: 8px 22px;
+        }
+        .find .list .tab_contents {
+            margin: 40px 0 0 0;
+        }
+
+        .find .list .tab_contents .tab_item > ul > li > a .subject {
+            display: block;
+            margin: 15px 0 7px 0;
+            position: relative; /* strong 카테고리 정렬의 기준 */
+        }
+        .find .list .tab_contents .tab_item > ul > li > a .subject strong {
+            position: absolute;
+            left: 0;
+            top: -41px;
+            font-size: 15px;
+            padding: 5px 13px 3px 13px;
+            border-radius: 10px;
+        }
+        
+        .find .list .tab_contents .tab_item > ul > li > a .subject h4 {
+            font-size: 18px;
+        }
+        
+        
+        .find .list .tab_contents .tab_item > ul > li > a ul.detail li {
+            display: block;
+        }
+        .find .list .tab_contents .tab_item > ul > li > a ul.detail li:last-child {
+            display: none;
+        }
+        
+        .find .list .tab_contents .tab_item > ul > li > a ul.detail li strong {
+            display: none;
+        }
+        .find .list .tab_contents .tab_item > ul > li > a ul.detail li span {
+            display: block;
+        }
+        
+} /* @media */
+
+
+
+.slogan {
+    margin: 180px 0 0 0;
+}
+.slogan .sub_tit {
+    font-size: 60px;
+    line-height: 1.5;
+    color: #1d1d1d;
+    text-align: center;
+}
+.slogan .sub_tit strong {
+    display: inline-block;
+    /* 글자를 태그로 감싸고 inline-block을 주면 
+        줄바꿈이 될 때 inline-block으로 묶인 글자는 단락으로 줄바꿈 */
+}
+.slogan .sub_tit span {
+    display: inline-block; /* 사진 넓이를 넣기 위해서 */
+    color: transparent; /* 글자 투명 */
+    position: relative; /* before 정렬의 기준 */
+}
+.slogan .sub_tit span::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* span의 영역에 위아래 가운데 좌우에 가운데 */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+.slogan .sub_tit span.item1::before {
+    top: 30%;
+    width: 1.9em; /* 114 / 60(p태그 글자크기) = 1.9 */
+    height: 1.4em;  /* 84 / 60 = 1.4 */
+    background-image: url(../images/slogan01.png);
+}
+.slogan .sub_tit span.item2::before {
+    width: 2.34em; /* 140 / 60 = 2.34 */
+    height: 1.49em;  /* 89 / 60 = 1.49 */
+    background-image: url(../images/slogan02.png);
+}
+.slogan .sub_tit span.item3::before {
+    width: 1.35em; /* 81 / 60 = 1.35 */
+    height: 2em;  /* 120 / 60 = 2 */
+    background-image: url(../images/slogan03.png);
+}
+.slogan .sub_tit span.item4::before {
+    width: 1.78em; /* 107 / 60 = 1.78 */
+    height: 1.3em;  /* 78 / 60 = 1.3 */
+    background-image: url(../images/slogan04.png);
+}
+
+
+.slogan .sub_tit span.item1 {
+    width: 2.17em;
+    /* 넓이가 137px - 글자크기 60px
+        130/60 = 2.17 em 
+        1em은 현재 해당 요소에 상속된 글자 크기를 1로 봄 */
+}
+.slogan .sub_tit span.item2 {
+    width: 2.75em;
+    /* 165 / 60 = 2.75 */
+}
+.slogan .sub_tit span.item3 {
+    width: 1.67em;
+    /* 100 / 60 = 1.67 */
+}
+.slogan .sub_tit span.item4 {
+    width: 1.9em;
+    /* 100 / 60 = 1.67 */
+}
+
+.slogan .ex {
+    text-align: center;
+    margin: 60px 0 0 0;
+}
+
+@media screen and (max-width:1300px) {
+        .slogan .sub_tit {
+            font-size: 50px;
+        }
+}
+
+@media screen and (max-width:1024px) {
+        .slogan {
+            margin: 100px 0 0 0;
+        }
+        .slogan .sub_tit {
+            font-size: 40px;
+        }
+        .slogan .ex {
+            margin: 40px 0 0 0;
+        }
+        .slogan .ex br {
+            display: none;
+        }
+} /* @media */
+
+@media screen and (max-width:768px) {
+        .slogan {
+            margin: 80px 0 0 0;
+        }
+        .slogan .sub_tit {
+            font-size: 28px;
+        }
+        .slogan .sub_tit br {
+            display: none; /* 줄바꿈 금지 */
+        }
+        .slogan .ex {
+            margin: 30px 0 0 0;
+        }
+
+} /* @media */
+
+
+
+.adopt {
+    margin: 180px 0 0 0;
+    padding: 150px 0 250px 0;
+    background-color: #36342F;
+    color: #fff;
+    text-align: center;
+    position: relative; /* rolling */
+}
+.adopt .tit h2 {
+    font-size: 45px;
+}
+.adopt .list {
+    margin: 80px 0 0 0;
+}
+.adopt .list .swiper-slide {
+    width: 300px;
+}
+.adopt .list .swiper-slide a {
+    display: block;
+}
+.adopt .list .swiper-slide a .photo {
+    overflow: hidden;
+    height: 300px;
+    border-radius: 50%; /* 동그라미 */
+}
+.adopt .list .swiper-slide a .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+.adopt .list .swiper-slide a:hover .photo img {
+    transform: scale3d(1.2, 1.2, 1);
+}
+
+
+.adopt .list .swiper-slide a strong {
+    font-family: "TJJoyofsingingBTTF";
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 15px;
+    background-color: #20AFA1;
+    padding: 6px 15px 4px 15px;
+    border-radius: 30px;
+    display: inline-block;
+    position: relative;
+    top: -17px;
+    /* transform: translateY(-17px); 이렇게도 사용가능 or --> position: relative; / top: -17px; */
+}
+.adopt .list .swiper-slide a strong.cate_care {
+    background-color: #95C24B;
+}
+
+.adopt .list .swiper-slide a h3 {
+    font-family: "TJJoyofsingingBTTF";
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 22px;
+    margin: 10px 0 10px 0;
+}
+.adopt .list .swiper-slide a p {
+    color: rgba(255,255,255,0.8);
+    /* 1줄 제한 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.adopt .list_ctrl {
+    margin: 100px 0 0 0;
+    display: flex;  
+    justify-content: center;
+    gap: 5px;
+}
+.adopt .list_ctrl button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='8' height='13' viewBox='0 0 8 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.4338 6.38132L7.0383 10.9858C7.19491 11.1424 7.27061 11.3252 7.26539 11.534C7.26017 11.7428 7.17925 11.9255 7.02264 12.0821C6.86602 12.2387 6.6833 12.3171 6.47448 12.3171C6.26566 12.3171 6.08294 12.2387 5.92633 12.0821L1.10256 7.27403C0.97727 7.14874 0.8833 7.00778 0.820654 6.85117C0.758008 6.69455 0.726685 6.53794 0.726685 6.38132C0.726685 6.2247 0.758008 6.06809 0.820654 5.91147C0.8833 5.75486 0.97727 5.6139 1.10256 5.48861L5.92633 0.664845C6.08294 0.50823 6.26827 0.432532 6.48231 0.437753C6.69635 0.442973 6.88168 0.523891 7.0383 0.680507C7.19491 0.837123 7.27322 1.01984 7.27322 1.22866C7.27322 1.43748 7.19491 1.6202 7.0383 1.77682L2.4338 6.38132Z' fill='white'/%3E%3C/svg%3E%0A");
+}
+.adopt .list_ctrl .btn_next {
+    transform: rotate(180deg);
+} 
+.adopt .list_ctrl .more {
+    display: block;
+    line-height: 30px;
+    height: 30px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    padding: 0 35px 0 17px;
+    position: relative; /* before 정렬의 기준 */
+}
+.adopt .list_ctrl .more::before {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_33_1088' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='18' height='18'%3E%3Crect width='18' height='18' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_33_1088)'%3E%3Cpath d='M8.25 9.75H4.5C4.2875 9.75 4.10938 9.67812 3.96562 9.53438C3.82187 9.39062 3.75 9.2125 3.75 9C3.75 8.7875 3.82187 8.60938 3.96562 8.46562C4.10938 8.32188 4.2875 8.25 4.5 8.25H8.25V4.5C8.25 4.2875 8.32188 4.10938 8.46562 3.96562C8.60938 3.82187 8.7875 3.75 9 3.75C9.2125 3.75 9.39062 3.82187 9.53438 3.96562C9.67812 4.10938 9.75 4.2875 9.75 4.5V8.25H13.5C13.7125 8.25 13.8906 8.32188 14.0344 8.46562C14.1781 8.60938 14.25 8.7875 14.25 9C14.25 9.2125 14.1781 9.39062 14.0344 9.53438C13.8906 9.67812 13.7125 9.75 13.5 9.75H9.75V13.5C9.75 13.7125 9.67812 13.8906 9.53438 14.0344C9.39062 14.1781 9.2125 14.25 9 14.25C8.7875 14.25 8.60938 14.1781 8.46562 14.0344C8.32188 13.8906 8.25 13.7125 8.25 13.5V9.75Z' fill='white'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.adopt .rolling {
+    position: absolute; /* adopt를 기준으로 정렬 */
+    left: 0;
+    bottom: 30px;
+    width: 100%;
+}
+.adopt .rolling p {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: 100px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.2);
+    white-space: nowrap; /* 1줄 */
+
+    animation-name: rolling;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; /* 가속도 삭제 */
+}
+
+@keyframes rolling {
+    0% { left: 0; }
+    100% { left: -14.45em; }
+}
+
+
+
+@media screen and (max-width:1024px) {
+        .adopt {
+            margin: 150px 0 0 0;
+            padding: 150px 0 200px 0;
+        }
+        .adopt .tit h2 {
+            font-size: 35px;
+        }
+        .adopt .list {
+            margin: 60px 0 0 0;
+        }
+        .adopt .list .swiper-slide a h3 {
+            font-size: 20px;
+        }
+        .adopt .list_ctrl {
+            margin: 60px 0 0 0;
+        }
+
+        .adopt .rolling {
+            bottom: 25px;
+        }
+        .adopt .rolling p {
+            font-size: 75px;
+        }
+
+
+} /* @media */
+
+
+@media screen and (max-width:768px) {
+    
+        .adopt {
+            margin: 100px 0 0 0;
+            padding: 100px 0 165px 0;
+        }
+        .adopt .tit h2 {
+            font-size: 25px;
+        }
+        .adopt .list {
+            margin: 50px 0 0 0;
+        }
+        .adopt .list .swiper {
+            padding-left: 16px;
+        }
+        .adopt .list .swiper-slide {
+            width: 220px;
+        }
+        .adopt .list .swiper-slide a .photo {
+            height: 220px;
+        }
+        .adopt .list .swiper-slide a strong {
+            font-size: 14px;
+            padding: 5px 13px 3px 13px;
+        }
+        .adopt .list .swiper-slide a h3 {
+            font-size: 18px;
+            margin: 10px 0 10px 0;
+        }
+        
+        .adopt .list_ctrl {
+            margin: 50px 0 0 0;
+        }
+        .adopt .list_ctrl button {
+            display: none;
+        }
+
+        .adopt .rolling {
+            position: absolute; /* adopt를 기준으로 정렬 */
+            left: 0;
+            bottom: 20px;
+            width: 100%;
+        }
+        .adopt .rolling p {
+            font-size: 50px;
+        }
+
+} /* @media */
 
 
 
