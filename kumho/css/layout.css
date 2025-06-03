@@ -1,5 +1,274 @@
 /* header와 footer 같이 모든 페이지 공통사항 저장 */
 
+header {
+    position: fixed; /* body를 기준으로 정렬 */
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: var(--header-h);
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding: 0 40px;
+    display: flex; /* logo, gnb, util 좌우 */
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-family: "Pretendard";
+
+    transition: top 0.5s;
+}
+
+header .logo a {
+    display: block;
+    width: 5.89em; /* 100 /17 = 5.88 */
+    height: 2em; /* 34 / 17 = 2*/
+    background: url(../images/common/logo_w.svg) no-repeat center center / contain;
+    margin-bottom: 10px;
+}
+
+header .util {
+    font-family: "Shippori Mincho";
+    display: flex;
+    gap: 0.5em; /* 15 / 10 = 1.5 */
+}
+header .util .lang .lang_open {
+    padding: 0 1.59em 0 0; /* 27 / 17 = 1.588 */
+    position: relative; /* before 정렬의 기준 */
+}
+header .util .lang .lang_open span {
+    font-size: 1.1rem;
+    font-weight: var(--bold-weight);
+}
+header .util .lang .lang_open::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0.19em; /* ??? */
+    width: 1.42em; /* 24/ 17 = 1.411 */
+    height: 1.42em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_37_846' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='24' height='24'%3E%3Crect width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_37_846)'%3E%3Cpath d='M12 15L7 10H17L12 15Z' fill='white'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+header .util .search .search_open {
+    margin: 3px 0 0 0;
+    width: 1.5em; /* 24 / 17 = 1.411 */
+    height: 1.5em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_37_849' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='24' height='24'%3E%3Crect width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_37_849)'%3E%3Cpath d='M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14583 15.3708 4.8875 14.1125C3.62917 12.8542 3 11.3167 3 9.5C3 7.68333 3.62917 6.14583 4.8875 4.8875C6.14583 3.62917 7.68333 3 9.5 3C11.3167 3 12.8542 3.62917 14.1125 4.8875C15.3708 6.14583 16 7.68333 16 9.5C16 10.2333 15.8833 10.925 15.65 11.575C15.4167 12.225 15.1 12.8 14.7 13.3L21 19.6L19.6 21ZM9.5 14C10.75 14 11.8125 13.5625 12.6875 12.6875C13.5625 11.8125 14 10.75 14 9.5C14 8.25 13.5625 7.1875 12.6875 6.3125C11.8125 5.4375 10.75 5 9.5 5C8.25 5 7.1875 5.4375 6.3125 6.3125C5.4375 7.1875 5 8.25 5 9.5C5 10.75 5.4375 11.8125 6.3125 12.6875C7.1875 13.5625 8.25 14 9.5 14Z' fill='white'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+/* ############################## 아래로 스크롤 내릴 때 header가 사라짐 ############################## */
+header.fixed.gnb_up {
+    top: var(--header-h-m);
+}
+header.fixed.gnb_up.menu_over {
+    top: 0; /* 고정 */
+}
+
+
+/* ############################## header에 fixed 클래스 추가 ############################## */
+
+header.fixed,
+header.menu_over {
+    color: var(--tit-color);
+    background-color: #fff;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.1);
+}
+
+
+header.fixed .logo a,
+header.menu_over .logo a {
+    background-image: url(../images/common/logo.svg);
+}
+
+header.fixed .util .lang .lang_open::after,
+header.menu_over .util .lang .lang_open::after {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_37_989' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='24' height='24'%3E%3Crect width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_37_989)'%3E%3Cpath d='M12 15L7 10H17L12 15Z' fill='%231D1D1D'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+header.fixed .util .search .search_open,
+header.menu_over .util .search .search_open {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_37_992' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='24' height='24'%3E%3Crect width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_37_992)'%3E%3Cpath d='M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14583 15.3708 4.8875 14.1125C3.62917 12.8542 3 11.3167 3 9.5C3 7.68333 3.62917 6.14583 4.8875 4.8875C6.14583 3.62917 7.68333 3 9.5 3C11.3167 3 12.8542 3.62917 14.1125 4.8875C15.3708 6.14583 16 7.68333 16 9.5C16 10.2333 15.8833 10.925 15.65 11.575C15.4167 12.225 15.1 12.8 14.7 13.3L21 19.6L19.6 21ZM9.5 14C10.75 14 11.8125 13.5625 12.6875 12.6875C13.5625 11.8125 14 10.75 14 9.5C14 8.25 13.5625 7.1875 12.6875 6.3125C11.8125 5.4375 10.75 5 9.5 5C8.25 5 7.1875 5.4375 6.3125 6.3125C5.4375 7.1875 5 8.25 5 9.5C5 10.75 5.4375 11.8125 6.3125 12.6875C7.1875 13.5625 8.25 14 9.5 14Z' fill='%231D1D1D'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+
+
+
+
+@media screen and (min-width:1025px) {
+
+    header .gnb .gnb_util,
+    header .gnb .gnb_open,
+    header .gnb .gnb_close {
+        display: none; /* 모바일에서만 숨김 */
+    }
+
+    header .gnb .gnb_wrap ul.depth1 {
+        display: flex;
+    }
+    header .gnb .gnb_wrap ul.depth1 > li {
+        width: 9.42em; /* 160 / 17 = 9.42 */
+        text-align: center;
+        position: relative; /* ul.depth2 정렬의 기준 */
+    }
+    header .gnb .gnb_wrap ul.depth1 > li > a {
+        display: block;
+        line-height: var(--header-h);
+        font-size: 1.18rem; /* 20/17 = 1.176 */
+        font-weight: var(--bold-weight);
+    }
+    header .gnb .gnb_wrap ul.depth1 > li.over > a {
+        color: var(--point-color);
+    }
+    header .gnb .gnb_wrap ul.depth1 > li.over > a > span {
+        position: relative; /* after 정렬의 기준 */
+    }
+    header .gnb .gnb_wrap ul.depth1 > li.over > a > span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1.99em; /* 39/17 =  2.30 ????? */
+        z-index: 1;
+        width: 100%;
+        height: 2px;
+        background-color: var(--point-color);
+    }
+    header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 {
+        display: none; /* 숨김 */
+        position: absolute; /* li를 기준으로  */
+        left: 0;
+        top: var(--header-h);
+        width: 100%;
+        padding-top: 25px;
+    }
+    header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 > li > a {
+        display: block;
+        color: var(--base-color);
+        line-height: 2;
+    }
+    header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 > li > a:hover {
+        font-weight: var(--bold-weight);
+        color: var(--point-color);
+    }
+
+
+    /* ############################## menu_over 클래스 추가 ############################## */
+
+    header.menu_over::before {
+        content: "";
+        position: absolute; /* header를 기준으로 정렬 */
+        left: 0;
+        top: 0;
+        z-index: -1; 
+        /* header 안에 있는 요소들 중에 맨 아래
+            header에 배경색을 줘도 그거보다는 위에 존재함 */
+        width: 100%;
+        height: 20.6em; /* 350 / 17 = 20.6 */
+        background-color: #fff;
+        box-shadow: 0 3px 5px 0 rgba(0,0,0,0.1);
+    }
+    header.menu_over::after {
+        content: "";
+        position: absolute; /* header를 기준으로 정렬 */
+        left: 0;
+        top: var(--header-h);
+        width: 100%;
+        height: 1px; 
+        background-color: #EAEAEA;
+    }
+    header.menu_over .gnb .gnb_wrap ul.depth1 > li > ul.depth2 {
+        display: block; /* 나타남 */
+    }
+
+    
+
+} /* @media */
+
+
+@media screen and (min-width:1025px) and (max-width:1300px) {
+    /* 1300~1024 사이일 때 */
+    header .gnb .gnb_wrap ul.depth1 > li {
+        width: 8.24em; /* 140 / 17 = 8.24 */
+    }
+
+}/* @media */
+
+@media screen and (max-width:1024px) { /*################### 모바일 ###################*/
+    header {
+        padding: 0 0 0 20px;
+    }
+    
+    header .logo a {
+        width: 4.38em; /* 70 /16 = 4.37 */
+        height: 1.5em; /* 24 / 16 = 1.5*/
+        margin-bottom: 5px;
+    }
+    
+    header .util {
+        font-family: "Shippori Mincho";
+        display: none;
+        gap: 0.5em; /* 15 / 10 = 1.5 */
+    }
+    header .gnb .gnb_util {
+        display: none;
+    }
+    header .gnb .gnb_open {
+        display: block;
+        width: var(--header-h);
+        height: var(--header-h);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml,%3Csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_37_1187' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='26' height='26'%3E%3Crect width='26' height='26' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_37_1187)'%3E%3Cpath d='M4.604 7.58301C4.3738 7.58301 4.18087 7.5051 4.02523 7.34928C3.86941 7.19346 3.7915 7.00045 3.7915 6.77024C3.7915 6.53985 3.86941 6.34692 4.02523 6.19147C4.18087 6.03583 4.3738 5.95801 4.604 5.95801H21.3957C21.6259 5.95801 21.8188 6.03592 21.9744 6.19174C22.1303 6.34756 22.2082 6.54057 22.2082 6.77078C22.2082 7.00117 22.1303 7.19409 21.9744 7.34955C21.8188 7.50519 21.6259 7.58301 21.3957 7.58301H4.604ZM4.604 20.0413C4.3738 20.0413 4.18087 19.9634 4.02523 19.8076C3.86941 19.6518 3.7915 19.4588 3.7915 19.2286C3.7915 18.9982 3.86941 18.8053 4.02523 18.6498C4.18087 18.4942 4.3738 18.4163 4.604 18.4163H21.3957C21.6259 18.4163 21.8188 18.4943 21.9744 18.6501C22.1303 18.8059 22.2082 18.9989 22.2082 19.2291C22.2082 19.4595 22.1303 19.6524 21.9744 19.8079C21.8188 19.9635 21.6259 20.0413 21.3957 20.0413H4.604ZM4.604 13.8122C4.3738 13.8122 4.18087 13.7343 4.02523 13.5784C3.86941 13.4226 3.7915 13.2296 3.7915 12.9994C3.7915 12.769 3.86941 12.5761 4.02523 12.4206C4.18087 12.265 4.3738 12.1872 4.604 12.1872H21.3957C21.6259 12.1872 21.8188 12.2651 21.9744 12.4209C22.1303 12.5767 22.2082 12.7697 22.2082 12.9999C22.2082 13.2303 22.1303 13.4233 21.9744 13.5787C21.8188 13.7344 21.6259 13.8122 21.3957 13.8122H4.604Z' fill='white'/%3E%3C/g%3E%3C/svg%3E%0A");
+    }
+    header.fixed .gnb .gnb_open {
+        background-image: url("data:image/svg+xml,%3Csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_37_1522' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='26' height='26'%3E%3Crect width='26' height='26' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_37_1522)'%3E%3Cpath d='M4.604 7.58301C4.3738 7.58301 4.18087 7.5051 4.02523 7.34928C3.86941 7.19346 3.7915 7.00045 3.7915 6.77024C3.7915 6.53985 3.86941 6.34692 4.02523 6.19147C4.18087 6.03583 4.3738 5.95801 4.604 5.95801H21.3957C21.6259 5.95801 21.8188 6.03592 21.9744 6.19174C22.1303 6.34756 22.2082 6.54057 22.2082 6.77078C22.2082 7.00117 22.1303 7.19409 21.9744 7.34955C21.8188 7.50519 21.6259 7.58301 21.3957 7.58301H4.604ZM4.604 20.0413C4.3738 20.0413 4.18087 19.9634 4.02523 19.8076C3.86941 19.6518 3.7915 19.4588 3.7915 19.2286C3.7915 18.9982 3.86941 18.8053 4.02523 18.6498C4.18087 18.4942 4.3738 18.4163 4.604 18.4163H21.3957C21.6259 18.4163 21.8188 18.4943 21.9744 18.6501C22.1303 18.8059 22.2082 18.9989 22.2082 19.2291C22.2082 19.4595 22.1303 19.6524 21.9744 19.8079C21.8188 19.9635 21.6259 20.0413 21.3957 20.0413H4.604ZM4.604 13.8122C4.3738 13.8122 4.18087 13.7343 4.02523 13.5784C3.86941 13.4226 3.7915 13.2296 3.7915 12.9994C3.7915 12.769 3.86941 12.5761 4.02523 12.4206C4.18087 12.265 4.3738 12.1872 4.604 12.1872H21.3957C21.6259 12.1872 21.8188 12.2651 21.9744 12.4209C22.1303 12.5767 22.2082 12.7697 22.2082 12.9999C22.2082 13.2303 22.1303 13.4233 21.9744 13.5787C21.8188 13.7344 21.6259 13.8122 21.3957 13.8122H4.604Z' fill='%231D1D1D'/%3E%3C/g%3E%3C/svg%3E%0A");
+    }
+
+    header .gnb .gnb_wrap {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        width: calc(100% - 3.5em);
+        height: 100%;
+        background-color: #fff;
+        color: var(--tit-color);
+        transition: 0.5s;
+    }
+    header .gnb .gnb_close {
+        display: none;
+        position: absolute; /* gnb_wrap */
+        right: 0;
+        top: 0;
+        width: var(--header-h);
+        height: var(--header-h);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml,%3Csvg width='27' height='27' viewBox='0 0 27 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_37_1432' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='27' height='27'%3E%3Crect width='27' height='27' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_37_1432)'%3E%3Cpath d='M13.5001 14.6851L7.79295 20.3925C7.63714 20.5481 7.44129 20.6278 7.20542 20.6315C6.96973 20.6351 6.77032 20.5554 6.6072 20.3925C6.44426 20.2293 6.36279 20.0317 6.36279 19.7996C6.36279 19.5675 6.44426 19.3698 6.6072 19.2067L12.3146 13.4996L6.6072 7.79246C6.45157 7.63665 6.37189 7.44081 6.36814 7.20493C6.36457 6.96924 6.44426 6.76984 6.6072 6.60671C6.77032 6.44377 6.96795 6.3623 7.20007 6.3623C7.4322 6.3623 7.62982 6.44377 7.79295 6.60671L13.5001 12.3141L19.2072 6.60671C19.363 6.45109 19.5589 6.3714 19.7947 6.36765C20.0304 6.36409 20.2298 6.44377 20.393 6.60671C20.5559 6.76984 20.6374 6.96746 20.6374 7.19959C20.6374 7.43171 20.5559 7.62934 20.393 7.79246L14.6855 13.4996L20.393 19.2067C20.5486 19.3625 20.6283 19.5584 20.632 19.7942C20.6356 20.0299 20.5559 20.2293 20.393 20.3925C20.2298 20.5554 20.0322 20.6369 19.8001 20.6369C19.568 20.6369 19.3703 20.5554 19.2072 20.3925L13.5001 14.6851Z' fill='%231D1D1D'/%3E%3C/g%3E%3C/svg%3E%0A");
+    }
+
+
+    /* 메뉴가 열렸을 때 */
+    header.menu_open .gnb .gnb_wrap {
+        right: 0;
+    }
+    header.menu_open .gnb .gnb_close {
+        display: block;
+    }
+    
+    
+
+}/* @media */
+
+
+
+
+
+
+
+
 footer {
     margin: 1000px 0 0 0;
 }
