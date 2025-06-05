@@ -101,20 +101,18 @@ $(document).ready(function(){
 
     let service_name // 가져온 data-name 값을 저장
     $('.service .list ul li a').on('mouseenter', function(){
-        if($(window).width() > 1024){
+        if( $(window).width() > 1024 ){
             service_name = $(this).attr('data-name') // 속성 값 (모든 다 class나 date등등)
             // console.log(service_name)
             $('.service .list').attr('data-bg', service_name)
         }
-        
     })
 
     $('.service .list').on('mouseleave', function(){
         // console.log(service_name)
-        $('.service .list').attr('data-bg', '')
+        $('.service .list').attr('data-bg','')
     })
     
-
     /* ************************** service의 a배경 변경 :: 끝 ***************************** */
 
 }) //$(document).ready
