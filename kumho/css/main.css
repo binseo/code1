@@ -774,3 +774,65 @@ section .tit h2 {
     display: inline-block;
 }
 
+
+@media screen and (max-width:1024px) {
+    .service .list {
+        margin: 2.95em 0 0 0; /* 50 / 17 = 2.94 */
+    }
+    
+    .service .list ul li a h3 {
+        font-size: 1.48rem; /* 25 / 17 = 1.47 */
+        margin: 0; /* 15 / 20 = 0.5 */
+    }
+    .service .list ul li a p {
+        display: none;
+    }
+    
+    .service .list ul li a .more {
+        display: inline-block;
+        margin: 1.18em 0 0 0; /* 20/17= 1.18 */
+    }
+}
+
+@media screen and (max-width:768px) {
+    .service .list {
+        margin: 2.5em 0 0 0; /* 40 / 16 = 2.5 */
+        height: auto; 
+        display: block; 
+    }
+    .service .list ul {
+        display: block;
+        width: auto; 
+        padding: 0;
+    }
+    .service .list ul li {
+        width: auto;
+    }
+    .service .list ul li + li::before {
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        width: 20em; /* 20em */
+        height: 1px;
+    }
+    
+    .service .list ul li a {
+        display: inline-block;
+        margin: 0;
+        padding: 2.82em 0; /* 45 / 16 = 2.81 */
+    }
+    
+    .service .list ul li a h3 {
+        font-size: 1.25rem; /* 20 / 16 = 1.25 */
+        margin: 0; /* 15 / 20 = 0.5 */
+    }
+    .service .list ul li a p {
+        display: none;
+    }
+    
+    .service .list ul li a .more {
+        display: inline-block;
+        margin: 1.25em 0 0 0; /* 20/16= 1.25 */
+    }
+
+}
