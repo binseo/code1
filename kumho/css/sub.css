@@ -144,6 +144,12 @@
     color: var(--tit-color);
 }
 
+@media screen and (max-width:1024px) {
+    .page_tit {
+        font-size: 2.06rem; /* 35/17 = 2.05 */
+    }
+} /* @media */
+
 
 @media screen and (max-width:768px) {
     .lnb ul {
