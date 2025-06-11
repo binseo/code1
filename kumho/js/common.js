@@ -37,6 +37,16 @@ $(window).resize(function(){ // 리사이즈 될 때마다 1번 실행
 
 
 $(document).ready(function(){ // 문서가 로딩되고 단 한번
+
+    /*############# TOP버튼을 클릭하면 상단으로 스크롤 ##############*/
+    $('footer .top').on('click', function(){
+        // console.log('???????')
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500)
+    })
+
+
     // console.log('로딩됨~~~~~~~~~~~~~~')
     resize_chk() // 함수 실행
     scroll_chk()
@@ -91,7 +101,7 @@ $(document).ready(function(){ // 문서가 로딩되고 단 한번
 
 
 
-})
+}) //$(document).ready(function()
 
 // 함수의 선언 -> 이런 것이 있다를 알려주는 것?
 function resize_chk(){

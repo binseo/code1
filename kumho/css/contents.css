@@ -162,7 +162,14 @@
 .ctn_history .his_photo .photo {
     overflow: hidden;
     height: 23.53em; /* 400/17 = 23.52 */
+    width: 35%;
+    margin: 0 auto; /* 가운데 */
+    transition: 0.5s;
 }
+.ctn_history .his_photo.active .photo {
+    width: 100%;
+}
+
 .ctn_history .his_photo .photo img {
     width: 100%;
     height: 100%;
@@ -272,7 +279,47 @@
 
 
 .ctn_history .his_nav {
-    display: none; /* ##### 임시로!! ##### */
+    position: fixed; /* 무조건 body를 기준으로 정렬 */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -4.23em;
+    z-index: 99; /* header보다 1만 작은 값 */
+    width: calc(100% - 40px);
+    max-width: 1260px;
+    background-color: #ededed;
+    padding: 0.58em 3.52em; /* 18/17  60/17=3.52 */
+    border-radius: 2.95em; /* 50/17 */
+    transition: 0.5s;
+}
+.ctn_history .his_nav.active {
+    bottom: 1.77em; /* 30/17 */
+}
+
+.ctn_history .his_nav ul {
+    display: flex;
+    overflow-y: hidden; /* 위아래 스크롤 금지 */
+    overflow-x: auto;
+}
+.ctn_history .his_nav ul li {
+    width: 25%;
+}
+.ctn_history .his_nav ul li button {
+    display: block;
+    /* width: calc(100% - 1.5em); /* 30/20
+    margin: 0 1.5em; */
+    width: 90%;
+    margin: 0 5%;
+    text-align: center;
+    font-size: 1.18rem; /* 20/17 */
+    font-weight: var(--bold-weight);
+    color: var(--tit-color);
+    padding: 0.4em 1.17em 0.4em 1.17em; 
+    border-radius: 1.82em;
+    white-space: nowrap;
+}
+.ctn_history .his_nav ul li.active button {
+    background-color: #1B1F3B;
+    color: #fff;
 }
 
 
@@ -389,11 +436,24 @@
     .ctn_history .his_year_group .year_cont ul li span {
         width: calc(100% - 4.5em); /* 72/16= 4.5 */
     }
-    
-    
+
+
     .ctn_history .his_nav {
-        display: none; /* ##### 임시로!! ##### */
+        padding: 0.58em 1.77em; /* 18/17  60/17=3.52 */
     }
+    .ctn_history .his_nav ul::-webkit-scrollbar {
+        display: none; /* 스크롤바 삭제 */
+    }
+    .ctn_history .his_nav ul li {
+        width: auto;
+    }
+    .ctn_history .his_nav ul li button {
+        width: 100%;
+        margin: 0;
+        font-size: 1.125rem; /* 18/16 */
+        padding: 0.43em 1.25em; /* 7/16  20/16 */
+    }
+    
 
 } /* @media */
 
