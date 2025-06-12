@@ -176,6 +176,54 @@
 .contents {
     min-height: 20em;
 }
+.contents .table_wrap table {
+    width: 100%; /* 테이블은 콘텐츠 만큼 넓이가 잡힘 */
+    border-collapse: collapse; /* border 줄 병합 칸에 준 border값을 적용시키기 위한 값 */
+    border-top: 2px solid var(--tit-color);
+}
+.contents .table_wrap table caption {
+    display: none; /* 숨김 접근성상 쓰임 */
+}
+.contents .table_wrap table th,
+.contents .table_wrap table td {
+    /* 모든 칸의 기본 속성 */
+    border: 1px solid #E4E4E4;
+    padding: 0.95em 1.77em; /* 17/18  50/18 */
+    text-align: center;
+}
 
+.contents .table_wrap table th:first-child,
+.contents .table_wrap table td:first-child {
+    border-left-width: 0;
+    /* 테이블 왼쪽 끝에 선 삭제 */
+} 
+.contents .table_wrap table th:last-child,
+.contents .table_wrap table td:last-child {
+    border-right-width: 0;
+    /* 테이블 오른쪽 끝에 선 삭제 */
+} 
+.contents .table_wrap table thead th,
+.contents .table_wrap table thead td {
+    /* 상단에 제목 칸 */
+    background-color: #F5F5F5;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: var(--bold-weight);
+    color: var(--tit-color);
+}
 
+.contents .table_wrap table tbody th {
+    color: var(--tit-color);
+    font-weight: var(--bold-weight);
+}
+
+@media screen and (max-width:768px) {
+
+    .contents .table_wrap {
+        overflow-x: auto;
+    }  
+    .contents .table_wrap table {
+        min-width: 767px;
+    }
+}
 
