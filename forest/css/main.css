@@ -1,0 +1,30 @@
+@import url(default.css);
+@import url(font.css);
+@import url(common.css);
+@import url(layout.css);
+
+
+.visual {
+    background-color: yellowgreen;
+    color: wheat;
+}
+.tree {
+    background-color: rebeccapurple;
+    color: wheat;
+}
+.work {
+    background-color: skyblue;
+    color: #1d1d1d;
+}
+.story {
+    background-color: seagreen;
+    color: wheat;
+}
+footer {
+    background-color: darkorchid;
+    color: wheat;
+}
+.section {
+    text-align: center;
+    font-size: 50px;
+}
