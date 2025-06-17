@@ -78,9 +78,10 @@ html, body {
     --main-color: #00815C;
     --point-color: #31C39C;
     --bg-color: #19464B;
-    --bold-weight: 700;
+    --bold-weight: 800;
     --tit-font-size: 45px;
     --sub-font-size: 25px;
+    --display-size: 60px;
     --tit-line-height: 1.2;
     
 }
@@ -91,11 +92,13 @@ html, body {
         
         --tit-font-size: 35px;
         --sub-font-size: 22px;
+        --display-size: 45px;
     }
 }
 @media screen and (max-width:768px) {
     :root {
         --tit-font-size: 25px; 
         --sub-font-size: 20px; 
+        --display-size: 35px;
     }
 }

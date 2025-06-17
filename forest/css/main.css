@@ -4,27 +4,316 @@
 @import url(layout.css);
 
 
-.visual {
-    background-color: yellowgreen;
-    color: wheat;
+.visual .swiper {
+    width: 100%;
+    height: 100%;
 }
-.tree {
-    background-color: rebeccapurple;
-    color: wheat;
+.visual .swiper .swiper-slide .photo {
+    overflow: hidden;
+    height: 100%;
 }
-.work {
-    background-color: skyblue;
-    color: #1d1d1d;
+.visual .swiper .swiper-slide .photo img,
+.visual .swiper .swiper-slide .photo video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-.story {
-    background-color: seagreen;
-    color: wheat;
-}
-footer {
-    background-color: darkorchid;
-    color: wheat;
-}
-.section {
+.visual .swiper .swiper-slide .visual_txt {
+    position: absolute; /* swiper-slide */
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    color: #fff;
     text-align: center;
-    font-size: 50px;
 }
+.visual .swiper .swiper-slide .visual_txt p {
+    font-size: var(--display-size);
+    font-weight: var(--bold-weight);
+    line-height: var(--tit-line-height);
+    margin: 20px 0 50px 0;
+}
+.visual .swiper .swiper-slide .visual_txt a {
+    display: inline-block;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    padding: 15px 45px;
+}
+.visual .paging {
+    position: absolute; /* swiper를 기준으로 정렬 */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 80px;
+    z-index: 10;
+    width: calc(100% - 40px);
+    max-width: 1260px;
+    color: #fff;
+    display: flex;
+
+}
+
+.visual .paging .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+.visual .paging .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0;
+}
+
+.visual .paging .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: transparent; /* 글자투명 */
+}
+.visual .paging .swiper-pagination-bullet {
+    width: 25%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    background: transparent;
+    opacity: 1;
+    margin: 0;
+    text-align: center;
+    border-bottom: 5px solid rgba(255,255,255,0.3);
+    padding: 0 0 10px 0;
+    position: relative; /* before 정렬의 기준 */
+}
+.visual .paging .swiper-pagination-bullet::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 5px;
+    background-color: #fff;
+}
+.visual .paging .swiper-pagination-bullet.swiper-pagination-bullet-active::before {
+    animation-name: visual_paging;
+    animation-duration: 5s;
+    animation-iteration-count: 1; /* 1번만 실행 */
+    animation-timing-function: linear; /* 가속도 삭제 */
+    animation-fill-mode: forwards; /* 마지막 100% 유지 */
+}
+@keyframes visual_paging {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+
+
+/* #fp-nav.fp-left {
+    left: 40px; /* 왼쪽에서 떨어진 거리 
+}
+
+#fp-nav {
+    top: 50%; /* ??????? 
+}
+#fp-nav ul li {
+    width: auto;
+    height: auto;
+    margin: 10px 0;
+    padding-left: 35px;
+}
+#fp-nav ul li a {
+    position: absolute; /* li를 기준으로 정렬 
+    left: 0;
+    top: 0;
+}
+#fp-nav ul li a::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 11px;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+#fp-nav ul li a.active::before {
+    background-color: #fff;
+}
+#fp-nav ul li a span {
+    display: none; /* 숨김 
+}
+#fp-nav ul li:hover .fp-tooltip, #fp-nav.fp-show-active a.active + .fp-tooltip {
+    /* 마우스를 오버하거나 현재 선택된 메뉴 
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 30px;
+    padding: 3px 20px 3px 35px;
+}
+
+#fp-nav ul li .fp-tooltip.fp-left {
+    left: auto;
+}
+
+#fp-nav ul li .fp-tooltip { /* absolute 안함 XXX 
+    position: relative;
+    top: auto;
+    color: rgba(255,255,255,0.8);
+    font-size: 17px;
+    font-family: inherit; /* 상속 
+    max-width: 100%;
+    overflow: visible;
+    display: block;
+    opacity: 1;
+    width: auto;
+}  */
+
+
+
+#fp-nav.fp-left {
+    left: 40px;
+}
+
+#fp-nav ul li {
+    width: auto;
+    height: auto;
+    margin: 10px 0;
+}
+#fp-nav ul li:last-child {
+    display: none;
+}
+#fp-nav ul li a {
+    position: absolute;
+}
+#fp-nav ul li a span {
+    display: none; /* 숨김 */
+}
+#fp-nav ul li .fp-tooltip {
+    position: relative;
+    top: auto;
+    font-size: 17px;
+    font-family: inherit;
+    max-width: 100%;
+    overflow: visible;
+    opacity: 1;
+    width: auto;
+    padding: 0 0 0 35px;
+}
+#fp-nav ul li .fp-tooltip.fp-left {
+    left: auto;
+}
+#fp-nav ul li .fp-tooltip::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+/* 현재 선택된 메뉴 */
+#fp-nav ul li a.active + .fp-tooltip {
+    display: inline-block;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    padding: 3px 20px 3px 35px;
+}
+#fp-nav ul li a.active + .fp-tooltip::before {
+    background-color: #fff;
+    top: 11px;
+}
+
+/* ############# 배경이 횐색일 때 ############ */
+body.bg_white #fp-nav ul li .fp-tooltip {
+    color: var(--base-color);
+}
+body.bg_white #fp-nav ul li .fp-tooltip::before {
+    border-color: var(--base-color);
+}
+body.bg_white #fp-nav ul li a.active + .fp-tooltip {
+    border-color: var(--base-color);
+}
+body.bg_white #fp-nav ul li a.active + .fp-tooltip::before {
+    background-color: var(--base-color);
+}
+
+
+
+.quick {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    z-index: 99;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 70px;
+}
+.quick .btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--point-color);
+    color: #fff;
+    font-size: 15px;
+    font-weight: var(--bold-weight);
+    text-align: center;
+    padding: 15px 0 0 0;
+    position: relative; /* before 정렬의 기준 */
+}
+.quick .btn::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 8px;
+    width: 20px;
+    height: 20px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.quick .btn.open::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='6' viewBox='0 0 16 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 6C0.716667 6 0.479167 5.90417 0.2875 5.7125C0.0958333 5.52083 0 5.28333 0 5C0 4.71667 0.0958333 4.47917 0.2875 4.2875C0.479167 4.09583 0.716667 4 1 4H15C15.2833 4 15.5208 4.09583 15.7125 4.2875C15.9042 4.47917 16 4.71667 16 5C16 5.28333 15.9042 5.52083 15.7125 5.7125C15.5208 5.90417 15.2833 6 15 6H1ZM1 2C0.716667 2 0.479167 1.90417 0.2875 1.7125C0.0958333 1.52083 0 1.28333 0 1C0 0.716667 0.0958333 0.479167 0.2875 0.2875C0.479167 0.0958333 0.716667 0 1 0H15C15.2833 0 15.5208 0.0958333 15.7125 0.2875C15.9042 0.479167 16 0.716667 16 1C16 1.28333 15.9042 1.52083 15.7125 1.7125C15.5208 1.90417 15.2833 2 15 2H1Z' fill='white'/%3E%3C/svg%3E%0A");
+}
+.quick .btn.close::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_66_496' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='18' height='18'%3E%3Crect width='18' height='18' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_66_496)'%3E%3Cpath d='M9.0002 10.1936L5.39701 13.797C5.23851 13.9554 5.03957 14.0346 4.8002 14.0346C4.56082 14.0346 4.36188 13.9554 4.20338 13.797C4.04501 13.6385 3.96582 13.4396 3.96582 13.2002C3.96582 12.9608 4.04501 12.7619 4.20338 12.6034L7.80676 9.0002L4.20338 5.39701C4.04501 5.23851 3.96582 5.03957 3.96582 4.8002C3.96582 4.56082 4.04501 4.36188 4.20338 4.20338C4.36188 4.04501 4.56082 3.96582 4.8002 3.96582C5.03957 3.96582 5.23851 4.04501 5.39701 4.20338L9.0002 7.80676L12.6034 4.20338C12.7619 4.04501 12.9608 3.96582 13.2002 3.96582C13.4396 3.96582 13.6385 4.04501 13.797 4.20338C13.9554 4.36188 14.0346 4.56082 14.0346 4.8002C14.0346 5.03957 13.9554 5.23851 13.797 5.39701L10.1936 9.0002L13.797 12.6034C13.9554 12.7619 14.0346 12.9608 14.0346 13.2002C14.0346 13.4396 13.9554 13.6385 13.797 13.797C13.6385 13.9554 13.4396 14.0346 13.2002 14.0346C12.9608 14.0346 12.7619 13.9554 12.6034 13.797L9.0002 10.1936Z' fill='white'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+.quick .detail {
+    display: none;
+    margin: 0 0 10px 0;
+    background-color: #fff;
+    border: 2px solid var(--point-color);
+    border-radius: 80px;
+    padding: 18px 0;
+}
+.quick .detail ul li {
+    margin: 0 8px;
+}
+.quick .detail ul li + li {
+    border-top: 1px solid var(--point-color);
+}
+.quick .detail ul li a,
+.quick .detail ul li button {
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    color: var(--point-color);
+    text-align: center;
+    padding: 30px 0 10px 0;
+    position: relative; /* before 정렬의 기준 */
+}
+.quick .detail ul li a::before,
+.quick .detail ul li button::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 35px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.quick .detail ul li.kakao a::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_43_849' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='20'%3E%3Crect width='20' height='20' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_43_849)'%3E%3Cpath d='M0.833008 7.0625C0.833008 5.75694 1.27051 4.67014 2.14551 3.80208C3.02051 2.93403 4.11079 2.5 5.41634 2.5C6.13856 2.5 6.82606 2.65278 7.47884 2.95833C8.13162 3.26389 8.69412 3.69444 9.16634 4.25C9.63856 3.69444 10.2011 3.26389 10.8538 2.95833C11.5066 2.65278 12.1941 2.5 12.9163 2.5C13.9025 2.5 14.7497 2.74653 15.458 3.23958C16.1663 3.73264 16.7011 4.36806 17.0622 5.14583C17.1594 5.35417 17.1663 5.56597 17.083 5.78125C16.9997 5.99653 16.8538 6.15278 16.6455 6.25C16.4372 6.34722 16.2254 6.35417 16.0101 6.27083C15.7948 6.1875 15.6386 6.04167 15.5413 5.83333C15.2913 5.27778 14.9233 4.86111 14.4372 4.58333C13.9511 4.30556 13.4441 4.16667 12.9163 4.16667C12.2775 4.16667 11.6941 4.34722 11.1663 4.70833C10.6386 5.06944 10.1802 5.51389 9.79134 6.04167C9.7219 6.15278 9.63162 6.23264 9.52051 6.28125C9.4094 6.32986 9.29134 6.35417 9.16634 6.35417C9.04134 6.35417 8.92329 6.32639 8.81217 6.27083C8.70106 6.21528 8.61079 6.13889 8.54134 6.04167C8.15245 5.51389 7.69412 5.06944 7.16634 4.70833C6.63856 4.34722 6.05523 4.16667 5.41634 4.16667C4.62467 4.16667 3.94065 4.44097 3.36426 4.98958C2.78787 5.53819 2.49967 6.22917 2.49967 7.0625C2.49967 7.52083 2.5969 7.98611 2.79134 8.45833C2.98579 8.93056 3.33301 9.4757 3.83301 10.0938C4.33301 10.7118 5.01356 11.434 5.87467 12.2604C6.73579 13.0868 7.83301 14.0833 9.16634 15.25L11.0205 13.625C11.1872 13.4722 11.3816 13.4028 11.6038 13.4167C11.8261 13.4306 12.0136 13.5139 12.1663 13.6667C12.333 13.8333 12.4129 14.0382 12.4059 14.2812C12.399 14.5243 12.3052 14.7222 12.1247 14.875L10.2705 16.5208C10.1177 16.6597 9.94412 16.7639 9.74967 16.8333C9.55523 16.9028 9.36079 16.9375 9.16634 16.9375C8.9719 16.9375 8.77745 16.9028 8.58301 16.8333C8.38856 16.7639 8.21495 16.6528 8.06217 16.5C7.43717 15.9444 6.71148 15.3125 5.88509 14.6042C5.0587 13.8958 4.27051 13.1354 3.52051 12.3229C2.77051 11.5104 2.13509 10.6597 1.61426 9.77083C1.09342 8.88195 0.833008 7.97917 0.833008 7.0625ZM14.9997 11.6667H13.333C13.0969 11.6667 12.899 11.5868 12.7393 11.4271C12.5795 11.2674 12.4997 11.0694 12.4997 10.8333C12.4997 10.5972 12.5795 10.3993 12.7393 10.2396C12.899 10.0799 13.0969 10 13.333 10H14.9997V8.33333C14.9997 8.09722 15.0795 7.89931 15.2393 7.73958C15.399 7.57986 15.5969 7.5 15.833 7.5C16.0691 7.5 16.267 7.57986 16.4268 7.73958C16.5865 7.89931 16.6663 8.09722 16.6663 8.33333V10H18.333C18.5691 10 18.767 10.0799 18.9268 10.2396C19.0865 10.3993 19.1663 10.5972 19.1663 10.8333C19.1663 11.0694 19.0865 11.2674 18.9268 11.4271C18.767 11.5868 18.5691 11.6667 18.333 11.6667H16.6663V13.3333C16.6663 13.5694 16.5865 13.7674 16.4268 13.9271C16.267 14.0868 16.0691 14.1667 15.833 14.1667C15.5969 14.1667 15.399 14.0868 15.2393 13.9271C15.0795 13.7674 14.9997 13.5694 14.9997 13.3333V11.6667Z' fill='%2331C39C'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+.quick .detail ul li.naver a::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_43_852' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='20'%3E%3Crect width='20' height='20' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_43_852)'%3E%3Cpath d='M10 17.5C9.76389 17.5 9.56597 17.4201 9.40625 17.2604C9.24653 17.1007 9.16667 16.9028 9.16667 16.6667V10.8542C8.27778 10.8542 7.42361 10.684 6.60417 10.3438C5.78472 10.0035 5.0625 9.52083 4.4375 8.89583C3.8125 8.27083 3.33333 7.54861 3 6.72917C2.66667 5.90972 2.5 5.05556 2.5 4.16667V3.33333C2.5 3.09722 2.57986 2.89931 2.73958 2.73958C2.89931 2.57986 3.09722 2.5 3.33333 2.5H4.16667C5.04167 2.5 5.88889 2.67014 6.70833 3.01042C7.52778 3.35069 8.25 3.83333 8.875 4.45833C9.30556 4.88889 9.66319 5.36111 9.94792 5.875C10.2326 6.38889 10.4514 6.9375 10.6042 7.52083C10.6736 7.42361 10.75 7.32986 10.8333 7.23958C10.9167 7.14931 11.0069 7.05556 11.1042 6.95833C11.7292 6.33333 12.4514 5.85069 13.2708 5.51042C14.0903 5.17014 14.9444 5 15.8333 5H16.6667C16.9028 5 17.1007 5.07986 17.2604 5.23958C17.4201 5.39931 17.5 5.59722 17.5 5.83333V6.66667C17.5 7.55556 17.3299 8.40972 16.9896 9.22917C16.6493 10.0486 16.1667 10.7708 15.5417 11.3958C14.9167 12.0208 14.1979 12.5 13.3854 12.8333C12.5729 13.1667 11.7222 13.3333 10.8333 13.3333V16.6667C10.8333 16.9028 10.7535 17.1007 10.5938 17.2604C10.434 17.4201 10.2361 17.5 10 17.5ZM9.16667 9.16667C9.16667 8.5 9.03819 7.86458 8.78125 7.26042C8.52431 6.65625 8.15972 6.11806 7.6875 5.64583C7.21528 5.17361 6.67708 4.80903 6.07292 4.55208C5.46875 4.29514 4.83333 4.16667 4.16667 4.16667C4.16667 4.83333 4.29167 5.47222 4.54167 6.08333C4.79167 6.69444 5.15278 7.23611 5.625 7.70833C6.09722 8.18056 6.63889 8.54167 7.25 8.79167C7.86111 9.04167 8.5 9.16667 9.16667 9.16667ZM10.8333 11.6667C11.5 11.6667 12.1354 11.5417 12.7396 11.2917C13.3438 11.0417 13.8819 10.6806 14.3542 10.2083C14.8264 9.73611 15.191 9.19444 15.4479 8.58333C15.7049 7.97222 15.8333 7.33333 15.8333 6.66667C15.1667 6.66667 14.5278 6.79514 13.9167 7.05208C13.3056 7.30903 12.7639 7.67361 12.2917 8.14583C11.8194 8.61806 11.4583 9.15625 11.2083 9.76042C10.9583 10.3646 10.8333 11 10.8333 11.6667Z' fill='%2331C39C'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+.quick .detail ul li.green a::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_43_855' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='20'%3E%3Crect width='20' height='20' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_43_855)'%3E%3Cpath d='M9.16634 16.667V13.3337H7.49967C6.3469 13.3337 5.36426 12.9274 4.55176 12.1149C3.73926 11.3024 3.33301 10.3198 3.33301 9.16699C3.33301 8.33366 3.56217 7.5663 4.02051 6.86491C4.47884 6.16352 5.0969 5.6531 5.87467 5.33366C5.99967 4.29199 6.45454 3.42046 7.23926 2.71908C8.02398 2.01769 8.94412 1.66699 9.99967 1.66699C11.0552 1.66699 11.9754 2.01769 12.7601 2.71908C13.5448 3.42046 13.9997 4.29199 14.1247 5.33366C14.9025 5.6531 15.5205 6.16352 15.9788 6.86491C16.4372 7.5663 16.6663 8.33366 16.6663 9.16699C16.6663 10.3198 16.2601 11.3024 15.4476 12.1149C14.6351 12.9274 13.6525 13.3337 12.4997 13.3337H10.833V16.667H14.9997C15.2358 16.667 15.4337 16.7469 15.5934 16.9066C15.7531 17.0663 15.833 17.2642 15.833 17.5003C15.833 17.7364 15.7531 17.9344 15.5934 18.0941C15.4337 18.2538 15.2358 18.3337 14.9997 18.3337H4.99967C4.76356 18.3337 4.56565 18.2538 4.40592 18.0941C4.2462 17.9344 4.16634 17.7364 4.16634 17.5003C4.16634 17.2642 4.2462 17.0663 4.40592 16.9066C4.56565 16.7469 4.76356 16.667 4.99967 16.667H9.16634ZM7.49967 11.667H12.4997C13.1941 11.667 13.7844 11.4239 14.2705 10.9378C14.7566 10.4517 14.9997 9.86144 14.9997 9.16699C14.9997 8.66699 14.8573 8.20866 14.5726 7.79199C14.2879 7.37533 13.9163 7.06977 13.458 6.87533L12.583 6.50033L12.458 5.54199C12.3747 4.91699 12.1004 4.39269 11.6351 3.96908C11.1698 3.54546 10.6247 3.33366 9.99967 3.33366C9.37467 3.33366 8.82954 3.54546 8.36426 3.96908C7.89898 4.39269 7.62467 4.91699 7.54134 5.54199L7.41634 6.50033L6.54134 6.87533C6.08301 7.06977 5.71148 7.37533 5.42676 7.79199C5.14204 8.20866 4.99967 8.66699 4.99967 9.16699C4.99967 9.86144 5.24273 10.4517 5.72884 10.9378C6.21495 11.4239 6.80523 11.667 7.49967 11.667Z' fill='%2331C39C'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+.quick .detail ul li.top button::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='15' height='9' viewBox='0 0 15 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.4949 2.34689L1.68091 8.67703C1.48316 8.89234 1.25245 8.99641 0.988773 8.98923C0.725101 8.98206 0.494387 8.87081 0.296632 8.6555C0.0988779 8.44019 0 8.189 0 7.90191C0 7.61483 0.0988779 7.36364 0.296632 7.14833L6.36769 0.516746C6.5259 0.344498 6.70388 0.215311 6.90163 0.129187C7.09939 0.0430622 7.29714 0 7.4949 0C7.69265 0 7.89041 0.0430622 8.08816 0.129187C8.28591 0.215311 8.46389 0.344498 8.6221 0.516746L14.7129 7.14833C14.9107 7.36364 15.0063 7.61842 14.9997 7.91268C14.9931 8.20694 14.8909 8.46172 14.6932 8.67703C14.4954 8.89234 14.2647 9 14.001 9C13.7373 9 13.5066 8.89234 13.3089 8.67703L7.4949 2.34689Z' fill='%2331C39C'/%3E%3C/svg%3E%0A");
+}
+
+
+
