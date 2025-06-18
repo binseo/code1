@@ -21,7 +21,14 @@ html, body {
     width: 100%; 
 }
 
-@media screen and (max-width:1300px){ /* 20 + 20 = 40 + 1260 = 1300  */
+@media screen and (max-width:1600px) {
+    .wrapper {
+        width: auto;
+        margin: 0 120px 0 180px; /* 가운데 */
+    }
+}
+
+@media screen and (max-width:1024px){ /* 20 + 20 = 40 + 1260 = 1300  */
     .wrapper {
     width: auto;
     margin: 0 20px;
