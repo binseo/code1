@@ -70,7 +70,7 @@ header.menu_over .util .search_open {
 
 @media screen and (min-width:1025px) {
 
-    /* <button class="gnb_open"><span class="blind">메뉴열기</span></button> --> 이거 나오게 해야함  */
+    /* ###<button class="gnb_open"><span class="blind">메뉴열기</span></button> --> 이거 나오게 해야함###  */
 
     header .gnb .gnb_bg,
     header .gnb .gnb_open,
