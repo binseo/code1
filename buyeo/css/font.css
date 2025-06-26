@@ -1,6 +1,12 @@
 /* 웹폰트를 선언 */
-@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap');
-/* 영문 폰트 */
+
+
+@font-face {
+    font-family: 'jalnan';
+    src: url('../font/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 @font-face {
 	font-family: 'Pretendard';
