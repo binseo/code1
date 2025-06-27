@@ -4,6 +4,13 @@
 @import url(layout.css);
 
 
+.tit_font {
+    font-family: 'jalnan';
+    font-size: var(--tit-font-size);
+    line-height: 1.2;
+    margin-top: var(--tit-margin);
+}
+
 .visual {
     position: relative; /* ctrl_wrap, scroll_down 정렬의 기준 */
 }
@@ -204,3 +211,198 @@
         bottom: 48%; 
     }
 }/* @media */
+
+
+
+
+.theme {
+    background: url(../images/main/theme_bg.jpg) no-repeat center center / cover;
+    height: 900px;
+    padding: 200px 0;
+    position: relative;
+}
+.theme::before {
+    content: "";
+    position: absolute; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31,43,58,0.3);
+    backdrop-filter: blur(10px);
+}
+
+.theme .tit {
+    color: #fff;
+    width: 404px;
+    position: absolute;
+    padding: 0 70px 0 0;
+    left: 10%;
+    top: 25%;
+}
+
+.theme .tit .theme_tab {
+    margin-top: 70px;
+}
+.theme .tit .theme_tab ul li {
+    padding: 20px 0;
+}
+.theme .tit .theme_tab ul li button {
+    font-family: 'jalnan';
+    font-size: 22px;
+    line-height: 1.2;
+}
+.theme .tit .theme_tab ul li button strong {
+    font-size: 20px;
+    margin-right: 20px;
+    padding: 13px 12px 13px 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+.theme .tit .theme_tab ul li.active button {
+    color: var(--point-color);
+}
+.theme .tit .theme_tab ul li.active button strong {
+    background-color: #fff;
+}
+
+
+
+
+
+.theme .list {
+    margin: 50px 0 0 0;
+    width: calc(50% + 500px);
+    /* wrapper사이즈 1260px의 절반 630px 더함 */
+    position: relative;
+    left: calc(50% - 200px);
+}
+.theme .list ul li {
+    width: 273px;
+    height: 400px;
+}
+.theme .list .tab_item {
+    display: none;
+}
+.theme .list .tab_item.active {
+    display: block;
+}
+.theme .list .tab_item .swiper-slide:nth-child(odd) {
+    transform: translateY(70px);
+}
+.theme .list .tab_item .swiper {
+    height: 530px;
+}
+
+.theme .list .tab_item .swiper-slide a {
+    display: block;
+    position: relative;
+    height: 400px;
+}
+.theme .list .tab_item .swiper-slide a .photo {
+    overflow: hidden;
+    height: 400px;
+    border-radius: 20px;
+}
+.theme .list .tab_item .swiper-slide a .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.theme .list .tab_item .swiper-slide a .txt {
+    position: relative;
+    left: 0;
+    bottom: 110px;
+    width: 100%;
+    color: #fff;
+    background-color: rgba(29,29,29,0.5);
+    border-radius: 20px;
+    padding: 20px 20px 30px 20px;
+}
+.theme .list .tab_item .swiper-slide a .txt h3 {
+    font-family: 'jalnan';
+    font-size: 20px;
+    line-height: 1.2;
+    margin: 0 0 10px 0;
+
+    /* 한 줄 제한 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.theme .list .tab_item .swiper-slide a .txt p {
+    /* 한 줄 제한 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 35px;
+}
+.theme .list .tab_item .swiper-slide a .txt p::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 54px;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_65_8603' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='15' height='15'%3E%3Crect width='15' height='15' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_65_8603)'%3E%3Cpath d='M8.96875 12.9844L5.625 11.8125L2.71875 12.9375C2.61458 12.9792 2.51302 12.9922 2.41406 12.9766C2.3151 12.9609 2.22396 12.9271 2.14062 12.875C2.05729 12.8229 1.99219 12.7526 1.94531 12.6641C1.89844 12.5755 1.875 12.474 1.875 12.3594V3.59375C1.875 3.45833 1.91406 3.33854 1.99219 3.23438C2.07031 3.13021 2.17708 3.05208 2.3125 3L5.21875 2.01562C5.28125 1.99479 5.34635 1.97917 5.41406 1.96875C5.48177 1.95833 5.55208 1.95312 5.625 1.95312C5.69792 1.95312 5.76823 1.95833 5.83594 1.96875C5.90365 1.97917 5.96875 1.99479 6.03125 2.01562L9.375 3.1875L12.2812 2.0625C12.3854 2.02083 12.487 2.00781 12.5859 2.02344C12.6849 2.03906 12.776 2.07292 12.8594 2.125C12.9427 2.17708 13.0078 2.2474 13.0547 2.33594C13.1016 2.42448 13.125 2.52604 13.125 2.64062V11.4062C13.125 11.5417 13.0859 11.6615 13.0078 11.7656C12.9297 11.8698 12.8229 11.9479 12.6875 12L9.78125 12.9844C9.71875 13.0052 9.65365 13.0208 9.58594 13.0312C9.51823 13.0417 9.44792 13.0469 9.375 13.0469C9.30208 13.0469 9.23177 13.0417 9.16406 13.0312C9.09635 13.0208 9.03125 13.0052 8.96875 12.9844ZM8.75 11.5938V4.28125L6.25 3.40625V10.7188L8.75 11.5938ZM10 11.5938L11.875 10.9688V3.5625L10 4.28125V11.5938ZM3.125 11.4375L5 10.7188V3.40625L3.125 4.03125V11.4375Z' fill='%231C1B1F'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.theme .list .swiper .paging {
+    position: absolute; /* swiper를 기준으로  */
+    left: 40px;
+    bottom: 8px;
+    z-index: 10;
+    width: 100px;
+    display: flex; /* span태그 좌우배치 */
+    justify-content: center; /* 가운데 */
+    gap: 5px;
+}
+
+.theme .list .swiper .paging .swiper-pagination-bullet {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    margin: 0;
+    background: none;
+    opacity: 1;
+}
+.theme .list .swiper .paging .swiper-pagination-bullet.swiper-pagination-bullet-active { 
+    /* 현재 팝업 동그라미(선택 된 것) */
+    background-color: #fff;
+}
+
+.theme .list .swiper .ctrl_wrap {
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.theme .list .swiper .ctrl_wrap button {
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 25px; 
+    height: 25px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.theme .list .swiper .ctrl_wrap button.btn_prev {
+    margin-right: 130px;
+    background-image: url("data:image/svg+xml,%3Csvg width='8' height='20' viewBox='0 0 8 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_119_782' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='8' height='20'%3E%3Crect x='0.400391' width='7.2' height='20' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_119_782)'%3E%3Cpath d='M1.76289 9.99591L5.43789 13.6709C5.56289 13.7959 5.62331 13.9417 5.61914 14.1084C5.61497 14.2751 5.55039 14.4209 5.42539 14.5459C5.30039 14.6709 5.15456 14.7334 4.98789 14.7334C4.82122 14.7334 4.67539 14.6709 4.55039 14.5459L0.700391 10.7084C0.600391 10.6084 0.525391 10.4959 0.475391 10.3709C0.425391 10.2459 0.400391 10.1209 0.400391 9.99591C0.400391 9.87091 0.425391 9.74591 0.475391 9.62091C0.525391 9.49591 0.600391 9.38341 0.700391 9.28341L4.55039 5.4334C4.67539 5.3084 4.82331 5.24799 4.99414 5.25215C5.16497 5.25632 5.31289 5.3209 5.43789 5.4459C5.56289 5.5709 5.62539 5.71674 5.62539 5.8834C5.62539 6.05007 5.56289 6.1959 5.43789 6.3209L1.76289 9.99591Z' fill='white'/%3E%3C/g%3E%3C/svg%3E%0A");
+} 
+.theme .list .swiper .ctrl_wrap button.btn_next {
+    background-image: url("data:image/svg+xml,%3Csvg width='8' height='20' viewBox='0 0 8 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_119_785' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='8' height='20'%3E%3Crect width='7.2' height='20' transform='matrix(-1 0 0 1 7.59961 0)' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_119_785)'%3E%3Cpath d='M6.23711 9.99591L2.56211 13.6709C2.43711 13.7959 2.37669 13.9417 2.38086 14.1084C2.38503 14.2751 2.44961 14.4209 2.57461 14.5459C2.69961 14.6709 2.84544 14.7334 3.01211 14.7334C3.17878 14.7334 3.32461 14.6709 3.44961 14.5459L7.29961 10.7084C7.39961 10.6084 7.47461 10.4959 7.52461 10.3709C7.57461 10.2459 7.59961 10.1209 7.59961 9.99591C7.59961 9.87091 7.57461 9.74591 7.52461 9.62091C7.47461 9.49591 7.39961 9.38341 7.29961 9.28341L3.44961 5.4334C3.32461 5.3084 3.17669 5.24799 3.00586 5.25215C2.83503 5.25632 2.68711 5.3209 2.56211 5.4459C2.43711 5.5709 2.37461 5.71674 2.37461 5.8834C2.37461 6.05007 2.43711 6.1959 2.56211 6.3209L6.23711 9.99591Z' fill='white'/%3E%3C/g%3E%3C/svg%3E%0A");
+} 
+
+
+
