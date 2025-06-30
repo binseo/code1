@@ -81,18 +81,23 @@ html, body {
     --tit-font-size: 40px;
     --tit-line-height: 1.2;
     --tit-margin: 15px; 
-
+    --section-padding: 150px;
+    --list-margin: 60px;
 }
+
 @media screen and (max-width:1024px) {
     :root {
         --header-h: 56px; /* header 높이 */
         --header-h-m: -56px;
         --tit-font-size: 35px; 
+        --section-padding: 120px;
     }
 }
 @media screen and (max-width:768px) {
     :root {
         --tit-font-size: 30px; 
         --tit-margin: 10px; 
+        --section-padding: 90px;
+        --list-margin: 30px;
     }
 }
