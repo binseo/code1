@@ -60,7 +60,7 @@ html, body {
     top: -1000px;
     width: 100%;
     display: block;
-    background-color: yellowgreen;
+    background-color: var(--point-color);
     text-align: center;
     padding: 5px 0;
     color: #fff;

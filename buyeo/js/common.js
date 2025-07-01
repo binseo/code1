@@ -51,7 +51,7 @@
         resize_chk() // 함수 실행
         scroll_chk()
 
-        $('header .gnb .gnb_wrap ul.depth1 > li').on('mouseenter', function(){
+        $('header .gnb .gnb_wrap ul.depth1 > li').on('mouseenter focusin', function(){
             if(device_status == 'pc'){
                 // console.log('오버!!!!')
                 $('header').addClass('menu_over')
@@ -62,6 +62,12 @@
         $('header').on('mouseleave', function(){
             $('header').removeClass('menu_over')
             $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
+        })
+
+        $('header .util:last-child').on('focusout', function(){
+            $('header').removeClass('menu_over')
+            $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
+            
         })
 
         /* ****************************** 모바일 메뉴 열고 닫기 **************************** */
