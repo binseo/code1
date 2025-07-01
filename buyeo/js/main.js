@@ -6,7 +6,7 @@ $(document).ready(function(){
         loop: true,
         effect: 'fade',
         autoplay: {
-            delay: 9900,
+            delay: 2500,
             disableOnInteraction: true,
         },
         pagination: {

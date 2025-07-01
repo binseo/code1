@@ -84,11 +84,15 @@ html, body {
     --section-padding: 150px;
     --list-margin: 60px;
 }
-
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1139px) {
     :root {
         --header-h: 56px; /* header 높이 */
         --header-h-m: -56px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    :root {
         --tit-font-size: 35px; 
         --section-padding: 120px;
     }

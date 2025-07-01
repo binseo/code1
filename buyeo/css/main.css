@@ -1105,7 +1105,8 @@
     content: "";
     position: absolute;
     left: 20px;
-    bottom: 0;
+    bottom: -5px;
+    z-index: -1;
     width: 400px;
     height: 125px;
     background: url(../images/main/notice_bg02.svg) no-repeat center center / cover;
@@ -1323,7 +1324,7 @@
 
 @media screen and (max-width:768px) {
     .notice {
-        padding: 90px 0;
+        padding: 100px 0;
         position: relative;
     }
     .notice::before {
