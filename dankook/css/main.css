@@ -1,0 +1,12 @@
+@import url(default.css);
+@import url(font.css);
+@import url(common.css);
+@import url(layout.css);
+
+
+.tit_font {
+    font-family: 'jalnan';
+    font-size: var(--tit-font-size);
+    line-height: 1.2;
+    margin-top: var(--tit-margin);
+}
