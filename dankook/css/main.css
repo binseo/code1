@@ -5,8 +5,23 @@
 
 
 .tit_font {
-    font-family: 'jalnan';
+    font-family: 'Archivo';
     font-size: var(--tit-font-size);
+    font-weight: 700;
     line-height: 1.2;
-    margin-top: var(--tit-margin);
+}
+
+.visual {
+    height: 900px;
+    background: url(../images/main/visual_bg.jpg) no-repeat center center / cover;
+    color: #fff;
+}
+.visual h2 {
+    font-size: 30px;
+    font-weight: 700;
+    padding: 40vh 0 20px 0;
+}
+.visual p {
+    font-size: 60px;
+    font-weight: 700;
 }

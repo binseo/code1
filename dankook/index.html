@@ -3,9 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jquery 라이브러리 -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js"></script>
+    <script src="js/common.js"></script>
     <title>단국대학교</title>
 </head>
 <body>
-    
+    <div id="wrap">
+        <header>
+            <div class="header_top">
+                <div class="top_util">
+                    <ul>
+                        <li><a href="#">포털시스템</a></li>
+                        <li><a href="#">ENGLISH</a></li>
+                        <li><a href="#">CHINESE</a></li>
+                        <li><a href="#">로그인</a></li>
+                    </ul>
+                </div>
+            </div><!--header_top-->
+            <div class="header_wrap">
+                <div class="nav_container">
+                    <h1 class="logo"><a href="index.html"><span class="blind">단국대학교</span></a></h1>
+                    <nav class="gnb">
+                        <button class="gnb_open"><span class="blind">메뉴열기</span></button>
+                        <div class="gnb_wrap">
+                            <ul class="depth1">
+                                <li class="intro">
+                                    <a href="#"><span>대학소개</span></a>
+                                    <div class="gnb_bg">
+                                        <div class="title">
+                                            <strong>대학소개</strong>
+                                        </div>
+                                        <ul class="depth2">
+                                            <li>
+                                                <a href="#"><span>총장소개</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">총장인사말</a></li>
+                                                    <li><a href="#">총장동정</a></li>
+                                                    <li><a href="#">단비소리(소리샘)</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>역대 총ㆍ학장</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">종합대학기</a></li>
+                                                    <li><a href="#">단과대학기</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>DKU 비전</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">단국의 비전</a></li>
+                                                    <li><a href="#">교육이념 및 목표</a></li>
+                                                    <li><a href="#">발전계획</a></li>
+                                                    <li><a href="#">발전목표와 전략</a></li>
+                                                    <li><a href="#">부분별 발전전략 내용</a></li>
+                                                    <li><a href="#">특성화 전략 및 테마</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>대학혁신지원사업</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>역사ㆍ상징</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">역사</a></li>
+                                                    <li><a href="#">상징</a></li>
+                                                    <li><a href="#">학연가연(學緣佳緣)</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>대학 기관ㆍ규정</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">조직도</a></li>
+                                                    <li><a href="#">규정</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>대학현황</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">현황</a></li>
+                                                    <li><a href="#">예ㆍ결산 공고</a></li>
+                                                    <li><a href="#">대학주요회의</a></li>
+                                                    <li><a href="#">업무추진비 내역 공고</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>캠퍼스 안내</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">전화번호 검색</a></li>
+                                                    <li><a href="#">캠퍼스맵</a></li>
+                                                    <li><a href="#">찾아오시는길</a></li>
+                                                    <li><a href="#">셔틀버스</a></li>
+                                                    <li><a href="#">주차요금 안내</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul><!--depth2-->
+                                    </div><!--gnb_bg-->
+                                </li><!--//intro-->
+                                <li class="admission">
+                                    <a href="#"><span>입학안내</span></a>
+                                    <div class="gnb_bg">
+                                        <div class="title">
+                                            <strong>입학안내</strong>
+                                        </div>
+                                        <ul class="depth2">
+                                            <li>
+                                                <a href="#"><span>대학입학</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">학부입학 바로가기</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>대학원입학</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">대학원입학 바로가기</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>특수대학원입학</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">경영대학원</a></li>
+                                                    <li><a href="#">행정법무대학원</a></li>
+                                                    <li><a href="#">교육대학원</a></li>
+                                                    <li><a href="#">정보융합기술·창업대학원</a></li>
+                                                    <li><a href="#">특수교육대학원</a></li>
+                                                    <li><a href="#">문화예술대학원</a></li>
+                                                    <li><a href="#">부동산·건설대학원</a></li>
+                                                    <li><a href="#">정책경영대학원</a></li>
+                                                    <li><a href="#">스포츠과학대학원</a></li>
+                                                    <li><a href="#">보건복지대학원</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>외국인유학생 입학</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">외국인 전형</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>한국어교육과정</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">역사</a></li>
+                                                    <li><a href="#">상징</a></li>
+                                                    <li><a href="#">학연가연(學緣佳緣)</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul><!--depth2-->
+                                    </div><!--gnb_bg-->
+                                </li><!--//admission-->
+                                <li class="education">
+                                    <a href="#"><span>교육</span></a>
+                                    <div class="gnb_bg">
+                                        <div class="title">
+                                            <strong>교육</strong>
+                                        </div>
+                                        <ul class="depth2">
+                                            <li>
+                                                <a href="#"><span>대학</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">인문·사회대학</a></li>
+                                                    <li><a href="#">과학·공학·기술대학</a></li>
+                                                    <li><a href="#">의학·보건대학</a></li>
+                                                    <li><a href="#">예체능대학</a></li>
+                                                    <li><a href="#">교육·기초교양대학</a></li>
+                                                    <li><a href="#">글로벌·융합 특성화대학</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>대학원</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">일반대학원</a></li>
+                                                    <li><a href="#">특수대학원</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>글로벌교육</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">현황</a></li>
+                                                    <li><a href="#">교환학생</a></li>
+                                                    <li><a href="#">어학연수</a></li>
+                                                    <li><a href="#">공동</a></li>
+                                                    <li><a href="#">복수학위</a></li>
+                                                    <li><a href="#">방학 중 교내 프로그램</a></li>
+                                                    <li><a href="#">인턴십</a></li>
+                                                    <li><a href="#">장학ㆍ지원</a></li>
+                                                    <li><a href="#">국제학생활동</a></li>
+                                                    <li><a href="#">보건복지대학원</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>어학교육</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">한국어교육과정</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>혁신융합대학</span></a>
+                                                <ul class="depth3">
+                                                    <li><a href="#">COSS 바이오헬스</a></li>
+                                                    <li><a href="#">COSS 차세대디스플레이</a></li>
+                                                    <li><a href="#">COSS 반도체소부장</a></li>
+                                                    <li><a href="#">HUSS 글로벌K-컬처</a></li>
+                                                    <li><a href="#">HUSS 사회구조</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>부설교육기관</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span>교육지원</span></a>
+                                            </li>
+                                        </ul><!--depth2-->
+                                    </div><!--gnb_bg-->
+                                </li><!--//education-->
+                            </ul><!--depth1-->
+                        </div><!--gnb_wrap-->
+                        <button class="gnb_close"><span class="blind">메뉴닫기</span></button>
+                    </nav><!--gnb-->
+                </div>
+                <div class="util">
+                    <div class="search">
+                        <button class="search_open"><span class="blind">검색 열기</span></button>
+                    </div><!--search-->
+                    <div class="map">
+                        <a href="#" target="_blank" title="새창열림" class="map_open"><span class="blind">사이트 맵</span></a>
+                    </div><!--map-->
+                </div><!--util-->
+            </div><!--header_wrap-->
+        </header>
+        <main class="container">
+            <section class="visual">
+                <div class="wrapper">
+                    <h2>Challenging Youth, United at Dankook</h2>
+                    <p>도전하는 청춘, 함께하는 단국</p>
+                </div>
+            </section>
+            <section class="service"></section>
+            <section class="notice"></section>
+            <section class="news"></section>
+            <section class="indicators"></section>
+            <section class="sns"></section>
+            <section class="information"></section>
+        </main>
+        <aside class="quick"></aside>
+        <footer></footer>
+    </div>
 </body>
 </html>
