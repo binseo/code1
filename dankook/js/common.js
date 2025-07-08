@@ -83,11 +83,11 @@
         // ##########################
 
         /* ****************************** 모바일 메뉴 열고 닫기 **************************** */
-        $('header .gnb .gnb_open').on('click', function(){
+        $('header .header_wrap .nav_container .gnb .gnb_open').on('click', function(){
             $('header').addClass('menu_open')
             menu_open = true; // 추가
         })
-        $('header .gnb .gnb_close').on('click', function(){
+        $('header .header_wrap .nav_container .gnb .gnb_close').on('click', function(){
             $('header').removeClass('menu_open')
             menu_open = false; // 추가
         })
@@ -98,26 +98,73 @@
         * 메뉴가 닫혀있으면 - li에 open 클래스를 추가, 2차 메뉴 열기
         * */
 
-        $('header .gnb .gnb_wrap ul.depth1 > li > a').on('click', function(e){
-            
-            if(device_status == 'moblie'){
-                e.preventDefault() /* a 태그의 href를 작동 시키지 않음 */
-                // console.log('눌린다~~~~~~~~')
-                menu_open = $(this).parents('li').hasClass('open')
-                // console.log(menu_open)
-                if(menu_open == true){ // 메뉴가 열려있으면
-                    $(this).parents('li').removeClass('open')
-                    $(this).next().slideUp()
-                }else{ // 메뉴가 닫혀있으면
-                    $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('open')
-                    $('header .gnb .gnb_wrap ul.depth1 > li > ul.depth2').slideUp()
-                    $(this).parents('li').addClass('open')
-                    $(this).next().slideDown()
-                    
+        // 1차 메뉴 클릭 시
+        $('header .gnb .gnb_wrap ul.depth1 > li > a').on('click', function (e) {
+            if (device_status === 'moblie') {
+                e.preventDefault();
+                const $li = $(this).closest('li');
+
+                if ($li.hasClass('open')) {
+                    $li.removeClass('open');
+                    $li.find('.gnb_bg').stop(true, true).slideUp(300);
+                } else {
+                    $('header .gnb .gnb_wrap ul.depth1 > li')
+                        .removeClass('open')
+                        .find('.gnb_bg').stop(true, true).slideUp(300);
+
+                    $li.addClass('open');
+                    $li.find('.gnb_bg').stop(true, true).slideDown(300);
                 }
             }
+        });
+
+        // 2차 메뉴 클릭 시
+        $('header .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li > a').on('click', function (e) {
+            if (device_status === 'moblie') {
+                e.preventDefault();
+                const $clickedLi = $(this).closest('li');
+                const isOpen = $clickedLi.hasClass('open');
+
+                $clickedLi.siblings('li').each(function () {
+                    $(this).removeClass('open');
+                    $(this).children('ul.depth3').stop(true, true).slideUp(300);
+                });
+
+                if (isOpen) {
+                    $clickedLi.removeClass('open');
+                    $clickedLi.children('ul.depth3').stop(true, true).slideUp(300);
+                } else {
+                    $clickedLi.addClass('open');
+                    $clickedLi.children('ul.depth3').stop(true, true).slideDown(300);
+                }
+            }
+        }); // 1차와 2차 따로 따로 해보기 (금호건설꺼 가지고 와서 테스트 하기)
+
+
+
+
+
+
+        // $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > a').on('click', function(e){
             
-        })
+        //     if(device_status == 'moblie'){
+        //         e.preventDefault() /* a 태그의 href를 작동 시키지 않음 */
+        //         // console.log('눌린다~~~~~~~~')
+        //         menu_open = $(this).parents('li').hasClass('open')
+        //         // console.log(menu_open)
+        //         if(menu_open == true){ // 메뉴가 열려있으면
+        //             $(this).parents('li').removeClass('open')
+        //             $(this).next().slideUp()
+        //         }else{ // 메뉴가 닫혀있으면
+        //             $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2').removeClass('open')
+        //             $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li > ul.depth3').slideUp()
+        //             $(this).parents('li').addClass('open')
+        //             $(this).next().slideDown()
+                    
+        //         }
+        //     }
+            
+        // })
 
         /* ************************************** footer : 시작 ************************************ */
 

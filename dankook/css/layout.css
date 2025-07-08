@@ -83,18 +83,7 @@ header.menu_over .header_wrap .util .map .map_open {
 
 
 @media screen and (min-width:1025px) {
-    header.menu_over::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 130px;
-        width: 100%;
-        height: 1px;
-        background-color: #ededed;
-    }
-    header.fixed.menu_over::after {
-        top: 90px;
-    }
+    
     header .header_wrap .nav_container .gnb .gnb_open,
     header .header_wrap .nav_container .gnb .gnb_close {
         display: none; /* 모바일에서만 숨김 */
@@ -129,14 +118,6 @@ header.menu_over .header_wrap .util .map .map_open {
         display: block;
         color: #fff;
     }
-    header.menu_over .header_top::after {
-        background-color: #ededed;
-    }
-    header.menu_over .header_top .top_util ul li a {
-        color: var(--tit-color);
-    }
-    
-    
     
     
     header .header_wrap {
@@ -172,37 +153,12 @@ header.menu_over .header_wrap .util .map .map_open {
         font-weight: 700;
         line-height: 90px;
     }
-    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li.over > a {
-        color: var(--main-color);
-    }
-    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li.over > a > span {
-        position: relative; /* after */
-    }
-    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li.over > a > span::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -30px; 
-        z-index: 1;
-        width: 100%;
-        height: 3px;
-        background-color: var(--main-color);
-    }
+    
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg {
         display: none;
     }
 
-    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li.over > .gnb_bg {
-        display: flex; /*########## 보류 ###########*/
-        position: absolute;
-        left: 0;
-        top: 90px;
-        width: 100%;
-        background-color: #fff;
-        background-image: url(../images/common/gnb_bg_txt.png);
-        background-repeat: no-repeat;
-        background-position: right bottom;
-    }
+    
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg .title {
         width: 450px;
         background-color: var(--main-color);
@@ -248,12 +204,7 @@ header.menu_over .header_wrap .util .map .map_open {
         border-radius: 10px;
         position: relative;
     }
-    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li.over > a,
-    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li.over > a:hover {
-        color: #fff; /* ?????????????????? */
-        background-color: var(--main-color);
-        border-color: var(--main-color);
-    }
+    
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li > a::after {
         content: "";
         position: absolute;
@@ -265,10 +216,7 @@ header.menu_over .header_wrap .util .map .map_open {
         background-repeat: no-repeat;
         background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_71_1144' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='20'%3E%3Crect width='20' height='20' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_71_1144)'%3E%3Cpath d='M12.3592 10.0013L6.08188 3.72401C5.91633 3.55845 5.8357 3.36137 5.84001 3.13276C5.84431 2.90415 5.92924 2.707 6.0948 2.5413C6.26035 2.37575 6.45744 2.29297 6.68605 2.29297C6.91466 2.29297 7.11181 2.37575 7.27751 2.5413L13.6573 8.93401C13.8079 9.08471 13.9195 9.25352 13.9921 9.44047C14.0649 9.62741 14.1013 9.81436 14.1013 10.0013C14.1013 10.1882 14.0649 10.3752 13.9921 10.5621C13.9195 10.7491 13.8079 10.9179 13.6573 11.0686L7.26459 17.4613C7.09904 17.6269 6.9041 17.7075 6.6798 17.7032C6.45535 17.6989 6.26035 17.6139 6.0948 17.4484C5.92924 17.2828 5.84647 17.0857 5.84647 16.8571C5.84647 16.6285 5.92924 16.4314 6.0948 16.2657L12.3592 10.0013Z' fill='%231D1D1D'/%3E%3C/g%3E%3C/svg%3E%0A");
     }
-    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li.over > a::after,
-    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li.over > a:hover::after {
-        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_71_1144' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='20'%3E%3Crect width='20' height='20' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_71_1144)'%3E%3Cpath d='M12.3592 10.0013L6.08188 3.72401C5.91633 3.55845 5.8357 3.36137 5.84001 3.13276C5.84431 2.90415 5.92924 2.707 6.0948 2.5413C6.26035 2.37575 6.45744 2.29297 6.68605 2.29297C6.91466 2.29297 7.11181 2.37575 7.27751 2.5413L13.6573 8.93401C13.8079 9.08471 13.9195 9.25352 13.9921 9.44047C14.0649 9.62741 14.1013 9.81436 14.1013 10.0013C14.1013 10.1882 14.0649 10.3752 13.9921 10.5621C13.9195 10.7491 13.8079 10.9179 13.6573 11.0686L7.26459 17.4613C7.09904 17.6269 6.9041 17.7075 6.6798 17.7032C6.45535 17.6989 6.26035 17.6139 6.0948 17.4484C5.92924 17.2828 5.84647 17.0857 5.84647 16.8571C5.84647 16.6285 5.92924 16.4314 6.0948 16.2657L12.3592 10.0013Z' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E%0A");
-    }   
+      
 
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li > ul.depth3 {
         margin: 20px 0 0 25px;
@@ -314,6 +262,68 @@ header.menu_over .header_wrap .util .map .map_open {
         width: 100%;
     }
 
+    /* ################## header에 fixed, menu_over 클래스가 추가 되었을 때 #################### */
+    header.menu_over::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 130px;
+        width: 100%;
+        height: 1px;
+        background-color: #ededed;
+    }
+    header.fixed.menu_over::after {
+        top: 90px;
+    }
+
+    header.menu_over .header_top::after {
+        background-color: #ededed;
+    }
+    header.menu_over .header_top .top_util ul li a {
+        color: var(--tit-color);
+    }
+
+    /* ################## li over 클래스가 추가 되었을 때 #################### */
+    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li.over > a {
+        color: var(--main-color);
+    }
+    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li.over > a > span {
+        position: relative; /* after */
+    }
+    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li.over > a > span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -30px; 
+        z-index: 1;
+        width: 100%;
+        height: 3px;
+        background-color: var(--main-color);
+    }
+    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li.over > .gnb_bg {
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: 90px;
+        width: 100%;
+        background-color: #fff;
+        background-image: url(../images/common/gnb_bg_txt.png);
+        background-repeat: no-repeat;
+        background-position: right bottom;
+    }
+
+    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li.over > a,
+    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li.over > a:hover {
+        color: #fff; 
+        background-color: var(--main-color);
+        border-color: var(--main-color);
+    }
+
+    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li.over > a::after,
+    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li.over > a:hover::after {
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_71_1144' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='20'%3E%3Crect width='20' height='20' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_71_1144)'%3E%3Cpath d='M12.3592 10.0013L6.08188 3.72401C5.91633 3.55845 5.8357 3.36137 5.84001 3.13276C5.84431 2.90415 5.92924 2.707 6.0948 2.5413C6.26035 2.37575 6.45744 2.29297 6.68605 2.29297C6.91466 2.29297 7.11181 2.37575 7.27751 2.5413L13.6573 8.93401C13.8079 9.08471 13.9195 9.25352 13.9921 9.44047C14.0649 9.62741 14.1013 9.81436 14.1013 10.0013C14.1013 10.1882 14.0649 10.3752 13.9921 10.5621C13.9195 10.7491 13.8079 10.9179 13.6573 11.0686L7.26459 17.4613C7.09904 17.6269 6.9041 17.7075 6.6798 17.7032C6.45535 17.6989 6.26035 17.6139 6.0948 17.4484C5.92924 17.2828 5.84647 17.0857 5.84647 16.8571C5.84647 16.6285 5.92924 16.4314 6.0948 16.2657L12.3592 10.0013Z' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E%0A");
+    } 
+
     
 }/* @media */
 
@@ -340,8 +350,6 @@ header.menu_over .header_wrap .util .map .map_open {
     }
     
 
-
-    
     header .header_wrap .nav_container .gnb .gnb_open {
         display: block;
         width: var(--header-h);
@@ -353,6 +361,8 @@ header.menu_over .header_wrap .util .map .map_open {
     header.fixed .header_wrap .nav_container .gnb .gnb_open {
         background-image: url("data:image/svg+xml,%3Csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_109_4600' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='26' height='26'%3E%3Crect width='26' height='26' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_109_4600)'%3E%3Cpath d='M4.604 7.58398C4.3738 7.58398 4.18087 7.50607 4.02523 7.35026C3.86941 7.19444 3.7915 7.00142 3.7915 6.77121C3.7915 6.54082 3.86941 6.3479 4.02523 6.19244C4.18087 6.0368 4.3738 5.95898 4.604 5.95898H21.3957C21.6259 5.95898 21.8188 6.03689 21.9744 6.19271C22.1303 6.34853 22.2082 6.54155 22.2082 6.77176C22.2082 7.00214 22.1303 7.19507 21.9744 7.35053C21.8188 7.50616 21.6259 7.58398 21.3957 7.58398H4.604ZM4.604 20.0423C4.3738 20.0423 4.18087 19.9644 4.02523 19.8086C3.86941 19.6528 3.7915 19.4598 3.7915 19.2295C3.7915 18.9992 3.86941 18.8062 4.02523 18.6508C4.18087 18.4951 4.3738 18.4173 4.604 18.4173H21.3957C21.6259 18.4173 21.8188 18.4952 21.9744 18.651C22.1303 18.8069 22.2082 18.9999 22.2082 19.2301C22.2082 19.4605 22.1303 19.6534 21.9744 19.8089C21.8188 19.9645 21.6259 20.0423 21.3957 20.0423H4.604ZM4.604 13.8132C4.3738 13.8132 4.18087 13.7352 4.02523 13.5794C3.86941 13.4236 3.7915 13.2306 3.7915 13.0004C3.7915 12.77 3.86941 12.5771 4.02523 12.4216C4.18087 12.266 4.3738 12.1882 4.604 12.1882H21.3957C21.6259 12.1882 21.8188 12.2661 21.9744 12.4219C22.1303 12.5777 22.2082 12.7707 22.2082 13.0009C22.2082 13.2313 22.1303 13.4242 21.9744 13.5797C21.8188 13.7353 21.6259 13.8132 21.3957 13.8132H4.604Z' fill='%231D1D1D'/%3E%3C/g%3E%3C/svg%3E%0A");
     }
+
+
     header .header_top {
         display: none;
         position: absolute;
@@ -388,9 +398,7 @@ header.menu_over .header_wrap .util .map .map_open {
         color: var(--base-color);
         font-size: 14px;
     }
-    header.menu_over .header_top::after {
-        background-color: #ededed;
-    }
+    
     
     header .header_wrap {
         display: block;
@@ -403,13 +411,12 @@ header.menu_over .header_wrap .util .map .map_open {
         justify-content: space-between;
         align-items: center;
     }
-    header.menu_open .header_wrap .nav_container {
-        padding: 37px 0 0 0;
-    }
+
+    
     header .header_wrap .nav_container .gnb {
         width: auto;
     }
-    header .header_wrap .nav_container .gnb .gnb_wrap { /* 여기부터 해야함 */
+    header .header_wrap .nav_container .gnb .gnb_wrap { 
         display: none;
         position: fixed;
         right: 0;
@@ -446,10 +453,7 @@ header.menu_over .header_wrap .util .map .map_open {
         line-height: 40px;
         width: 120px;
     }
-    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li.open > a {
-        background-color: #fff;
-        color: var(--main-color);
-    }
+    
     
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg {
         display: none;
@@ -474,7 +478,7 @@ header.menu_over .header_wrap .util .map .map_open {
         display: block; /* ??????????????? */
         padding: 0 20px;
         width: 100%; 
-        height: 700px; /* ?????????????????? */
+        max-height: 700px; /* ?????????????????? */
         overflow-x: hidden;
         overflow-y: auto;
     }
@@ -501,10 +505,7 @@ header.menu_over .header_wrap .util .map .map_open {
         position: relative;
         color: var(--tit-color);
     }
-    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li.open > a {
-        color: var(--main-color); 
-        font-weight: var(--bold-weight);
-    }
+    
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li > a::after {
         content: "";
         position: absolute;
@@ -516,14 +517,11 @@ header.menu_over .header_wrap .util .map .map_open {
         background-repeat: no-repeat;
         background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_104_2873' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='15' height='15'%3E%3Crect width='15' height='15' transform='matrix(0 -1 -1 0 15 15)' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_104_2873)'%3E%3Cpath d='M7.49984 13.01L2.79187 8.30203C2.6677 8.17786 2.5215 8.11734 2.35328 8.12047C2.18494 8.1237 2.03869 8.1874 1.91453 8.31156C1.79036 8.43583 1.72828 8.58208 1.72828 8.75031C1.72828 8.91854 1.79036 9.06479 1.91453 9.18906L6.69937 13.9834C6.81239 14.0965 6.939 14.1802 7.07921 14.2347C7.21942 14.2892 7.35963 14.3164 7.49984 14.3164C7.64005 14.3164 7.78026 14.2892 7.92046 14.2347C8.06067 14.1802 8.18729 14.0965 8.30031 13.9834L13.0948 9.18906C13.219 9.06479 13.2795 8.91693 13.2762 8.74547C13.273 8.57401 13.2093 8.4262 13.0852 8.30203C12.961 8.17786 12.8147 8.11578 12.6464 8.11578C12.4782 8.11578 12.332 8.17786 12.2078 8.30203L7.49984 13.01Z' fill='%231D1D1D'/%3E%3C/g%3E%3C/svg%3E%0A");
     }
-    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li.open > a::after {
-        top: 17px;
-        background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_104_2897' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='15' height='15'%3E%3Crect x='15' width='15' height='15' transform='rotate(90 15 0)' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_104_2897)'%3E%3Cpath d='M7.49984 1.99L2.79187 6.69797C2.6677 6.82214 2.5215 6.88266 2.35328 6.87953C2.18494 6.8763 2.03869 6.8126 1.91453 6.68844C1.79036 6.56417 1.72828 6.41792 1.72828 6.24969C1.72828 6.08146 1.79036 5.93521 1.91453 5.81094L6.69937 1.01656C6.81239 0.903542 6.939 0.819792 7.07921 0.765313C7.21942 0.710833 7.35963 0.683594 7.49984 0.683594C7.64005 0.683594 7.78026 0.710833 7.92046 0.765313C8.06067 0.819792 8.18729 0.903542 8.30031 1.01656L13.0948 5.81094C13.219 5.93521 13.2795 6.08307 13.2762 6.25453C13.273 6.42599 13.2093 6.5738 13.0852 6.69797C12.961 6.82214 12.8147 6.88422 12.6464 6.88422C12.4782 6.88422 12.332 6.82214 12.2078 6.69797L7.49984 1.99Z' fill='%23074698'/%3E%3C/g%3E%3C/svg%3E%0A");
-    }
+    
  
 
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li > ul.depth3 {
-        display: none; /* ?????????????? */
+        display: none; 
         background-color: #f3f3f3;
         padding: 20px 0 20px 20px;
         color: var(--base-color);
@@ -532,7 +530,7 @@ header.menu_over .header_wrap .util .map .map_open {
         position: relative;
     }
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li > ul.depth3 > li::before {
-        content: ""; /* 했음 */
+        content: ""; 
         position: absolute;
         left: -10px;
         top: 11px;
@@ -542,11 +540,11 @@ header.menu_over .header_wrap .util .map .map_open {
         background-color: var(--base-color);
     }
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li > ul.depth3 > li > a {
-        display: block; /* 했음 */
+        display: block; 
         padding: 0 0 10px 0;
     }
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li > ul.depth3 > li:last-child > a {
-        padding: 0; /* 했음 */
+        padding: 0; 
     }
 
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li > ul.depth3 > li > a span {
@@ -566,6 +564,25 @@ header.menu_over .header_wrap .util .map .map_open {
         background-repeat: no-repeat;
         background-image: url("data:image/svg+xml,%3Csvg width='27' height='27' viewBox='0 0 27 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_104_2570' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='27' height='27'%3E%3Crect width='27' height='27' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_104_2570)'%3E%3Cpath d='M13.4996 14.686L7.79246 20.3934C7.63665 20.5491 7.4408 20.6288 7.20493 20.6325C6.96924 20.6361 6.76984 20.5564 6.60671 20.3934C6.44377 20.2303 6.3623 20.0327 6.3623 19.8006C6.3623 19.5684 6.44377 19.3708 6.60671 19.2077L12.3141 13.5006L6.60671 7.79344C6.45109 7.63763 6.3714 7.44178 6.36765 7.20591C6.36409 6.97022 6.44377 6.77081 6.60671 6.60769C6.76984 6.44475 6.96746 6.36328 7.19959 6.36328C7.43171 6.36328 7.62934 6.44475 7.79246 6.60769L13.4996 12.3151L19.2067 6.60769C19.3625 6.45206 19.5584 6.37238 19.7942 6.36863C20.0299 6.36506 20.2293 6.44475 20.3925 6.60769C20.5554 6.77081 20.6369 6.96844 20.6369 7.20056C20.6369 7.43269 20.5554 7.63031 20.3925 7.79344L14.6851 13.5006L20.3925 19.2077C20.5481 19.3635 20.6278 19.5593 20.6315 19.7952C20.6351 20.0309 20.5554 20.2303 20.3925 20.3934C20.2293 20.5564 20.0317 20.6378 19.7996 20.6378C19.5675 20.6378 19.3698 20.5564 19.2067 20.3934L13.4996 14.686Z' fill='%231D1D1D'/%3E%3C/g%3E%3C/svg%3E%0A");
     }
+
+    /* ######### header에 menu_over 클래스 추가 ######### */
+    header.menu_open .header_wrap .nav_container {
+        padding: 37px 0 0 0;
+    }
+    /* ################### li에 open 클래스 추가 ################## */
+    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li.open > a {
+        background-color: #fff;
+        color: var(--main-color);
+    }
+    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li.open > a {
+        color: var(--main-color); 
+        font-weight: var(--bold-weight);
+    }
+    header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li.open > a::after {
+        top: 17px;
+        background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_104_2897' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='15' height='15'%3E%3Crect x='15' width='15' height='15' transform='rotate(90 15 0)' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_104_2897)'%3E%3Cpath d='M7.49984 1.99L2.79187 6.69797C2.6677 6.82214 2.5215 6.88266 2.35328 6.87953C2.18494 6.8763 2.03869 6.8126 1.91453 6.68844C1.79036 6.56417 1.72828 6.41792 1.72828 6.24969C1.72828 6.08146 1.79036 5.93521 1.91453 5.81094L6.69937 1.01656C6.81239 0.903542 6.939 0.819792 7.07921 0.765313C7.21942 0.710833 7.35963 0.683594 7.49984 0.683594C7.64005 0.683594 7.78026 0.710833 7.92046 0.765313C8.06067 0.819792 8.18729 0.903542 8.30031 1.01656L13.0948 5.81094C13.219 5.93521 13.2795 6.08307 13.2762 6.25453C13.273 6.42599 13.2093 6.5738 13.0852 6.69797C12.961 6.82214 12.8147 6.88422 12.6464 6.88422C12.4782 6.88422 12.332 6.82214 12.2078 6.69797L7.49984 1.99Z' fill='%23074698'/%3E%3C/g%3E%3C/svg%3E%0A");
+    }
+    
 
     /* 2차,3차 메뉴 열렸을 때 */
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li.open > .gnb_bg {
@@ -589,6 +606,8 @@ header.menu_over .header_wrap .util .map .map_open {
         display: block; 
         top: 37px;
     }
+
+    
 
     /*############################ 자리배치 정리하고, js 해야함!! ########################### */
 
