@@ -51,31 +51,45 @@
         resize_chk() // 함수 실행
         scroll_chk()
 
-        $('header .gnb .gnb_wrap ul.depth1 > li').on('mouseenter focusin', function(){
+        $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li').on('mouseenter focusin', function(){
             if(device_status == 'pc'){
                 // console.log('오버!!!!')
                 $('header').addClass('menu_over')
-                $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
+                $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
                 $(this).addClass('over')
             }
         })
         $('header').on('mouseleave', function(){
             $('header').removeClass('menu_over')
-            $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
+            $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
         })
 
         $('header .util:last-child').on('focusout', function(){
             $('header').removeClass('menu_over')
-            $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
+            $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li').removeClass('over')
             
         })
+        // ##########################
+        $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li').on('mouseenter focusin', function(){
+            if(device_status == 'pc'){
+                // console.log('오버!!!!')
+                $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li').removeClass('over')
+                $(this).addClass('over')
+            }
+        })
+        $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li').on('mouseleave', function(){
+            $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li').removeClass('over')
+        })
+        // ##########################
 
         /* ****************************** 모바일 메뉴 열고 닫기 **************************** */
         $('header .gnb .gnb_open').on('click', function(){
             $('header').addClass('menu_open')
+            menu_open = true; // 추가
         })
         $('header .gnb .gnb_close').on('click', function(){
             $('header').removeClass('menu_open')
+            menu_open = false; // 추가
         })
 
         /* ****************************** 모바일 2차 메뉴 열고 닫기 **************************
@@ -133,20 +147,15 @@
         // console.log(device_status)
     }
 
-    function scroll_chk(){
-        scroll_prev = scrolling // 스크롤 값을 다시 계산 하기 전에 이전 값을 prev에 저장
+    function scroll_chk(){ //함수 선언
+        // console.log('스크롤!!!!!!!!!!!!!!')
+        if (menu_open === true) return;
+
         scrolling = $(window).scrollTop()
-        // console.log(scroll_prev, scrolling)
-        if(scrolling > 0){ // 조금이라도 스크롤 되면
+        // console.log(scrolling)
+        if(scrolling > 0){
             $('header').addClass('fixed')
-            if(scrolling > scroll_prev){
-                // console.log('내려가는 중')
-                $('header').addClass('gnb_up')
-            }else{
-                // console.log('올라가는 중')
-                $('header').removeClass('gnb_up')
-            }
-        }else{ // 0 일 때
+        }else{
             $('header').removeClass('fixed')
         }
     }

@@ -25,3 +25,30 @@
     font-size: 60px;
     font-weight: 700;
 }
+
+
+@media screen and (max-width:1024px) {
+    .visual {
+        height: 800px;
+    }
+    .visual h2 {
+        font-size: 25px;
+        padding: 42vh 0 20px 0;
+    }
+    .visual p {
+        font-size: 45px;
+    }
+} /* @media */
+
+@media screen and (max-width:768px) {
+    .visual {
+        height: 700px;
+    }
+    .visual h2 {
+        font-size: 16px;
+        padding: 36vh 0 10px 0;
+    }
+    .visual p {
+        font-size: 30px;
+    }
+} /* @media */
