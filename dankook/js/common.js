@@ -82,89 +82,83 @@
         })
         // ##########################
 
+        $('li').each(function() { // 구버전 브라우저 지원 필요 li:has(> ul.depth3)
+            if ($(this).find('ul.depth3').length > 0) {
+                $(this).addClass('has-depth3');
+            }
+        });
+
+
         /* ****************************** 모바일 메뉴 열고 닫기 **************************** */
         $('header .header_wrap .nav_container .gnb .gnb_open').on('click', function(){
             $('header').addClass('menu_open')
             menu_open = true; // 추가
+            // 첫 번째 1차 메뉴 자동으로 열기
+            const $firstLi = $('header .gnb_wrap ul.depth1 > li').eq(0);
+            $firstLi.addClass('open'); // open 클래스 추가
+            $firstLi.find('>.gnb_bg').stop().slideDown(); // 2차 메뉴 열기
         })
         $('header .header_wrap .nav_container .gnb .gnb_close').on('click', function(){
             $('header').removeClass('menu_open')
             menu_open = false; // 추가
+            // 열렸던 메뉴 초기화
+            $('header .gnb_wrap ul.depth1 > li').removeClass('open')
+            .find('.gnb_bg').stop().slideUp();
         })
 
-        /* ****************************** 모바일 2차 메뉴 열고 닫기 **************************
+        /* ****************************** 모바일 2차,3차 메뉴 열고 닫기 **************************
         * 지금 현재 메뉴가 열려있는 지 닫혀있는 지 구분 (li에 open 클래스 있는 지 유무)
-        * 메뉴에 열려있으면 - li에 open 클래스를 삭제, 2차 메뉴 접기
-        * 메뉴가 닫혀있으면 - li에 open 클래스를 추가, 2차 메뉴 열기
+        * 메뉴에 열려있으면 - li에 open 클래스를 삭제, 2차 메뉴 접기, 3차 메뉴 접기
+        * 메뉴가 닫혀있으면 - li에 open 클래스를 추가, 2차 메뉴 열기, 3차 메뉴 열기
         * */
 
-        // 1차 메뉴 클릭 시
-        $('header .gnb .gnb_wrap ul.depth1 > li > a').on('click', function (e) {
+        // 1차 메뉴 클릭
+        $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > a').on('click', function(e) {
             if (device_status === 'moblie') {
                 e.preventDefault();
-                const $li = $(this).closest('li');
+        
+                const $clickedLi = $(this).parent('li');
+                const isOpen = $clickedLi.hasClass('open');
+        
+                if (!isOpen) {
+                    // 다른 메뉴 닫고
+                    $('header .gnb_wrap ul.depth1 > li').removeClass('open')
+                        .find('.gnb_bg').stop().slideUp();
+        
+                    // 현재 메뉴 열기
+                    $clickedLi.addClass('open');
+                    $clickedLi.find('>.gnb_bg').stop().slideDown();
+                }
+                // 열려 있는 메뉴를 또 눌렀을 땐 아무것도 하지 않음 (그대로 둠)
+            }
+        });
+        
 
-                if ($li.hasClass('open')) {
-                    $li.removeClass('open');
-                    $li.find('.gnb_bg').stop(true, true).slideUp(300);
+        // 2차 메뉴 클릭
+        $('header .gnb_wrap ul.depth2 > li > a').on('click', function(e) {
+            if (device_status === 'moblie') {
+                e.preventDefault();
+
+                const $clickedLi = $(this).parent('li');
+                const isOpen = $clickedLi.hasClass('open');
+
+                // 같은 2차 메뉴 내의 모든 3차 메뉴 닫기
+                $clickedLi.siblings('li').removeClass('open')
+                    .find('ul.depth3').stop().slideUp();
+
+                // 클릭한 메뉴 toggle
+                if (isOpen) {
+                    $clickedLi.removeClass('open');
+                    $clickedLi.find('ul.depth3').stop().slideUp();
                 } else {
-                    $('header .gnb .gnb_wrap ul.depth1 > li')
-                        .removeClass('open')
-                        .find('.gnb_bg').stop(true, true).slideUp(300);
-
-                    $li.addClass('open');
-                    $li.find('.gnb_bg').stop(true, true).slideDown(300);
+                    $clickedLi.addClass('open');
+                    $clickedLi.find('ul.depth3').stop().slideDown();
                 }
             }
         });
 
-        // 2차 메뉴 클릭 시
-        $('header .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li > a').on('click', function (e) {
-            if (device_status === 'moblie') {
-                e.preventDefault();
-                const $clickedLi = $(this).closest('li');
-                const isOpen = $clickedLi.hasClass('open');
-
-                $clickedLi.siblings('li').each(function () {
-                    $(this).removeClass('open');
-                    $(this).children('ul.depth3').stop(true, true).slideUp(300);
-                });
-
-                if (isOpen) {
-                    $clickedLi.removeClass('open');
-                    $clickedLi.children('ul.depth3').stop(true, true).slideUp(300);
-                } else {
-                    $clickedLi.addClass('open');
-                    $clickedLi.children('ul.depth3').stop(true, true).slideDown(300);
-                }
-            }
-        }); // 1차와 2차 따로 따로 해보기 (금호건설꺼 가지고 와서 테스트 하기)
 
 
-
-
-
-
-        // $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > a').on('click', function(e){
-            
-        //     if(device_status == 'moblie'){
-        //         e.preventDefault() /* a 태그의 href를 작동 시키지 않음 */
-        //         // console.log('눌린다~~~~~~~~')
-        //         menu_open = $(this).parents('li').hasClass('open')
-        //         // console.log(menu_open)
-        //         if(menu_open == true){ // 메뉴가 열려있으면
-        //             $(this).parents('li').removeClass('open')
-        //             $(this).next().slideUp()
-        //         }else{ // 메뉴가 닫혀있으면
-        //             $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2').removeClass('open')
-        //             $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li > ul.depth3').slideUp()
-        //             $(this).parents('li').addClass('open')
-        //             $(this).next().slideDown()
-                    
-        //         }
-        //     }
-            
-        // })
 
         /* ************************************** footer : 시작 ************************************ */
 
@@ -176,7 +170,7 @@
             }, 500)
         })
 
-    /* ************************************** footer : 끝 ************************************ */
+        /* ************************************** footer : 끝 ************************************ */
 
 
 

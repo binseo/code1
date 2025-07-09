@@ -80,6 +80,7 @@ html, body {
     --bold-weight: 700;
     --tit-line-height: 1.2;
     --tit-font-size: 45px;
+    --tit-margin: 40px;
 }
 @media screen and (max-width:1024px) {
     :root {
@@ -91,5 +92,6 @@ html, body {
 @media screen and (max-width:768px) {
     :root {
         --tit-font-size: 30px; 
+        --tit-margin: 30px;
     }
 }
