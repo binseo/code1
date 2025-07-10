@@ -51,36 +51,107 @@
         resize_chk() // 함수 실행
         scroll_chk()
 
-        $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li').on('mouseenter focusin', function(){
-            if(device_status == 'pc'){
-                // console.log('오버!!!!')
-                $('header').addClass('menu_over')
-                $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
-                $(this).addClass('over')
-            }
-        })
-        $('header').on('mouseleave', function(){
-            $('header').removeClass('menu_over')
-            $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
-        })
+        // $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li').on('mouseenter focusin', function(){
+        //     if(device_status == 'pc'){
+        //         // console.log('오버!!!!')
+        //         $('header').addClass('menu_over')
+        //         $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
+        //         $(this).addClass('over')
+        //     }
+        // })
+        // $('header').on('mouseleave', function(){
+        //     $('header').removeClass('menu_over')
+        //     $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
+        // })
 
-        $('header .util:last-child').on('focusout', function(){
-            $('header').removeClass('menu_over')
-            $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li').removeClass('over')
+        // $('header .util:last-child').on('focusout', function(){
+        //     $('header').removeClass('menu_over')
+        //     $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li').removeClass('over')
             
-        })
-        // ##########################
-        $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li').on('mouseenter focusin', function(){
-            if(device_status == 'pc'){
-                // console.log('오버!!!!')
-                $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li').removeClass('over')
-                $(this).addClass('over')
+        // })
+        // // ##########################
+        // $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li').on('mouseenter focusin', function(){
+        //     if(device_status == 'pc'){
+        //         // console.log('오버!!!!')
+        //         $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li').removeClass('over')
+        //         $(this).addClass('over')
+        //     }
+        // })
+        // $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li').on('mouseleave', function(){
+        //     $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li').removeClass('over')
+        // })
+        // // ##########################
+
+        // ##################
+        // 1차 메뉴 마우스 오버 / 키보드 포커스
+        $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li').on('mouseenter focusin', function () {
+            if (device_status === 'pc') {
+                const $this = $(this);
+                const $gnbBg = $this.find('.gnb_bg');
+
+                // 기존 오픈된 메뉴 초기화
+                $('header').addClass('menu_over');
+                $('header .depth1 > li').removeClass('over');
+                $('header .gnb_bg').stop(true).animate({ height: 700 }, 0, function () {
+                    $(this).css('display', 'none');
+                });
+
+                // 현재 메뉴 준비
+                $gnbBg.css({
+                    display: 'flex',
+                    height: 'auto'
+                });
+
+                const targetHeight = $gnbBg.outerHeight();
+
+                // 높이 부드럽게 적용
+                $gnbBg
+                    .css('height', 400)
+                    .stop(true)
+                    .animate({ height: targetHeight }, 700);
+
+                $this.addClass('over');
             }
-        })
-        $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li').on('mouseleave', function(){
-            $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li').removeClass('over')
-        })
-        // ##########################
+        });
+
+        // 헤더 밖으로 마우스가 나가면 전체 초기화
+        $('header').on('mouseleave focusout', function () {
+            if (device_status === 'pc') {
+                $('header').removeClass('menu_over');
+                $('header .depth1 > li').removeClass('over');
+                $('header .gnb_bg').stop(true).animate({ height: 0 }, 0, function () {
+                    $(this).css('display', 'none');
+                });
+            }
+        });
+
+        // 키보드 포커스 아웃 시 초기화
+        $('header .util:last-child').on('focusout', function () {
+            if (device_status === 'pc') {
+                $('header').removeClass('menu_over');
+                $('header .depth1 > li').removeClass('over');
+                $('header .depth2 > li').removeClass('over');
+                $('header .gnb_bg').stop(true).css({
+                    height: 0,
+                    display: 'none'
+                });
+            }
+        });
+
+        // 2차 메뉴 오버 처리
+        $('header .depth2 > li').on('mouseenter focusin', function () {
+            if (device_status === 'pc') {
+                $('header .depth2 > li').removeClass('over');
+                $(this).addClass('over');
+            }
+        }).on('mouseleave', function () {
+            if (device_status === 'pc') {
+                $(this).removeClass('over');
+            }
+        });
+
+        
+        // ##################
 
         $('li').each(function() { // 구버전 브라우저 지원 필요 li:has(> ul.depth3)
             if ($(this).find('ul.depth3').length > 0) {
@@ -152,10 +223,15 @@
                     $clickedLi.find('ul.depth3').stop().slideUp();
                 } else {
                     $clickedLi.addClass('open');
+                    $clickedLi.find('>.gnb_bg').css({
+                        display: 'flex',
+                        height: 'auto'
+                    }).stop().slideDown();
                     $clickedLi.find('ul.depth3').stop().slideDown();
                 }
             }
         });
+       
 
 
 

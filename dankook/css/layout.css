@@ -168,6 +168,20 @@ header.menu_over .header_wrap .util .map .map_open {
     
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg {
         display: none;
+        overflow: hidden;
+        height: 0;
+        transition: none !important; /* CSS 트랜지션 제거 (jQuery 애니메이션과 충돌 방지) */
+        max-height: 700px; /* 혹시 너무 커질 경우 제한 */
+
+        position: absolute;
+        left: 0;
+        top: 90px;
+        width: 100%;
+        background-color: #fff;
+        background-image: url(../images/common/gnb_bg_txt.png);
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        box-shadow: 0 6px 10px -6px rgba(0, 82, 156, 0.3);
     }
 
     
@@ -362,15 +376,6 @@ header.menu_over .header_wrap .util .map .map_open {
     }
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li.over > .gnb_bg {
         display: flex;
-        position: absolute;
-        left: 0;
-        top: 90px;
-        width: 100%;
-        background-color: #fff;
-        background-image: url(../images/common/gnb_bg_txt.png);
-        background-repeat: no-repeat;
-        background-position: right bottom;
-        box-shadow: 0 6px 10px -6px rgba(0, 82, 156, 0.3);
     }
 
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li.over > a,
