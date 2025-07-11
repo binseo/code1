@@ -382,7 +382,6 @@ header.menu_over .header_wrap .util .map .map_open {
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li.over > a:hover {
         color: #fff; 
         background-color: var(--main-color);
-        border-color: var(--main-color);
     }
 
     
