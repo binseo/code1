@@ -531,8 +531,7 @@
 } /* @media */
 
 
-@media screen and (max-width:1099px) 
-{
+@media screen and (max-width:1099px) {
     .main_board::before {
         display: none;
     }
