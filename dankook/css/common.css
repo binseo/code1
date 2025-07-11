@@ -59,7 +59,7 @@ html, body {
     top: -1000px;
     width: 100%;
     display: block;
-    background-color: var(--point-color);
+    background-color: var(--main-color);
     text-align: center;
     padding: 5px 0;
     color: #fff;

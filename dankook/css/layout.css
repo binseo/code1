@@ -210,7 +210,7 @@ header.menu_over .header_wrap .util .map .map_open {
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
-        padding: 25px 100px 25px 60px;
+        padding: 25px 70px 25px 60px;
         width: 100%;
         gap: 20px 50px;
         max-height: 700px;
@@ -869,5 +869,283 @@ header.menu_over .header_wrap .util .map .map_open {
 
 
 footer {
-    margin: 1000px 0 0 0;
+    padding: 200px 0 0 0;
+    color: #fff;
+}
+
+footer .f_link {
+    background-color: #353541;
+}
+footer .f_link ul.depth1 {
+    display: flex;
+    justify-content: space-between;
+}
+footer .f_link ul.depth1 > li {
+    width: 33.33%;
+    position: relative;
+    /* border-left: 1px solid rgba(255,255,255,0.3);
+    border-right: 1px solid rgba(255,255,255,0.3); */
+}
+
+footer .f_link ul.depth1 > li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 65px;
+    background-color: rgba(255,255,255,0.3);
+}
+footer .f_link ul.depth1 > li:last-child::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 65px;
+    background-color: rgba(255,255,255,0.3);
+}
+footer .f_link ul.depth1 > li > a {
+    display: block;
+    padding: 20px 60px;
+    position: relative;
+}
+footer .f_link ul.depth1 > li > a::after {
+    display: block;
+    content: "";
+    position: absolute;
+    right: 60px;
+    top: 18px;
+    width: 30px;
+    height: 30px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_98_640' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='30' height='30'%3E%3Crect width='30' height='30' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_98_640)'%3E%3Cpath d='M14.0625 15.9375H7.8125C7.54688 15.9375 7.32427 15.8476 7.14469 15.6678C6.9649 15.488 6.875 15.2653 6.875 14.9997C6.875 14.7339 6.9649 14.5113 7.14469 14.3319C7.32427 14.1523 7.54688 14.0625 7.8125 14.0625H14.0625V7.8125C14.0625 7.54688 14.1524 7.32427 14.3322 7.14469C14.512 6.9649 14.7347 6.875 15.0003 6.875C15.2661 6.875 15.4888 6.9649 15.6681 7.14469C15.8477 7.32427 15.9375 7.54688 15.9375 7.8125V14.0625H22.1875C22.4531 14.0625 22.6757 14.1524 22.8553 14.3322C23.0351 14.512 23.125 14.7347 23.125 15.0003C23.125 15.2661 23.0351 15.4888 22.8553 15.6681C22.6757 15.8477 22.4531 15.9375 22.1875 15.9375H15.9375V22.1875C15.9375 22.4531 15.8476 22.6757 15.6678 22.8553C15.488 23.0351 15.2653 23.125 14.9997 23.125C14.7339 23.125 14.5113 23.0351 14.3319 22.8553C14.1523 22.6757 14.0625 22.4531 14.0625 22.1875V15.9375Z' fill='white' fill-opacity='0.6'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+footer .f_link ul.depth1 > li.open > a::after {
+    display: none;
+}
+
+footer .f_link ul.depth1 > li.open > a::before {
+    display: block;
+    content: "";
+    position: absolute;
+    right: 60px;
+    top: 18px;
+    width: 30px;
+    height: 30px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_74_3759' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='30' height='30'%3E%3Crect width='30' height='30' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_74_3759)'%3E%3Cpath d='M8.75 16.25C8.39583 16.25 8.09896 16.1302 7.85938 15.8906C7.61979 15.651 7.5 15.3542 7.5 15C7.5 14.6458 7.61979 14.349 7.85938 14.1094C8.09896 13.8698 8.39583 13.75 8.75 13.75H21.25C21.6042 13.75 21.901 13.8698 22.1406 14.1094C22.3802 14.349 22.5 14.6458 22.5 15C22.5 15.3542 22.3802 15.651 22.1406 15.8906C21.901 16.1302 21.6042 16.25 21.25 16.25H8.75Z' fill='white' fill-opacity='0.6'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+footer .f_link ul.depth1 > li > a::before {
+    display: none;
+}
+
+
+footer .f_link ul.depth1 > li > ul.depth2 {
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 65px;
+    width: 100%;
+    overflow: hidden scroll;
+    background-color: #f5f5f5;
+    color: var(--base-color);
+    height: 230px;
+    padding: 20px 30px 10px 30px;
+}
+
+footer .f_link ul.depth1 > li.open > ul.depth2 {
+    display: block;
+}
+footer .f_link ul.depth1 > li.open > ul.depth2 > li > a {
+    line-height: 1.8;
+}
+
+
+
+
+footer .f_wrap {
+    background-color: #2d2d2d;
+    padding: 50px 0;
+}
+footer .f_wrap .wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+footer .f_wrap .f_nav ul {
+    display: flex;
+    gap: 0 45px;
+}
+footer .f_wrap .f_nav ul li {
+    position: relative;
+}
+footer .f_wrap .f_nav ul li::after {
+    content: "";
+    position: absolute;
+    right: -21px;
+    top: 7px;
+    width: 1px;
+    height: 12px;
+    background-color: rgba(255,255,255,0.3);
+}
+footer .f_wrap .f_nav ul li:last-child::after {
+    display: none;
+}
+footer .f_wrap .f_nav ul li a {
+    position: relative;
+}
+footer .f_wrap .f_nav ul li a:hover {
+    font-weight: var(--bold-weight);
+}
+footer .f_wrap .f_nav ul li a:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255,255,255,0.5);
+}
+
+footer .f_wrap .f_info {
+    margin: 30px 0;
+}
+footer .f_wrap .f_info address br {
+    display: none;
+}
+footer .f_wrap .f_info address strong {
+    border: 1px solid rgba(255,255,255,0.5);
+    padding: 4px 25px;
+    margin-right: 20px;
+}
+footer .f_wrap .f_info address {
+    margin: 0 0 20px 0;
+}
+footer .f_wrap .f_info span {
+    display: inline-block;
+    margin-top: 10px;
+    color: rgba(255,255,255,0.5);
+    font-weight: var(--bold-weight);
+}
+
+footer .f_wrap .copyright {
+    color: rgba(255,255,255,0.5);
+}
+footer .f_wrap .web_logo {
+    text-align: right;
+}
+footer .f_wrap .web_logo .photo {
+    overflow: hidden;
+    height: 75px;
+}
+footer .f_wrap .web_logo span {
+    color: rgba(255,255,255,0.5);
+}
+
+
+@media screen and (max-width:1200px) {
+    footer .f_wrap .wrapper {
+        display: block;
+    }
+    footer .f_wrap .web_logo {
+        text-align: left;
+        margin: 40px 0 0 0;
+    }
+    footer .f_wrap .web_logo span {
+        display: inline-block;
+        margin: 10px 0 0 0;
+    }
+} /* @media */
+
+
+
+@media screen and (max-width:1024px) {
+    
+    footer .f_link ul.depth1 > li > a {
+        padding: 20px 20px;
+    }
+    footer .f_link ul.depth1 > li > a::after {
+        right: 15px;
+        top: 19px;
+    }
+    footer .f_link ul.depth1 > li.open > a::before {
+        right: 15px;
+    }
+    
+    
+    footer .f_wrap {
+        padding: 40px 0;
+    }
+    footer .f_wrap .f_nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 45px;
+    }
+    
+    footer .f_wrap .f_info address br {
+        display: block;
+    }
+    
+    footer .f_wrap .web_logo {
+        text-align: left;
+        margin: 40px 0 0 0;
+    }
+    footer .f_wrap .web_logo span {
+        display: inline-block;
+        margin: 10px 0 0 0;
+    }
+} /* @media */
+
+
+@media screen and (max-width:768px) {
+    footer {
+        padding: 150px 0 0 0;
+    }
+    footer .f_link .wrapper {
+        margin: auto;
+    }
+    footer .f_link ul.depth1 {
+        display: block;
+    }
+    footer .f_link ul.depth1 > li {
+        width: 100%;
+    }
+    
+    footer .f_link ul.depth1 > li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background-color: rgba(255,255,255,0.3);
+    }
+    footer .f_link ul.depth1 > li:last-child::after {
+        position: relative;
+    }
+
+    footer .f_link ul.depth1 > li > a {
+        padding: 20px;
+    }
+
+    footer .f_link ul.depth1 > li > a::after {
+        right: 20px;
+    }
+    footer .f_link ul.depth1 > li.open > a::before {
+        right: 20px;
+    }
+    
+    footer .f_link ul.depth1 > li > ul.depth2 {
+        display: none;
+        position: relative;
+        left: 0;
+        bottom: 0;
+    }
+
+    footer .f_wrap .web_logo {
+        display: none;
+    }
+    
 }

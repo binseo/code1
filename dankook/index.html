@@ -6,6 +6,9 @@
     <!-- jquery 라이브러리 -->
     <script src="js/jquery-3.7.1.min.js"></script>
 
+    <script src="js/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js"></script>
     <script src="js/common.js"></script>
@@ -13,6 +16,10 @@
     <title>단국대학교</title>
 </head>
 <body>
+    <div class="skip_nav">
+        <a href="#skip_content">본문바로가기</a>
+        <!-- id ="#skip_content" 인 요소로 바로가기 (내부링크) -->
+    </div>
     <div id="wrap">
         <header>
             <div class="header_top">
@@ -417,7 +424,7 @@
                         <button class="search_open"><span class="blind">검색 열기</span></button>
                     </div><!--search-->
                     <div class="map">
-                        <a href="#" target="_blank" title="새창열림" class="map_open"><span class="blind">사이트 맵</span></a>
+                        <a href="#" class="map_open"><span class="blind">사이트 맵</span></a>
                     </div><!--map-->
                 </div><!--util-->
             </div><!--header_wrap-->
@@ -430,63 +437,65 @@
                 </div>
                 <div class="scroll_down"><span>scroll down</span></div>
             </section><!--visual-->
-            <section class="service">
+            <section class="service" id="skip_content">
                 <div class="wrapper">
                     <div class="tit">
                         <h2 class="tit_font">SERVICE</h2>
                     </div>
                     <div class="list">
-                        <ul>
-                            <li class="icon01">
-                                <a href="#">
-                                    <strong>도서관(죽전)</strong>
-                                </a>
-                            </li>
-                            <li class="icon02">
-                                <a href="#">
-                                    <strong>도서관(천안)</strong>
-                                </a>
-                            </li>
-                            <li class="icon03">
-                                <a href="#">
-                                    <strong>평생교육원(죽전)</strong>
-                                </a>
-                            </li>
-                            <li class="icon04">
-                                <a href="#">
-                                    <strong>평생교육원(천안)</strong>
-                                </a>
-                            </li>
-                            <li class="icon05">
-                                <a href="#">
-                                    <strong>생활관</strong>
-                                </a>
-                            </li>
-                            <li class="icon06">
-                                <a href="#">
-                                    <strong>인터넷증명서 발급</strong>
-                                </a>
-                            </li>
-                            <li class="icon07">
-                                <a href="#">
-                                    <strong>원격지원</strong>
-                                </a>
-                            </li>
-                            <li class="icon08">
-                                <a href="#">
-                                    <strong>대학일자리센터</strong>
-                                </a>
-                            </li>
-                            <li class="icon09">
-                                <a href="#">
-                                    <strong>교육혁신원</strong>
-                                </a>
-                            </li>
-                        </ul>
+                        <div class="swiper"> <!-- 팝업의 높이와 넓이를 css에서 줄 수 있는 요소 -->
+                            <ul class="swiper-wrapper"> <!-- 각 팝업 콘텐츠를 감싸는 요소 -->
+                                <li class="swiper-slide icon01">
+                                    <a href="#">
+                                        <strong>도서관(죽전)</strong>
+                                    </a>
+                                </li>
+                                <li class="swiper-slide icon02">
+                                    <a href="#">
+                                        <strong>도서관(천안)</strong>
+                                    </a>
+                                </li>
+                                <li class="swiper-slide icon03">
+                                    <a href="#">
+                                        <strong>평생교육원(죽전)</strong>
+                                    </a>
+                                </li>
+                                <li class="swiper-slide icon04">
+                                    <a href="#">
+                                        <strong>평생교육원(천안)</strong>
+                                    </a>
+                                </li>
+                                <li class="swiper-slide icon05">
+                                    <a href="#">
+                                        <strong>생활관</strong>
+                                    </a>
+                                </li>
+                                <li class="swiper-slide icon06">
+                                    <a href="#">
+                                        <strong>인터넷증명서 발급</strong>
+                                    </a>
+                                </li>
+                                <li class="swiper-slide icon07">
+                                    <a href="#">
+                                        <strong>원격지원</strong>
+                                    </a>
+                                </li>
+                                <li class="swiper-slide icon08">
+                                    <a href="#">
+                                        <strong>대학일자리센터</strong>
+                                    </a>
+                                </li>
+                                <li class="swiper-slide icon09">
+                                    <a href="#">
+                                        <strong>교육혁신원</strong>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div><!--list-->
                 </div>
             </section><!--service-->
-            <section class="main_board">
+            <div class="main_board">
                 <section class="notice">
                     <div class="wrapper">
                         <div class="inner">
@@ -546,6 +555,7 @@
                                                 </a>
                                             </li>
                                         </ul>
+                                        <a href="#" class="more">more</a>
                                     </div><!--tab_item item1-->
                                     <div class="tab_item item2 " id="tab_item2">
                                         <ul>
@@ -592,6 +602,7 @@
                                                 </a>
                                             </li>
                                         </ul>
+                                        <a href="#" class="more">more</a>
                                     </div><!--tab_item item2-->
                                     <div class="tab_item item3 " id="tab_item3">
                                         <ul>
@@ -638,6 +649,7 @@
                                                 </a>
                                             </li>
                                         </ul>
+                                        <a href="#" class="more">more</a>
                                     </div><!--tab_item item3-->
                                     <div class="tab_item item4 " id="tab_item4">
                                         <ul>
@@ -684,9 +696,9 @@
                                                 </a>
                                             </li>
                                         </ul>
+                                        <a href="#" class="more">more</a>
                                     </div><!--tab_item item4-->
                                 </div><!--notice_box-->
-                                <a href="#" class="more">more</a>
                             </div><!--group01-->
                             <div class="group02">
                                 <div class="tit">
@@ -782,7 +794,7 @@
                             </div>
                             <div class="news_big">
                                 <a href="#">
-                                    <div class="photo"><img src="images/main/big_img.jpg"></div>
+                                    <div class="photo"><img src="images/main/big_img.jpg" alt=""></div>
                                     <div class="txt">
                                         <h3>산학협력단, 암·치매 조기진단 바이오센싱 중대형 기술이전 계약 체결 성공</h3>
                                         <p>이 기술은 광섬유 단면에 빛의 파장보다 작은 금속 나노입자를 부착하고, 여기에 항체를 고정한 뒤 빛의 입사에 따른 항원 변화 값을 정밀하게 측정·분석하는 방식이다. 연구팀은 이 기술을 기반으로 췌장암, 전립선암, 갑상선암 등 질환의 조기진단 임상을 성공적으로 마쳤으며, 최근에는 알츠하이머병의 바이오마커를 혈액에서 검출하는 데에도 성공했다.</p>
@@ -790,13 +802,12 @@
                                     </div>
                                 </a>
                             </div><!--news_big-->
-                            <a href="#" class="more">more</a>
                         </div><!--group-->
                         <div class="list">
                             <ul>
                                 <li>
                                     <a href="#">
-                                        <div class="photo"><img src="images/main/news_img01.jpg"></div>
+                                        <div class="photo"><img src="images/main/news_img01.jpg" alt=""></div>
                                         <div class="txt">
                                             <h3>이정환 교수팀, 극초단 레이저를 활용한 친환경 임플란트 가공 기술 개발</h3>
                                             <p>일반적으로 치과용 임플란트에 사용되는 티타늄 소재는 뼈에 잘 붙이기 위해 표면을 거칠게 가공한다. 지금까지는 강산을 이용해 표면을 부식시키는 화학적 에칭 방식이 주로 활용됐다. </p>
@@ -806,7 +817,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <div class="photo"><img src="images/main/news_img02.jpg"></div>
+                                        <div class="photo"><img src="images/main/news_img02.jpg" alt=""></div>
                                         <div class="txt">
                                             <h3>QS 세계대학평가 국내 29위, 3년 연속 상승세 이어가</h3>
                                             <p>우리 대학은 ‘지속가능성’ 지표에서 작년보다 43.5점 올라 4계단 상승하며 단일 지표로는 최대 상승 폭을 기록했다. ‘지속가능성’은 대학의 사회적, 환경적 영향력을 조사해 값을 매기는 지표다.</p>
@@ -816,7 +827,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <div class="photo"><img src="images/main/news_img03.jpg"></div>
+                                        <div class="photo"><img src="images/main/news_img03.jpg" alt=""></div>
                                         <div class="txt">
                                             <h3>'글로벌 화장품 ODM 기업' 이경수 코스맥스 회장 초청, 글로벌 리더십 특강 개최</h3>
                                             <p>이번 강연은 ‘글로벌 뷰티 리더의 비전’을 주제로 진행됐으며 코스메디컬소재학과(학과장 최영봉 교수)가 주최했다. 이날 행사에는 김재일 대외부총장, 윤종원 과학기술대학장, 이재원 천안 산학협력단장과 재학생 200여 명이 참석해 높은 관심을 보였다. </p>
@@ -826,7 +837,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <div class="photo"><img src="images/main/news_img04.jpg"></div>
+                                        <div class="photo"><img src="images/main/news_img04.jpg" alt=""></div>
                                         <div class="txt">
                                             <h3>광복 80주년 맞아 범정 선생 독립운동 유적지 찾은 대학원 해외 학술 탐방단</h3>
                                             <p>광복 80주년을 맞아 우리 대학은 독립운동가가 세운 유일의 민족사학 정체성을 되새기고자 대학원 해외학술탐방을 진행했다. 김재일 단장(대외부총장)을 중심으로 대학원 해외 학술 탐방단 39명(대학원생 33명, 교직원 6명)은 설립자 범정 장형 선생의 독립운동 발자취를 찾았다.</p>
@@ -836,9 +847,10 @@
                                 </li>
                             </ul>
                         </div><!--list-->
+                        <a href="#" class="more">more</a>
                     </div>
                 </section><!--news-->
-            </section><!--main_board-->
+            </div><!--main_board-->
             <section class="indicators">
                 <div class="wrapper">
                     <div class="tit">
@@ -850,9 +862,9 @@
                                 <div class="inner">
                                     <h3>재학생 충원율</h3>
                                     <div class="count">
-                                        <span>103</span>
+                                        <span class="counter" data-start="9" data-end="103">103</span>
                                         <span>.</span>
-                                        <span>2</span>
+                                        <span class="counter" data-start="9" data-end="2">2</span>
                                         <strong>%</strong>
                                     </div>
                                 </div>
@@ -861,9 +873,9 @@
                                 <div class="inner">
                                     <h3>신입생 충원율</h3>
                                     <div class="count">
-                                        <span>99</span>
+                                        <span class="counter" data-start="9" data-end="99">99</span>
                                         <span>.</span>
-                                        <span>6</span>
+                                        <span class="counter" data-start="9" data-end="6">6</span>
                                         <strong>%</strong>
                                     </div>
                                 </div>
@@ -872,11 +884,11 @@
                                 <div class="inner">
                                     <h3>신입생 경쟁률</h3>
                                     <div class="count">
-                                        <span>14</span>
+                                        <span class="counter" data-start="99" data-end="14">14</span>
                                         <span>.</span>
-                                        <span>2</span>
+                                        <span class="counter" data-start="9" data-end="2">2</span>
                                         <strong>:</strong>
-                                        <span>1</span>
+                                        <span class="counter" data-start="9" data-end="1">1</span>
                                     </div>
                                 </div>
                             </li>
@@ -884,20 +896,205 @@
                                 <div class="inner">
                                     <h3>학생 1인당 장학금</h3>
                                     <div class="count">
-                                        <span>325</span>
+                                        <span class="counter" data-start="100" data-end="325">325</span>
                                         <strong>만원</strong>
                                     </div>
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div><!--num_cont-->
                 </div>
             </section><!--indicators-->
-            <section class="sns"></section><!--sns-->
-            <section class="information"></section><!--information-->
+            <section class="sns">
+                <div class="wrapper">
+                    <div class="group">
+                        <div class="tit"><h2 class="tit_font">SNS</h2></div>
+                        <div class="sns_btn">
+                            <ul>
+                                <li class="fbk"><a href="#" target="_blank" title="새창열림"><span>Facebook</span></a></li>
+                                <li class="ins"><a href="#" target="_blank" title="새창열림"><span>Instagram</span></a></li>
+                                <li class="ytb"><a href="#" target="_blank" title="새창열림"><span>Youtube</span></a></li>
+                            </ul>
+                        </div>
+                    </div><!--group-->
+                    <div class="sns_wrap">
+                        <div class="swiper"> <!-- 팝업의 높이와 넓이를 css에서 줄 수 있는 요소 -->
+                            <ul class="swiper-wrapper"> <!-- 각 팝업 콘텐츠를 감싸는 요소 -->
+                                <li class="swiper-slide"><a href="#"><div class="photo"><img src="images/main/sns_img01.jpg" alt=""></div></a></li>
+                                <li class="swiper-slide"><a href="#"><div class="photo"><img src="images/main/sns_img02.jpg" alt=""></div></a></li>
+                                <li class="swiper-slide"><a href="#"><div class="photo"><img src="images/main/sns_img03.jpg" alt=""></div></a></li>
+                            </ul>
+                        </div><!--swiper-->
+                    </div><!--sns_wrap-->
+                </div>
+                <div class="rolling">
+                    <p>DANKOOK UNIVERSITY DANKOOK UNIVERSITY DANKOOK UNIVERSITY</p>
+                </div>  
+            </section><!--sns-->
+            <section class="information">
+                <div class="wrapper">
+                    <div class="tit"><h2 class="tit_font">information </h2></div>
+                    <div class="list">
+                        <ul>
+                            <li class="color01"><a href="#">캠퍼스맵</a></li>
+                            <li class="color02"><a href="#">전화번호 검색</a></li>
+                            <li class="color03"><a href="#">찾아오시는 길</a></li>
+                        </ul>
+                    </div>
+                    <div class="photo"><img src="images/main/information_img.png" alt=""></div>
+                </div>
+            </section><!--information-->
         </main>
-        <aside class="quick"></aside>
-        <footer></footer>
+        <aside class="quick">
+            <button class="btn open">Quick<span class="blind">열기</span></button>
+            <div class="detail">
+                <ul>
+                    <li class="quick01">
+                        <button><span>수험생</span></button>
+                        <div class="quick_container">
+                            <div class="quick_box">
+                                <div class="tit_box">수험생</div>
+                                <div class="sub_box">
+                                    <ul>
+                                        <li><a href="#"><span>입학안내</span></a></li>
+                                        <li><a href="#"><span>대학/전공소개</span></a></li>
+                                        <li><a href="#"><span>캠퍼스 투어</span></a></li>
+                                    </ul>
+                                </div>
+                                <button class="btn_close"><span class="blind">메뉴닫기</span></button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="quick02 ">
+                        <button><span>재학생</span></button>
+                        <div class="quick_container">
+                            <div class="quick_box">
+                                <div class="tit_box">재학생</div>
+                                <div class="sub_box">
+                                    <ul>
+                                        <li><a href="#"><span>등록금 고지서출력</span></a></li>
+                                        <li><a href="#"><span>인터넷증명발급</span></a></li>
+                                        <li><a href="#"><span>이러닝</span></a></li>
+                                        <li><a href="#"><span>학부모 성적조회</span></a></li>
+                                        <li><a href="#"><span>강의시간표(죽전)</span></a></li>
+                                        <li><a href="#"><span>강의시간표(천안)</span></a></li>
+                                        <li><a href="#"><span>영웅스토리</span></a></li>
+                                    </ul>
+                                </div>
+                                <button class="btn_close"><span class="blind">메뉴닫기</span></button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="quick03">
+                        <button><span>교직원</span></button>
+                        <div class="quick_container">
+                            <div class="quick_box">
+                                <div class="tit_box">교직원</div>
+                                <div class="sub_box">
+                                    <ul>
+                                        <li><a href="#"><span>인터넷증명발급</span></a></li>
+                                        <li><a href="#"><span>평생교육원(죽전)</span></a></li>
+                                        <li><a href="#"><span>평생교육원(천안)</span></a></li>
+                                        <li><a href="#"><span>단국대학교 병원</span></a></li>
+                                        <li><a href="#"><span>치과대학병원(죽전)</span></a></li>
+                                        <li><a href="#"><span>치과대학병원(천안)</span></a></li>
+                                    </ul>
+                                </div>
+                                <button class="btn_close"><span class="blind">메뉴닫기</span></button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="top"><button>TOP</button></li>
+                </ul>
+            </div>
+        </aside>
+        <footer>
+            <div class="f_link">
+                <div class="wrapper">
+                    <ul class="depth1">
+                        <li>
+                            <a href="#">대학 홈페이지</a>
+                            <ul class="depth2">
+                                <li><a href="#">문과대학</a></li>
+                                <li><a href="#">법과대학</a></li>
+                                <li><a href="#">사회과학대학</a></li>
+                                <li><a href="#">경영경제대학</a></li>
+                                <li><a href="#">공과대학</a></li>
+                                <li><a href="#">SW융합대학</a></li>
+                                <li><a href="#">사범대학</a></li>
+                                <li><a href="#">음악ㆍ예술대학</a></li>
+                                <li><a href="#">자유교양대학</a></li>
+                                <li><a href="#">외국어대학</a></li>
+                                <li><a href="#">과학기술대학</a></li>
+                                <li><a href="#">생명공학대학</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">대학원 홈페이지</a>
+                            <ul class="depth2">
+                                <li><a href="#">경영대학원</a></li>
+                                <li><a href="#">행정법무대학원</a></li>
+                                <li><a href="#">교육대학원</a></li>
+                                <li><a href="#">정보융합기술·창업대학원</a></li>
+                                <li><a href="#">특수교육대학원</a></li>
+                                <li><a href="#">문화예술대학원</a></li>
+                                <li><a href="#">부동산 · 건설대학원</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">부속/부설기관 홈페이지</a>
+                            <ul class="depth2">
+                                <li><a href="#">산학협력단</a></li>
+                                <li><a href="#">단국대학교 총동창회</a></li>
+                                <li><a href="#">퇴계기념중앙도서관</a></li>
+                                <li><a href="#">율곡기념도서관</a></li>
+                                <li><a href="#">석주선기념박물관</a></li>
+                                <li><a href="#">단국역사관</a></li>
+                                <li><a href="#">평생교육원 (죽전 | 천안)</a></li>
+                                <li><a href="#">교육혁신원</a></li>
+                                <li><a href="#">단국미디어센터</a></li>
+                                <li><a href="#">생활관(기숙사)</a></li>
+                                <li><a href="#">대학생활상담센터(죽전 | 천안)</a></li>
+                                <li><a href="#">인권센터(죽전 | 천안)</a></li>
+                                <li><a href="#">체육부</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="f_wrap">
+                <div class="wrapper">
+                    <div class="group">
+                        <div class="f_nav">
+                            <ul>
+                                <li><a href="#">개인정보처리방침</a></li>
+                                <li><a href="#">이메일무단수집거부</a></li>
+                                <li><a href="#">대학정보공시</a></li>
+                                <li><a href="#">교직원 채용</a></li>
+                                <li><a href="#">사이트맵</a></li>
+                                <li><a href="#">단국대학교 앱</a></li>
+                            </ul> 
+                        </div>
+                        <div class="f_info">
+                            <address>
+                                <strong>죽전캠퍼스</strong> <br><br>
+                                경기도 용인시 수지구 죽전로 152 (우)16890
+                            </address>
+                            <address>
+                                <strong>천안캠퍼스</strong> <br><br>
+                                충남 천안시 동남구 단대로 119 (우)31116
+                            </address>
+                            <span>통합콜센터 : 1899-3700</span>
+                        </div>
+                        <div class="copyright">COPYRIGHT 2015 BY DANKOOK UNIVERSITY ALL RIGHTS RESERVED</div>
+                    </div><!--group-->
+                    <div class="web_logo">
+                        <div class="photo"><img src="images/common/web_logo.png" alt=""></div>
+                        <span>[인증범위] 학사행정시스템 운영<br>(학적, 성적관리, 학사관리, 증명발급)<br>[유효기간] 2022.04.06 ~ 2025.04.05</span>
+                    </div>
+                </div>
+            </div><!--f_wrap-->
+        </footer>
     </div>
 </body>
 </html>

@@ -39,7 +39,7 @@
     $(document).ready(function(){ // 문서가 로딩되고 단 한번
 
         /*############# TOP버튼을 클릭하면 상단으로 스크롤 ##############*/
-        $('footer .top').on('click', function(){
+        $('.quick .detail ul li.top button').on('click', function(){
             // console.log('???????')
             $('html, body').animate({
                 scrollTop: 0
@@ -83,7 +83,7 @@
         // // ##########################
 
         // ##################
-        // 1차 메뉴 마우스 오버 / 키보드 포커스
+       // 1차 메뉴 마우스 오버 / 키보드 포커스
         $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li').on('mouseenter focusin', function () {
             if (device_status === 'pc') {
                 const $this = $(this);
@@ -114,30 +114,6 @@
             }
         });
 
-        // 헤더 밖으로 마우스가 나가면 전체 초기화
-        $('header').on('mouseleave focusout', function () {
-            if (device_status === 'pc') {
-                $('header').removeClass('menu_over');
-                $('header .depth1 > li').removeClass('over');
-                $('header .gnb_bg').stop(true).animate({ height: 0 }, 0, function () {
-                    $(this).css('display', 'none');
-                });
-            }
-        });
-
-        // 키보드 포커스 아웃 시 초기화
-        $('header .util:last-child').on('focusout', function () {
-            if (device_status === 'pc') {
-                $('header').removeClass('menu_over');
-                $('header .depth1 > li').removeClass('over');
-                $('header .depth2 > li').removeClass('over');
-                $('header .gnb_bg').stop(true).css({
-                    height: 0,
-                    display: 'none'
-                });
-            }
-        });
-
         // 2차 메뉴 오버 처리
         $('header .depth2 > li').on('mouseenter focusin', function () {
             if (device_status === 'pc') {
@@ -147,6 +123,30 @@
         }).on('mouseleave', function () {
             if (device_status === 'pc') {
                 $(this).removeClass('over');
+            }
+        });
+
+        // 3차 메뉴에 포커스 가면 2차 over 유지
+        $('header .depth3 a').on('focusin', function () {
+            if (device_status === 'pc') {
+                $(this).closest('.depth2 > li').addClass('over');
+            }
+        });
+
+        // 포커스가 header 전체에서 완전히 빠져나가면 초기화
+        $('header').on('focusout mouseleave', function () {
+            if (device_status === 'pc') {
+                // 포커스가 완전히 나간 후 확인
+                setTimeout(function () {
+                    if (!$(document.activeElement).closest('header').length) {
+                        $('header').removeClass('menu_over');
+                        $('header .depth1 > li').removeClass('over');
+                        $('header .depth2 > li').removeClass('over');
+                        $('header .gnb_bg').stop(true).animate({ height: 0 }, 0, function () {
+                            $(this).css('display', 'none');
+                        });
+                    }
+                }, 0);
             }
         });
 
@@ -183,8 +183,38 @@
         * 메뉴가 닫혀있으면 - li에 open 클래스를 추가, 2차 메뉴 열기, 3차 메뉴 열기
         * */
 
-        // 1차 메뉴 클릭
-        $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > a').on('click', function(e) {
+        function getDeviceStatus() {
+            return window.innerWidth <= 1024 ? 'moblie' : 'pc';
+        }
+        
+        let device_status = getDeviceStatus();
+        let previous_device_status = device_status;
+        
+        // 윈도우 리사이즈 시 디바이스 변경 감지 및 메뉴 초기화
+        $(window).on('resize', function () {
+            device_status = getDeviceStatus();
+        
+            if (previous_device_status !== device_status) {
+                previous_device_status = device_status;
+        
+                // 모바일로 전환 시
+                if (device_status === 'moblie') {
+                    $('header .gnb_wrap ul.depth1 > li').removeClass('open')
+                        .find('.gnb_bg').removeAttr('style');
+                    $('header .gnb_wrap ul.depth2 > li').removeClass('open')
+                        .find('ul.depth3').removeAttr('style');
+                }
+        
+                // PC로 전환 시
+                if (device_status === 'pc') {
+                    $('header .gnb_wrap ul.depth1 > li, header .gnb_wrap ul.depth2 > li').removeClass('open');
+                    $('header .gnb_bg, header ul.depth3').removeAttr('style');
+                }
+            }
+        });
+        
+        // 모바일: 1차 메뉴 클릭
+        $('header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > a').on('click', function (e) {
             if (device_status === 'moblie') {
                 e.preventDefault();
         
@@ -192,48 +222,40 @@
                 const isOpen = $clickedLi.hasClass('open');
         
                 if (!isOpen) {
-                    // 다른 메뉴 닫고
+                    // 다른 메뉴 닫기
                     $('header .gnb_wrap ul.depth1 > li').removeClass('open')
-                        .find('.gnb_bg').stop().slideUp();
+                        .find('.gnb_bg').stop(true).slideUp();
         
                     // 현재 메뉴 열기
                     $clickedLi.addClass('open');
-                    $clickedLi.find('>.gnb_bg').stop().slideDown();
+                    $clickedLi.find('>.gnb_bg').stop(true).slideDown();
                 }
-                // 열려 있는 메뉴를 또 눌렀을 땐 아무것도 하지 않음 (그대로 둠)
+                // 이미 열려 있으면 아무 동작 없음
             }
         });
         
-
-        // 2차 메뉴 클릭
-        $('header .gnb_wrap ul.depth2 > li > a').on('click', function(e) {
+        // 모바일: 2차 메뉴 클릭
+        $('header .gnb_wrap ul.depth2 > li > a').on('click', function (e) {
             if (device_status === 'moblie') {
                 e.preventDefault();
-
+        
                 const $clickedLi = $(this).parent('li');
                 const isOpen = $clickedLi.hasClass('open');
-
-                // 같은 2차 메뉴 내의 모든 3차 메뉴 닫기
+        
+                // 같은 2차 메뉴 내의 다른 3차 메뉴 닫기
                 $clickedLi.siblings('li').removeClass('open')
-                    .find('ul.depth3').stop().slideUp();
-
-                // 클릭한 메뉴 toggle
+                    .find('ul.depth3').stop(true).slideUp();
+        
                 if (isOpen) {
                     $clickedLi.removeClass('open');
-                    $clickedLi.find('ul.depth3').stop().slideUp();
+                    $clickedLi.find('ul.depth3').stop(true).slideUp();
                 } else {
                     $clickedLi.addClass('open');
-                    $clickedLi.find('>.gnb_bg').css({
-                        display: 'flex',
-                        height: 'auto'
-                    }).stop().slideDown();
-                    $clickedLi.find('ul.depth3').stop().slideDown();
+                    $clickedLi.find('ul.depth3').stop(true).slideDown();
                 }
             }
         });
-       
-
-
+        
 
 
         /* ************************************** footer : 시작 ************************************ */
@@ -245,6 +267,20 @@
                 scrollTop: 0
             }, 500)
         })
+
+         /* ****************************** f_link 메뉴 열고 닫기 **************************** */
+         $('footer .f_link ul.depth1 > li > a').on('click', function(e) {
+            e.preventDefault(); // 링크 이동 방지
+            const $li = $(this).parent(); // 클릭한 a의 부모 li
+        
+            if ($li.hasClass('open')) {
+                $li.removeClass('open'); // 열려 있으면 닫기
+            } else {
+                $('footer .f_link ul.depth1 > li').removeClass('open'); // 다른 건 닫고
+                $li.addClass('open'); // 현재 것만 열기
+            }
+        });
+        
 
         /* ************************************** footer : 끝 ************************************ */
 
