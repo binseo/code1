@@ -728,10 +728,10 @@ header.menu_over .header_wrap .util .map .map_open {
         position: absolute;
         left: -10px;
         top: 11px;
-        width: 5px;
-        height: 5px;
+        width: 3px;
+        height: 3px;
         border-radius: 50%;
-        background-color: var(--base-color);
+        background-color: #666666;
     }
     header .header_wrap .nav_container .gnb .gnb_wrap ul.depth1 > li > .gnb_bg > ul.depth2 > li > ul.depth3 > li > a {
         display: block; 
