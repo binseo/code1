@@ -29,7 +29,7 @@
 .visual .swiper .swiper-slide .visual_txt {
     position: absolute; /* swiper-slide */
     left: 0;
-    top: 25%;
+    top: 240px;
     width: 100%;
     color: #fff;
 }
@@ -94,7 +94,7 @@
     gap: 15px;
     box-sizing: border-box;
     position: absolute; /* 필요 시 위치 조정 */
-    bottom: 55%; /* 원하는 위치로 */
+    bottom: 390px; /* 원하는 위치로 */
     left: calc(50% - 610px);
     color: #fff;
     z-index: 10;
@@ -167,7 +167,7 @@
 @media screen and (max-width:768px) {
     
     .visual .swiper .swiper-slide .visual_txt {
-        top: 35%;
+        top: 280px;
     }
     
     .visual .swiper .swiper-slide .visual_txt .sub_tit {
@@ -175,7 +175,7 @@
         text-align: center;
     }
     .visual .swiper .swiper-slide .visual_txt .group {
-        margin: 80px 0 0 0;
+        margin: 95px 0 0 0;
         text-align: center;
     }
     .visual .swiper .swiper-slide .visual_txt .group h3 {
@@ -197,7 +197,7 @@
         align-items: center;
         justify-content: center;
         width: 100%;
-        bottom: 45%; 
+        bottom: 375px; 
         left: 50%;
         transform: translateX(-50%);
         padding: 0 20px;
@@ -208,7 +208,7 @@
 
 @media screen and (max-width:425px) {
     .visual .slide_control {
-        bottom: 48%; 
+        bottom: 400px; 
     }
 }/* @media */
 
