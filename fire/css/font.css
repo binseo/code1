@@ -1,0 +1,17 @@
+
+@font-face {
+	font-family: 'SUIT';
+	font-weight: 400;
+	font-display: swap;
+	src: local('SUIT-Regular'), 
+	url(../font/SUIT-Regular.woff2) format('woff2'),
+}
+
+@font-face {
+	font-family: 'SUIT';
+	font-weight: 800;
+	font-display: swap;
+	src: local('SUIT-ExtraBold'), 
+	url(../font/SUIT-ExtraBold.woff2) format('woff2'),
+}
+
