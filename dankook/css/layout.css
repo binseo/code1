@@ -640,7 +640,7 @@ header.menu_over .header_wrap .util .map .map_open {
         position: absolute;
         right: 0;
         top: 94px;
-        height: 100vh;
+        height: 100dvh;
         height: -webkit-fill-available;
         width: calc(100% - 130px);
         background-image: url(../images/common/gnb_bg_txt.png);

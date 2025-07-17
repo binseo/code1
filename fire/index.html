@@ -9,11 +9,66 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.9/fullpage.min.css">
 
     <!-- swiper 라이브러리 파일 -->
-     
+    <script src="js/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+    <!-- jquery 라이브러리 -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/common.js"></script>
+    <script src="js/main.js"></script>
 
     <title>대전소방본부</title>
 </head>
 <body>
-    
+    <header></header>
+    <div id="fullpage">
+        <!-- fp-auto-height-responsive 모바일에서 높이 100% 해제 -->
+        <section class="section visual fp-auto-height-responsive">
+            <h2 class="blind">팝업</h2>
+            <div class="swiper"> <!-- 팝업의 높이와 넓이를 css에서 줄 수 있는 요소-->
+                <ul class="swiper-wrapper"> <!-- 각 팝업 콘텐츠를 감싸는 요소-->
+                    <li class="swiper-slide">
+                        <div class="wrapper">
+                            <h3>재난 속 한 줄기 희망,<br> 대전소방이 가장 먼저 달려갑니다.</h3>
+                            <div class="photo"><img src="images/main/visual_bg01.png" alt="FIRST IN HOPE"></div>
+                        </div>
+                    </li>
+                    <li class="swiper-slide">
+                        <div class="wrapper">
+                            <h3>안전한 하루의 시작,<br> 대전소방이 언제나 당신 곁을 지킵니다.</h3>
+                            <div class="photo"><img src="images/main/visual_bg02.png" alt="BY YOUR SIDE"></div>
+                        </div>
+                    </li>
+                    <li class="swiper-slide">
+                        <div class="wrapper">
+                            <h3>생명의 골든타임,<br> 한 순간도 놓치지 않겠습니다.</h3>
+                            <div class="photo"><img src="images/main/visual_bg03.png" alt="GOLDEN TIME"></div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="paging"></div>
+            </div><!--swiper-->
+            <div class="ctrl_wrap">
+                <button class="btn_prev"><span class="blind">이전팝업보기</span></button>
+                <button class="btn_stop"><span class="blind">일시정지</span></button>
+                <button class="btn_play"><span class="blind">재생</span></button>
+                <button class="btn_next"><span class="blind">다음팝업보기</span></button>
+            </div><!--ctrl_wrap-->
+        </section><!--visual-->
+        <section class="section service fp-auto-height-responsive">
+        </section><!--service-->
+        <section class="section news fp-auto-height-responsive">
+        </section><!--news-->
+        <section class="section action fp-auto-height-responsive">
+        </section><!--action-->
+        <section class="section center fp-auto-height-responsive">
+        </section><!--center-->
+        <section class="section map fp-auto-height-responsive">
+        </section><!--map-->
+        <section class="section fp-auto-height">
+        </section><!--footer-->
+    </div>
 </body>
 </html>
