@@ -3,11 +3,11 @@ $(document).ready(function(){
 
 		navigation: true, /* 오른쪽에 각 페이지의 paging */
 		navigationPosition: 'left', /* 위치 */
-		navigationTooltips: ['Main', '나무 심기', '숲 활동', '활동 이야기', 'footer'], /* 툴팁 */
+		navigationTooltips: ['Main', '자주 찾는 서비스', '한눈에 보는 소식', '활동 사진', '119 체험 센터', '소방서 안내', 'footer'], /* 툴팁 */
 		showActiveTooltip: true, /* 현재 활성화된 페이지의 툴팁에 특정 클래스 주기 */
 		
 		lockAnchors: true,
-		anchors: ['main', 'tree', 'work', 'story', 'footer'], /* href="#link1" 이렇게 코딩하면 해당 링크명으로 이동 */
+		anchors: ['main', 'service', 'news', 'action', 'center', 'map', 'footer'], /* href="#link1" 이렇게 코딩하면 해당 링크명으로 이동 */
 
 		autoScrolling:true, /* 한페이지씩 스크롤 */
 		scrollHorizontally: true,
@@ -24,14 +24,17 @@ $(document).ready(function(){
 				// console.log('2번째 슬라이드가 로딩 되었을때');
 				$('body').addClass('bg_white')
 
-				/* ************************ tree 숫자가 넘어가는 애니메이션 ************************* */
-				$('.counter').counterUp(); /* 숫자 요소의 클래스명을 써준다. */
-
 			}else if(destination.index == 2){ /* index가 2면 슬라이드는 세번째 슬라이드입니다. index 수는 0/1/2/3 */
 				// console.log('3번째 슬라이드가 로딩 되었을때');
-				$('body').removeClass('bg_white')
+				$('body').addClass('bg_white')
 			}else if(destination.index == 3){ /* index가 3면 슬라이드는 네번째 슬라이드입니다. index 수는 0/1/2/3 */
 				// console.log('4번째 슬라이드가 로딩 되었을때');
+				$('body').removeClass('bg_white')
+			}else if(destination.index == 4){ /* index가 3면 슬라이드는 네번째 슬라이드입니다. index 수는 0/1/2/3 */
+				// console.log('5번째 슬라이드가 로딩 되었을때');
+				$('body').addClass('bg_white')
+			}else if(destination.index == 5){ /* index가 3면 슬라이드는 네번째 슬라이드입니다. index 수는 0/1/2/3 */
+				// console.log('6번째 슬라이드가 로딩 되었을때');
 				$('body').addClass('bg_white')
 			}
 		},
@@ -41,78 +44,57 @@ $(document).ready(function(){
         
 	});// fullpage
 
-	/***********************
-	 * aside quick 열고 닫기
-	 * 닫혀있을 때 (open클래스가 있을 때) - close클래스 교체, detail보임
-	 * 열려있을 때 (open클래스가 없을 때) - open 클래스 교체, detail보임
-	 * */
-	$('.quick .btn').on('click', function(){
-		// console.log('눌렀음!!!!!!!!!')
-		if($(this).hasClass('open') == true){ //open가 있으면 (true)
-			//console.log('open이다!!!!!!!!!!!')
-			$(this).removeClass('open')
-			$(this).addClass('close')
-			$(this).find('span').text('닫기')
-			$('.quick .detail').slideDown(300) // 나오는 속도
-		}else{
-			// console.log('아니다!!!!!!!!!!!')
-			$(this).removeClass('close')
-			$(this).addClass('open')
-			$(this).find('span').text('열기')
-			$('.quick .detail').slideUp(200)
-		}
-	})
 
-
-	/********************************** visual swiper :: 시작 ******************************/
-	let visual_name = ['산림복원 기금 모집','같이가치 매달기부','서울 마이트리','고목나무 이야기']
-	// console.log(visual_name[0]) 배열은 숫자가 0부터 시작
+	// /********************************** visual swiper :: 시작 ******************************/
 
 	const visual_swiper = new Swiper('.visual .swiper', { /* 팝업을 감싼는 요소의 class명 */
 
-		autoplay: {  /* 팝업 자동 실행 */
-			delay: 5000,
-			disableOnInteraction: true,
-		},
-	
-		//effect: "fade", /* fade 효과 */
-	
-		loop: true,  /* 마지막 팝업에서 첫번째 팝업으로 자연스럽게 넘기기 */
-	
+        autoplay: {  /* 팝업 자동 실행 */
+            delay: 5000,
+            disableOnInteraction: true,
+        },
+    
+        effect: "fade", /* fade 효과 부드럽게 */
+    
+        loop: true,  /* 마지막 팝업에서 첫번째 팝업으로 자연스럽게 넘기기 */
+
 		pagination: {  /* 몇개의 팝업이 있는지 보여주는 동그라미 */
-			el: '.visual .paging', /* 해당 요소의 class명 */
-			clickable: true,  /* 클릭하면 해당 팝업으로 이동할 것인지 값 */
-			// type: 'fraction',  /* type fraction을 주면 paging이 숫자로 표시됨 */
-			renderBullet: function (index, className) {   /* paging에 특정 코드 넣기 */
-				return '<span class="' + className + '"> ' + visual_name[index] + "</span>";
-			},
-		},
+            el: '.visual .paging', /* 해당 요소의 class명 */
+            clickable: true,  /* 클릭하면 해당 팝업으로 이동할 것인지 값 */
+            // type: 'fraction',  /* type fraction을 주면 paging이 숫자로 표시됨 */
+            // renderBullet: function (index, className) {   /* paging에 특정 코드 넣기 */
+            //     return '<span class="' + className + '">' + (index + 1) + "</span>";
+            // },
+        },
+
+        navigation: {  /* 이전, 다음 버튼 */
+            nextEl: '.visual .ctrl_wrap button.btn_next',  /* 다음 버튼의 클래스명 */
+            prevEl: '.visual .ctrl_wrap button.btn_prev',  
+        },
+    
+    });
+
+	$('.visual .ctrl_wrap button.btn_stop').on('click', function(){
+		// console.log('정지버튼 클릭')
+		visual_swiper.autoplay.stop();  /* 일시정지 기능 */
+		$(this).hide()
+		$('.visual .ctrl_wrap button.btn_play').show()
+	})
+
+	$('.visual .ctrl_wrap button.btn_play').on('click', function(){
+		// console.log('재생 버튼')
+		visual_swiper.autoplay.start();  /* 재생 기능 */
+		$(this).hide()
+		$('.visual .ctrl_wrap button.btn_stop').show()
+	})
 		
 	
-	});
+	
 
 	/********************************** visual swiper :: 끝 ******************************/
 	
 
 	/********************************** story swiper :: 시작 ******************************/
-
-	const story_swiper = new Swiper('.story .swiper', { /* 팝업을 감싼는 요소의 class명 */
-		slidesPerView: 'auto', /* 한번에 보일 팝업의 수 - 모바일 제일 작은 사이즈일때 */
-		spaceBetween: 16, /* 팝업과 팝업 사이 여백 */
-		breakpoints: {
-			769: {    /* 1281 ~ 768px 이상일때 적용 */
-				slidesPerView: 3,    /*    'auto'   라고 쓰면 css에서 적용한 넓이값이 적용됨 */
-				spaceBetween: 24,
-			},
-			1281: {    /* 640px 이상일때 적용 */
-				slidesPerView: 4,    /*    'auto'   라고 쓰면 css에서 적용한 넓이값이 적용됨 */
-				spaceBetween: 24,
-			},
-		},
-		//centeredSlides: true, /* 팝업을 화면에 가운데 정렬(가운데 1번이 옴) */
-		loop: true,  /* 마지막 팝업에서 첫번째 팝업으로 자연스럽게 넘기기 */
-		
-	});
 
 	/********************************** story swiper :: 끝 ******************************/
 
