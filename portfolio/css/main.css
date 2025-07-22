@@ -61,96 +61,96 @@
 }
 
 
-.about {
-    background: url(../images/main/about_bg.png) no-repeat center center / cover;
+.profile {
+    background: url(../images/main/profile_bg.png) no-repeat center center / cover;
     position: relative;
     color: #1d1d1d;
 }
-.about::after {
+.profile::after {
     content: "";
     position: absolute;
     left: 0;
     top: -20%;
     width: 100%;
     height: 100%;
-    background-image: url(../images/main/about_img02.png);
+    background-image: url(../images/main/profile_img02.png);
     background-repeat: no-repeat;
     background-position: center center;
 }
-.about::before {
+.profile::before {
     content: "";
     position: absolute;
     left: 0;
     bottom: -30%;
     width: 100%;
     height: 100%;
-    background-image: url(../images/main/about_img01.png);
+    background-image: url(../images/main/profile_img01.png);
     background-repeat: no-repeat;
     background-position: center center;
 }
 
-.about .wrapper {
+.profile .wrapper {
     display: flex;
     position: relative;
     z-index: 1;
 }
 
-.about .tit {
+.profile .tit {
     width: 40%;
 }
-.about .txt {
+.profile .txt {
     display: flex;
     flex-direction: column;
     font-size: 25px;
     padding: 40px 0 0 70px;
 }
-.about .txt h2 {
+.profile .txt h2 {
     font-weight: 700;
 }
 
-.about .list {
+.profile .list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 60%;
     margin-top: 30px;
 }
-.about .list h3 {
+.profile .list h3 {
     font-size: 30px;
     font-weight: 700;
 }
-.about .list ul li strong {
+.profile .list ul li strong {
     margin: 20px 0 5px 0;
 }
-.about .list ul li strong,
-.about .list ul li span {
+.profile .list ul li strong,
+.profile .list ul li span {
     display: block;
 }
 
-.about .list .edu {
+.profile .list .edu {
     margin-bottom: 45px;
 }
 
-.about .list .skills h3 {
+.profile .list .skills h3 {
     margin-bottom: 20px;
 }
 
-.about .list .skills ul.skills_01,
-.about .list .skills ul.skills_02,
-.about .list .skills ul.skills_03 {
+.profile .list .skills ul.skills_01,
+.profile .list .skills ul.skills_02,
+.profile .list .skills ul.skills_03 {
     display: flex;
     gap: 10px;
 }
 
-.about .list .skills ul.skills_03 {
+.profile .list .skills ul.skills_03 {
     padding-left: 10px;
 }
 
-.about .list .skills .list_sub {
+.profile .list .skills .list_sub {
     display: flex;
 }
 
-.about .list .lice {
+.profile .list .lice {
     margin-bottom: 45px;
 }
 
@@ -220,6 +220,10 @@
     border: 1px solid #fff;
     padding: 7px 20px;
     border-radius: 20px 0 20px 0;
+}
+.project01 .menu li a:hover {
+    border-color: #53A3FF;
+    background-color: #53A3FF;
 }
 .project01 h3 {
     font-size: 35px;
@@ -317,6 +321,10 @@
     padding: 7px 20px;
     border-radius: 20px 0 20px 0;
 }
+.project02 .menu li a:hover {
+    border-color: #8C8CF4;
+    background-color: #8C8CF4;
+}
 .project02 h3 {
     font-size: 35px;
     font-weight: 700;
@@ -408,6 +416,10 @@
     border: 1px solid #fff;
     padding: 7px 20px;
     border-radius: 20px 0 20px 0;
+}
+.project03 .menu li a:hover {
+    border-color: #FF6D6D;
+    background-color: #FF6D6D;
 }
 .project03 h3 {
     font-size: 35px;

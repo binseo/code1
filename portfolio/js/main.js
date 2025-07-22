@@ -1,7 +1,7 @@
 $(document).ready(function(){
     const myFullpage = new fullpage('#fullpage', {  /* html에서 페이지 전체를 감싸는 요소 */
 		
-		anchors: ['home', 'about', 'project01', 'project02', 'project03', 'contact'], /* href="#link1" 이렇게 코딩하면 해당 링크명으로 이동 */
+		anchors: ['home', 'profile', 'project01', 'project02', 'project03', 'contact'], /* href="#link1" 이렇게 코딩하면 해당 링크명으로 이동 */
 		menu: '.gnb',
 		autoScrolling:true, /* 한페이지씩 스크롤 */
 		scrollHorizontally: true,
