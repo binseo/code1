@@ -11,13 +11,13 @@ html, body {
 }
 
 .wrapper {
-    width: 1260px;
+    width: 1360px;
     margin: 0 auto; /* 가운데 */
 }
 
 
 #wrap, body {
-    min-width: 1300px;
+    min-width: 1400px;  
     /*overflow: hidden;*/
     position: relative;
 }
