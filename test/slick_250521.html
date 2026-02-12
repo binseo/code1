@@ -43,6 +43,15 @@
                         <button class="ctrl_stop"><span class="blind">일시정지</span></button>
                         <button class="ctrl_play"><span class="blind">다시시작</span></button>
                     </div>
+                    <div class="paging">
+                        <span class="current">1</span>
+                        <span class="dot">·</span>
+                        <span class="total">1</span>
+
+                        <div class="progress" aria-hidden="true">
+                            <span class="bar"></span>
+                        </div>
+                    </div>
                 </div>
             </section> <!--visual-->
             <section class="biz">
@@ -152,6 +161,219 @@
                             </a> 
                         </div> <!--list_item-->
                     </div>
+                </div>
+            </section>
+            <section class="glluy">
+                <div id="contents" class="cts12068">
+                    <div class="p-wrap bbs bbs__gallery bbs__view bbs_new_skin bbs__card">
+                        <!-- <script>
+                            $(function () {
+                                //슬라이드
+                                var $Bbs_Slidebox = $('.bbs__gallery.bbs__view.bbs_new_skin .bbs_photoslide');
+                                $Bbs_Slidebox.each(function () {
+                                    var $this = $(this),
+                                        $photoslidebox = $this.find('.photoslidebox'),
+                                        $BbsSlide = $photoslidebox.find('.slide_list'),
+                                        $photoControls = $photoslidebox.find('.coltrols'),
+                                        $Navslidebox = $this.find('.navslidebox'),
+                                        $BbsSlideNav = $this.find('.slide_nav'),
+                                        $BbsNavItems = $BbsSlideNav.find('.slide_item'),
+                                        NavItemLength = $BbsNavItems.length,
+                                        $NavControls = $Navslidebox.find('.coltrols');
+                                    var NavCenterMode = false;
+                                    if (NavItemLength > 7) {
+                                        NavCenterMode = true;
+                                    }
+                                    $BbsSlideNav.attr('data-centermode', NavCenterMode);
+                                    $BbsSlide.slick({
+                                        fade: false,
+                                        autoplay: false,
+                                        pauseOnHover: false,
+                                        pauseOnDotsHover: true,
+                                        swipe: false,
+                                        draggable: false,
+                                        slidesToShow: 1,
+                                        slidesToScroll: 1,
+                                        infinite: true,
+                                        arrows: true,
+                                        prevArrow: $photoControls.find('.prev'),
+                                        nextArrow: $photoControls.find('.next'),
+                                        dots: false,
+                                        asNavFor: $BbsSlideNav,
+                                        responsive: [
+                                            {
+                                                breakpoint: 1001,
+                                                settings: {
+                                                    swipe: true,
+                                                    draggable: true
+                                                }
+                                            }]
+                                    });
+                                    $BbsSlideNav.slick({
+                                        vertical: false,
+                                        verticalSwiping: false,
+                                        centerMode: NavCenterMode,
+                                        centerPadding: 0,
+                                        swipe: false,
+                                        draggable: false,
+                                        slidesToShow: 8,
+                                        slidesToScroll: 1,
+                                        infinite: true,
+                                        arrows: true,
+                                        prevArrow: $NavControls.find('.prev'),
+                                        nextArrow: $NavControls.find('.next'),
+                                        dots: false,
+                                        asNavFor: $BbsSlide,
+                                        focusOnSelect: true,
+                                        responsive: [
+                                            {
+                                                breakpoint: 1401,
+                                                settings: {
+                                                    swipe: true,
+                                                    draggable: true,
+                                                    slidesToShow: 5
+                                                }
+                                            },
+                                            {
+                                                breakpoint: 741,
+                                                settings: {
+                                                    swipe: true,
+                                                    draggable: true,
+                                                    slidesToShow: 4
+                                                }
+                                            },
+                                            {
+                                                breakpoint: 601,
+                                                settings: {
+                                                    swipe: true,
+                                                    draggable: true,
+                                                    slidesToShow: 3
+                                                }
+                                            },
+                                            {
+                                                breakpoint: 468,
+                                                settings: {
+                                                    swipe: true,
+                                                    draggable: true,
+                                                    slidesToShow: 2
+                                                }
+                                            }]
+                                    });
+                                });
+                            });
+                        </script> -->
+                        <div class="bbs_viewbox">
+                            <div class="subjectbox">
+                                <span class="title"> 시민 일상부터 변화 </span>
+                                <span class="tit_sub">교육발전특구 선정 계기 신흥명문도시</span>
+                                <span class="date">2025.12.04</span>
+                            </div>
+                            <div class="viewcontentbox">
+                                <div class="viewcontent">
+                                    <div class="bbs_photoslide type1">
+                                        <div class="photoslidebox">
+                                            <div class="coltrols">
+                                                <button type="button" class="prev">이전</button>
+                                                <button type="button" class="next">다음</button>
+                                            </div>
+                                            <div class="slide_list slick-initialized slick-slider slick-dotted">
+                                                <button class="slick-prev slick-arrow slick-disabled" aria-label="Previous" type="button" aria-disabled="true" style="">이전</button>
+                                                <div class="slick-list draggable">
+                                                    <div class="slick-track" style="opacity: 1; width: 15000px; transform: translate3d(0px, 0px, 0px);">
+                                                        <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" role="tabpanel" id="slick-slide00">
+                                                            <div>
+                                                                <div class="slide_item" style="width: 100%; display: inline-block;">
+                                                                    <div class="photobox">
+                                                                        <div class="photo">
+                                                                            <span class="imgbox">
+                                                                                <!-- <img src="/DATA/bbs/2674/8b1213ad-0ea3-454c-93e1-524c005db63f.jpg" alt="테스트 이미지 1"> -->
+                                                                                <img src="./Untitled-3.jpg" alt="테스트 이미지 1">
+                                                                                <span class="img_zoom">
+                                                                                    <a href="/DATA/bbs/2674/8b1213ad-0ea3-454c-93e1-524c005db63f.jpg" target="_blank" title="새창 이미지 확대보기" tabindex="0">이미지 확대보기</a>
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide01">
+                                                            <div>
+                                                                <div class="slide_item" style="width: 100%; display: inline-block;">
+                                                                    <div class="photobox">
+                                                                        <div class="photo">
+                                                                            <span class="imgbox">
+                                                                                <!-- <img src="/DATA/bbs/2674/347a1f86-c11f-4d53-8aca-ebd75def174b.jpg" alt="테스트 이미지 2"> -->
+                                                                                <img src="./Untitled-4.jpg" alt="테스트 이미지 1">
+                                                                                <span class="img_zoom">
+                                                                                    <a href="/DATA/bbs/2674/347a1f86-c11f-4d53-8aca-ebd75def174b.jpg" target="_blank" title="새창 이미지 확대보기" tabindex="-1">이미지 확대보기</a>
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide02">
+                                                            <div>
+                                                                <div class="slide_item" style="width: 100%; display: inline-block;">
+                                                                    <div class="photobox">
+                                                                        <div class="photo">
+                                                                            <span class="imgbox">
+                                                                                <!-- <img src="/DATA/bbs/2674/66201121-723a-42e6-9401-c53ec1b46a83.jpg" alt="테스트 이미지 3"> -->
+                                                                                <img src="./Untitled-5.jpg" alt="테스트 이미지 1">
+                                                                                <span class="img_zoom">
+                                                                                    <a href="/DATA/bbs/2674/66201121-723a-42e6-9401-c53ec1b46a83.jpg" target="_blank" title="새창 이미지 확대보기" tabindex="-1">이미지 확대보기</a>
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button class="slick-next slick-arrow" aria-label="Next" type="button" style="" aria-disabled="false">다음</button>
+
+                                                <ul class="slick-dots" style="" role="tablist">
+                                                    <li class="slick-active" role="presentation">
+                                                        <button type="button" role="tab" id="slick-slide-control00" aria-controls="slick-slide00" aria-label="1 of 3" tabindex="0" aria-selected="true">1</button>
+                                                    </li>
+                                                    <li role="presentation">
+                                                        <button type="button" role="tab" id="slick-slide-control01" aria-controls="slick-slide01" aria-label="2 of 3" tabindex="-1">2</button>
+                                                    </li>
+                                                    <li role="presentation">
+                                                        <button type="button" role="tab" id="slick-slide-control02" aria-controls="slick-slide02" aria-label="3 of 3" tabindex="-1">3</button>
+                                                    </li>
+                                                </ul>
+
+                                            </div><!--//slide_list-->    
+                                            <div class="paging">
+                                                <span class="current">1</span>
+                                                <span class="dot">·</span>
+                                                <span class="total">1</span>
+
+                                                <div class="progress" aria-hidden="true">
+                                                    <span class="bar"></span>
+                                                </div>
+                                            </div>
+                                        </div> <!--//photoslidebox-->       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floatbox btn_group clearfix">
+                            <div class="floatleft">
+                                <a class="bbsbtn blue big list" href="./selectBbsNttList.do?key=12068&amp;id=&amp;bbsNo=2674&amp;nttNo=956304&amp;pageUnit=8&amp;pageIndex=1&amp;searchCnd=all">목록</a>
+                            </div>
+                            <div class="floatright2">
+                                <button type="button" title="다운로드" class="bbsbtn white2 big list">다운로드</button>
+                            </div>
+                            <div class="floatright">
+                                
+                            </div>
+                        </div>
+                    </div><!--//cardnews-view-->
                 </div>
             </section>
         </main>
